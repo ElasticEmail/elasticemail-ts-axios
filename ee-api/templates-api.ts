@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a href=\"https://api.elasticemail.com/public/help\">here</a>.
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    This is the documentation for REST API. If you’d like to read our legacy documentation regarding Web API v2 click <a target=\"_blank\" href=\"https://api.elasticemail.com/public/help\">here</a>.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -25,7 +25,7 @@ import { Template } from '../ee-api-models';
 // @ts-ignore
 import { TemplatePayload } from '../ee-api-models';
 // @ts-ignore
-import { TemplateScopeType } from '../ee-api-models';
+import { TemplateScope } from '../ee-api-models';
 // @ts-ignore
 import { TemplateType } from '../ee-api-models';
 /**
@@ -154,14 +154,14 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
          * @summary Load Templates
-         * @param {Array<TemplateScopeType>} scopeType Return templates with specified scope only
+         * @param {Array<TemplateScope>} scopeType Return templates with specified scope only
          * @param {Array<TemplateType>} [templateTypes] Return templates with specified type only
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesGet: async (scopeType: Array<TemplateScopeType>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        templatesGet: async (scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'scopeType' is not null or undefined
             assertParamExists('templatesGet', 'scopeType', scopeType)
             const localVarPath = `/templates`;
@@ -292,14 +292,14 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
         /**
          * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
          * @summary Load Templates
-         * @param {Array<TemplateScopeType>} scopeType Return templates with specified scope only
+         * @param {Array<TemplateScope>} scopeType Return templates with specified scope only
          * @param {Array<TemplateType>} [templateTypes] Return templates with specified type only
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesGet(scopeType: Array<TemplateScopeType>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
+        async templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesGet(scopeType, templateTypes, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -358,14 +358,14 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
         /**
          * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
          * @summary Load Templates
-         * @param {Array<TemplateScopeType>} scopeType Return templates with specified scope only
+         * @param {Array<TemplateScope>} scopeType Return templates with specified scope only
          * @param {Array<TemplateType>} [templateTypes] Return templates with specified type only
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesGet(scopeType: Array<TemplateScopeType>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>> {
+        templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>> {
             return localVarFp.templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -421,7 +421,7 @@ export interface TemplatesApiInterface {
     /**
      * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
      * @summary Load Templates
-     * @param {Array<TemplateScopeType>} scopeType Return templates with specified scope only
+     * @param {Array<TemplateScope>} scopeType Return templates with specified scope only
      * @param {Array<TemplateType>} [templateTypes] Return templates with specified type only
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
@@ -429,7 +429,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesGet(scopeType: Array<TemplateScopeType>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>>;
+    templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>>;
 
     /**
      * Add a new Template. Required Access Level: ModifyTemplates
@@ -490,7 +490,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
     /**
      * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
      * @summary Load Templates
-     * @param {Array<TemplateScopeType>} scopeType Return templates with specified scope only
+     * @param {Array<TemplateScope>} scopeType Return templates with specified scope only
      * @param {Array<TemplateType>} [templateTypes] Return templates with specified type only
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
@@ -498,7 +498,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesGet(scopeType: Array<TemplateScopeType>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any) {
+    public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any) {
         return TemplatesApiFp(this.configuration).templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 

@@ -13,26 +13,16 @@
  */
 
 
-import { SplitOptimizationType } from './split-optimization-type';
 
 /**
- * Optional A/X split campaign options
+ * Visibility of a template
  * @export
- * @interface SplitOptions
+ * @enum {string}
  */
-export interface SplitOptions {
-    /**
-     * Type of results by which to determine the winner template (content)
-     * @type {SplitOptimizationType}
-     * @memberof SplitOptions
-     */
-    OptimizeFor?: SplitOptimizationType;
-    /**
-     * For how long should the results be measured until determining the winner template (content)
-     * @type {number}
-     * @memberof SplitOptions
-     */
-    OptimizePeriodMinutes?: number;
+export enum TemplateScope {
+    Personal = 'Personal',
+    Global = 'Global'
 }
+
 
 
