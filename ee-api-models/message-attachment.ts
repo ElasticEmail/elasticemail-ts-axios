@@ -21,19 +21,19 @@
  */
 export interface MessageAttachment {
     /**
-     * 
+     * File\'s content as byte array (or a Base64 string)
      * @type {string}
      * @memberof MessageAttachment
      */
     BinaryContent?: string;
     /**
-     * Filename
+     * Display name of the file
      * @type {string}
      * @memberof MessageAttachment
      */
     Name?: string;
     /**
-     * 
+     * MIME content type
      * @type {string}
      * @memberof MessageAttachment
      */

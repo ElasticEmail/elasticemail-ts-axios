@@ -265,8 +265,45 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Uploads a CSV file with list of emails to verify. An \'email\' column is required. Required Access Level: VerifyEmails
-         * @summary Verify From File
+         * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+         * @summary Start verification
+         * @param {string} id File ID to start verification
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verificationsFilesByIdVerificationPost: async (id: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('verificationsFilesByIdVerificationPost', 'id', id)
+            const localVarPath = `/verifications/files/{id}/verification`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication apikey required
+            await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
+         * @summary Upload File with Emails
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -308,7 +345,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
-         * @summary Get Simple Files Verification Results
+         * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -461,8 +498,19 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Uploads a CSV file with list of emails to verify. An \'email\' column is required. Required Access Level: VerifyEmails
-         * @summary Verify From File
+         * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+         * @summary Start verification
+         * @param {string} id File ID to start verification
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async verificationsFilesByIdVerificationPost(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesByIdVerificationPost(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
+         * @summary Upload File with Emails
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -473,7 +521,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
-         * @summary Get Simple Files Verification Results
+         * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -566,8 +614,18 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.verificationsFilesByIdResultGet(id, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Uploads a CSV file with list of emails to verify. An \'email\' column is required. Required Access Level: VerifyEmails
-         * @summary Verify From File
+         * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+         * @summary Start verification
+         * @param {string} id File ID to start verification
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        verificationsFilesByIdVerificationPost(id: string, options?: any): AxiosPromise<void> {
+            return localVarFp.verificationsFilesByIdVerificationPost(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
+         * @summary Upload File with Emails
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -577,7 +635,7 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
         },
         /**
          * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
-         * @summary Get Simple Files Verification Results
+         * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -667,8 +725,18 @@ export interface VerificationsApiInterface {
     verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: any): AxiosPromise<VerificationFileResultDetails>;
 
     /**
-     * Uploads a CSV file with list of emails to verify. An \'email\' column is required. Required Access Level: VerifyEmails
-     * @summary Verify From File
+     * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+     * @summary Start verification
+     * @param {string} id File ID to start verification
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
+     */
+    verificationsFilesByIdVerificationPost(id: string, options?: any): AxiosPromise<void>;
+
+    /**
+     * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
+     * @summary Upload File with Emails
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -678,7 +746,7 @@ export interface VerificationsApiInterface {
 
     /**
      * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
-     * @summary Get Simple Files Verification Results
+     * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
@@ -780,8 +848,20 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
     }
 
     /**
-     * Uploads a CSV file with list of emails to verify. An \'email\' column is required. Required Access Level: VerifyEmails
-     * @summary Verify From File
+     * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
+     * @summary Start verification
+     * @param {string} id File ID to start verification
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VerificationsApi
+     */
+    public verificationsFilesByIdVerificationPost(id: string, options?: any) {
+        return VerificationsApiFp(this.configuration).verificationsFilesByIdVerificationPost(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
+     * @summary Upload File with Emails
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -793,7 +873,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
 
     /**
      * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewEmailVerifications
-     * @summary Get Simple Files Verification Results
+     * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VerificationsApi
