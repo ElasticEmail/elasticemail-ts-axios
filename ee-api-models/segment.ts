@@ -25,13 +25,12 @@ export interface Segment {
      * @type {string}
      * @memberof Segment
      */
-    Name?: string;
+    'Name'?: string;
     /**
      * SQL-like rule to determine which Contacts belong to this Segment.
      * @type {string}
      * @memberof Segment
      */
-    Rule?: string;
+    'Rule'?: string;
 }
-
 

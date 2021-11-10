@@ -24,23 +24,22 @@ import { TransactionalRecipient } from './transactional-recipient';
  */
 export interface EmailTransactionalMessageData {
     /**
-     * List of transactional recipients
+     * 
      * @type {TransactionalRecipient}
      * @memberof EmailTransactionalMessageData
      */
-    Recipients: TransactionalRecipient;
+    'Recipients': TransactionalRecipient;
     /**
-     * Proper e-mail content
+     * 
      * @type {EmailContent}
      * @memberof EmailTransactionalMessageData
      */
-    Content?: EmailContent;
+    'Content'?: EmailContent;
     /**
-     * E-mail configuration
+     * 
      * @type {Options}
      * @memberof EmailTransactionalMessageData
      */
-    Options?: Options;
+    'Options'?: Options;
 }
-
 

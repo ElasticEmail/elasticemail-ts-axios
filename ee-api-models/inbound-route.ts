@@ -27,43 +27,42 @@ export interface InboundRoute {
      * @type {string}
      * @memberof InboundRoute
      */
-    PublicId?: string;
+    'PublicId'?: string;
     /**
      * Name of this route
      * @type {string}
      * @memberof InboundRoute
      */
-    Name?: string;
+    'Name'?: string;
     /**
-     * Type of the filter
+     * 
      * @type {InboundRouteFilterType}
      * @memberof InboundRoute
      */
-    FilterType?: InboundRouteFilterType;
+    'FilterType'?: InboundRouteFilterType;
     /**
      * Filter of the inbound data
      * @type {string}
      * @memberof InboundRoute
      */
-    Filter?: string;
+    'Filter'?: string;
     /**
-     * Type of action to take
+     * 
      * @type {InboundRouteActionType}
      * @memberof InboundRoute
      */
-    ActionType?: InboundRouteActionType;
+    'ActionType'?: InboundRouteActionType;
     /**
      * URL address or Email to notify about the inbound
      * @type {string}
      * @memberof InboundRoute
      */
-    ActionParameter?: string;
+    'ActionParameter'?: string;
     /**
      * Place of this route in your routes queue\'s order
      * @type {number}
      * @memberof InboundRoute
      */
-    SortOrder?: number;
+    'SortOrder'?: number;
 }
-
 

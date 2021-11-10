@@ -27,37 +27,36 @@ export interface ContactPayload {
      * @type {string}
      * @memberof ContactPayload
      */
-    Email: string;
+    'Email': string;
     /**
-     * Status of the given resource
+     * 
      * @type {ContactStatus}
      * @memberof ContactPayload
      */
-    Status?: ContactStatus;
+    'Status'?: ContactStatus;
     /**
      * First name.
      * @type {string}
      * @memberof ContactPayload
      */
-    FirstName?: string;
+    'FirstName'?: string;
     /**
      * Last name.
      * @type {string}
      * @memberof ContactPayload
      */
-    LastName?: string;
+    'LastName'?: string;
     /**
      * A key-value collection of custom contact fields which can be used in the system. Only already existing custom fields will be saved.
      * @type {{ [key: string]: string; }}
      * @memberof ContactPayload
      */
-    CustomFields?: { [key: string]: string; };
+    'CustomFields'?: { [key: string]: string; };
     /**
      * 
      * @type {ConsentData}
      * @memberof ContactPayload
      */
-    Consent?: ConsentData;
+    'Consent'?: ConsentData;
 }
-
 

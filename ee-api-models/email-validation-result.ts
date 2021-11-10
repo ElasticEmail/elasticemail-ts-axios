@@ -26,55 +26,54 @@ export interface EmailValidationResult {
      * @type {string}
      * @memberof EmailValidationResult
      */
-    Account?: string;
+    'Account'?: string;
     /**
      * Name of selected domain.
      * @type {string}
      * @memberof EmailValidationResult
      */
-    Domain?: string;
+    'Domain'?: string;
     /**
      * Full email address that was verified
      * @type {string}
      * @memberof EmailValidationResult
      */
-    Email?: string;
+    'Email'?: string;
     /**
      * Suggested spelling if a possible mistake was found
      * @type {string}
      * @memberof EmailValidationResult
      */
-    SuggestedSpelling?: string;
+    'SuggestedSpelling'?: string;
     /**
      * Does the email have a temporary domain
      * @type {boolean}
      * @memberof EmailValidationResult
      */
-    Disposable?: boolean;
+    'Disposable'?: boolean;
     /**
      * Is an email a role email (e.g. info@, noreply@ etc.)
      * @type {boolean}
      * @memberof EmailValidationResult
      */
-    Role?: boolean;
+    'Role'?: boolean;
     /**
      * All detected issues
      * @type {string}
      * @memberof EmailValidationResult
      */
-    Reason?: string;
+    'Reason'?: string;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof EmailValidationResult
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * 
      * @type {EmailValidationStatus}
      * @memberof EmailValidationResult
      */
-    Result?: EmailValidationStatus;
+    'Result'?: EmailValidationStatus;
 }
-
 

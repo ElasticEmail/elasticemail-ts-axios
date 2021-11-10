@@ -25,13 +25,12 @@ export interface ExportLink {
      * @type {string}
      * @memberof ExportLink
      */
-    Link?: string;
+    'Link'?: string;
     /**
      * ID of the exported file
      * @type {string}
      * @memberof ExportLink
      */
-    PublicExportID?: string;
+    'PublicExportID'?: string;
 }
-
 

@@ -26,43 +26,42 @@ export interface CampaignTemplate {
      * @type {string}
      * @memberof CampaignTemplate
      */
-    Poolname?: string;
+    'Poolname'?: string;
     /**
      * Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
      * @type {string}
      * @memberof CampaignTemplate
      */
-    From?: string;
+    'From'?: string;
     /**
      * To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
      * @type {string}
      * @memberof CampaignTemplate
      */
-    ReplyTo?: string;
+    'ReplyTo'?: string;
     /**
      * Default subject of email.
      * @type {string}
      * @memberof CampaignTemplate
      */
-    Subject?: string;
+    'Subject'?: string;
     /**
      * Name of template.
      * @type {string}
      * @memberof CampaignTemplate
      */
-    TemplateName?: string;
+    'TemplateName'?: string;
     /**
      * Names of previously uploaded files that should be sent as downloadable attachments
      * @type {Array<string>}
      * @memberof CampaignTemplate
      */
-    AttachFiles?: Array<string>;
+    'AttachFiles'?: Array<string>;
     /**
-     * Utm marketing data to be attached to every link in this e-mail.
+     * 
      * @type {Utm}
      * @memberof CampaignTemplate
      */
-    Utm?: Utm;
+    'Utm'?: Utm;
 }
-
 

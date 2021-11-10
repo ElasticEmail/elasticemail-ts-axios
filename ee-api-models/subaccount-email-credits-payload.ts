@@ -25,13 +25,12 @@ export interface SubaccountEmailCreditsPayload {
      * @type {number}
      * @memberof SubaccountEmailCreditsPayload
      */
-    Credits: number;
+    'Credits': number;
     /**
      * Note to append to this credits change, for history.
      * @type {string}
      * @memberof SubaccountEmailCreditsPayload
      */
-    Notes?: string;
+    'Notes'?: string;
 }
-
 

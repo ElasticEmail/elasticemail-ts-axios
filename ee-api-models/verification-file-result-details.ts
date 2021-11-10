@@ -28,43 +28,42 @@ export interface VerificationFileResultDetails {
      * @type {Array<EmailValidationResult>}
      * @memberof VerificationFileResultDetails
      */
-    VerificationResult?: Array<EmailValidationResult>;
+    'VerificationResult'?: Array<EmailValidationResult>;
     /**
      * Identifier of this verification result
      * @type {string}
      * @memberof VerificationFileResultDetails
      */
-    VerificationID?: string;
+    'VerificationID'?: string;
     /**
      * Origin file name
      * @type {string}
      * @memberof VerificationFileResultDetails
      */
-    Filename?: string;
+    'Filename'?: string;
     /**
-     * In what state does this verification result currently is
+     * 
      * @type {VerificationStatus}
      * @memberof VerificationFileResultDetails
      */
-    VerificationStatus?: VerificationStatus;
+    'VerificationStatus'?: VerificationStatus;
     /**
-     * How many emails were detected in the file for verification
+     * 
      * @type {FileUploadResult}
      * @memberof VerificationFileResultDetails
      */
-    FileUploadResult?: FileUploadResult;
+    'FileUploadResult'?: FileUploadResult;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof VerificationFileResultDetails
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * Origin file extension
      * @type {string}
      * @memberof VerificationFileResultDetails
      */
-    Source?: string;
+    'Source'?: string;
 }
-
 

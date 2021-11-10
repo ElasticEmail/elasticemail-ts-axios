@@ -26,73 +26,72 @@ export interface EmailStatus {
      * @type {string}
      * @memberof EmailStatus
      */
-    From?: string;
+    'From'?: string;
     /**
      * Email address this email was sent to.
      * @type {string}
      * @memberof EmailStatus
      */
-    To?: string;
+    'To'?: string;
     /**
      * Date the email was submitted.
      * @type {string}
      * @memberof EmailStatus
      */
-    Date?: string;
+    'Date'?: string;
     /**
-     * Value of email\'s status
+     * 
      * @type {LogJobStatus}
      * @memberof EmailStatus
      */
-    Status?: LogJobStatus;
+    'Status'?: LogJobStatus;
     /**
      * Name of email\'s status
      * @type {string}
      * @memberof EmailStatus
      */
-    StatusName?: string;
+    'StatusName'?: string;
     /**
      * Date of last status change.
      * @type {string}
      * @memberof EmailStatus
      */
-    StatusChangeDate?: string;
+    'StatusChangeDate'?: string;
     /**
      * Date when the email was sent
      * @type {string}
      * @memberof EmailStatus
      */
-    DateSent?: string;
+    'DateSent'?: string;
     /**
      * Date when the email changed the status to \'opened\'
      * @type {string}
      * @memberof EmailStatus
      */
-    DateOpened?: string | null;
+    'DateOpened'?: string | null;
     /**
      * Date when the email changed the status to \'clicked\'
      * @type {string}
      * @memberof EmailStatus
      */
-    DateClicked?: string | null;
+    'DateClicked'?: string | null;
     /**
      * Detailed error or bounced message.
      * @type {string}
      * @memberof EmailStatus
      */
-    ErrorMessage?: string;
+    'ErrorMessage'?: string;
     /**
      * ID number of transaction
      * @type {string}
      * @memberof EmailStatus
      */
-    TransactionID?: string;
+    'TransactionID'?: string;
     /**
      * Envelope from address
      * @type {string}
      * @memberof EmailStatus
      */
-    EnvelopeFrom?: string;
+    'EnvelopeFrom'?: string;
 }
-
 

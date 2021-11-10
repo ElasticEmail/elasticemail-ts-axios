@@ -25,13 +25,12 @@ export interface EmailsPayload {
      * @type {string}
      * @memberof EmailsPayload
      */
-    Rule?: string;
+    'Rule'?: string;
     /**
      * Comma delimited list of contact emails
      * @type {Array<string>}
      * @memberof EmailsPayload
      */
-    Emails?: Array<string>;
+    'Emails'?: Array<string>;
 }
-
 

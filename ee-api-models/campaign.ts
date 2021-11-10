@@ -29,31 +29,30 @@ export interface Campaign {
      * @type {Array<CampaignTemplate>}
      * @memberof Campaign
      */
-    Content?: Array<CampaignTemplate>;
+    'Content'?: Array<CampaignTemplate>;
     /**
      * Campaign name
      * @type {string}
      * @memberof Campaign
      */
-    Name: string;
+    'Name': string;
     /**
-     * Campaign status
+     * 
      * @type {CampaignStatus}
      * @memberof Campaign
      */
-    Status?: CampaignStatus;
+    'Status'?: CampaignStatus;
     /**
-     * Recipients this campaign should be sent to
+     * 
      * @type {CampaignRecipient}
      * @memberof Campaign
      */
-    Recipients: CampaignRecipient;
+    'Recipients': CampaignRecipient;
     /**
-     * Campaign sending options
+     * 
      * @type {CampaignOptions}
      * @memberof Campaign
      */
-    Options?: CampaignOptions;
+    'Options'?: CampaignOptions;
 }
-
 

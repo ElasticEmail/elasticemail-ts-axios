@@ -29,67 +29,66 @@ export interface Contact {
      * @type {string}
      * @memberof Contact
      */
-    Email?: string;
+    'Email'?: string;
     /**
-     * Status of the given resource
+     * 
      * @type {ContactStatus}
      * @memberof Contact
      */
-    Status?: ContactStatus;
+    'Status'?: ContactStatus;
     /**
      * First name.
      * @type {string}
      * @memberof Contact
      */
-    FirstName?: string;
+    'FirstName'?: string;
     /**
      * Last name.
      * @type {string}
      * @memberof Contact
      */
-    LastName?: string;
+    'LastName'?: string;
     /**
      * A key-value collection of custom contact fields which can be used in the system.
      * @type {{ [key: string]: string; }}
      * @memberof Contact
      */
-    CustomFields?: { [key: string]: string; };
+    'CustomFields'?: { [key: string]: string; };
     /**
      * 
      * @type {ConsentData}
      * @memberof Contact
      */
-    Consent?: ConsentData;
+    'Consent'?: ConsentData;
     /**
-     * From where was this contact added
+     * 
      * @type {ContactSource}
      * @memberof Contact
      */
-    Source?: ContactSource;
+    'Source'?: ContactSource;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof Contact
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * Last change date
      * @type {string}
      * @memberof Contact
      */
-    DateUpdated?: string | null;
+    'DateUpdated'?: string | null;
     /**
      * Date of last status change.
      * @type {string}
      * @memberof Contact
      */
-    StatusChangeDate?: string | null;
+    'StatusChangeDate'?: string | null;
     /**
-     * Contact\'s email statistics and activity
+     * 
      * @type {ContactActivity}
      * @memberof Contact
      */
-    Activity?: ContactActivity;
+    'Activity'?: ContactActivity;
 }
-
 

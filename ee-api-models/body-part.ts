@@ -22,23 +22,22 @@ import { BodyContentType } from './body-content-type';
  */
 export interface BodyPart {
     /**
-     * Type of the body part
+     * 
      * @type {BodyContentType}
      * @memberof BodyPart
      */
-    ContentType: BodyContentType;
+    'ContentType': BodyContentType;
     /**
      * Actual content of the body part
      * @type {string}
      * @memberof BodyPart
      */
-    Content?: string;
+    'Content'?: string;
     /**
      * Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more…
      * @type {string}
      * @memberof BodyPart
      */
-    Charset?: string;
+    'Charset'?: string;
 }
-
 

@@ -22,47 +22,46 @@ import { ContactHistEventType } from './contact-hist-event-type';
  */
 export interface ContactHistory {
     /**
-     * Type of event occured on this Contact.
+     * 
      * @type {ContactHistEventType}
      * @memberof ContactHistory
      */
-    EventType?: ContactHistEventType;
+    'EventType'?: ContactHistEventType;
     /**
      * Formatted date of event.
      * @type {string}
      * @memberof ContactHistory
      */
-    EventDate?: string;
+    'EventDate'?: string;
     /**
      * Name of channel this event occured on
      * @type {string}
      * @memberof ContactHistory
      */
-    ChannelName?: string;
+    'ChannelName'?: string;
     /**
      * Name of template this event occured on
      * @type {string}
      * @memberof ContactHistory
      */
-    TemplateName?: string;
+    'TemplateName'?: string;
     /**
      * IP Address of the event.
      * @type {string}
      * @memberof ContactHistory
      */
-    IPAddress?: string;
+    'IPAddress'?: string;
     /**
      * Country of the event.
      * @type {string}
      * @memberof ContactHistory
      */
-    Country?: string;
+    'Country'?: string;
     /**
      * Additional information about the event
      * @type {string}
      * @memberof ContactHistory
      */
-    Data?: string;
+    'Data'?: string;
 }
-
 

@@ -22,11 +22,10 @@ import { SubaccountEmailSettings } from './subaccount-email-settings';
  */
 export interface SubaccountSettingsInfo {
     /**
-     * Settings related to sending emails
+     * 
      * @type {SubaccountEmailSettings}
      * @memberof SubaccountSettingsInfo
      */
-    Email?: SubaccountEmailSettings;
+    'Email'?: SubaccountEmailSettings;
 }
-
 

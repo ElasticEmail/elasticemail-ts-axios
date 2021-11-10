@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -42,7 +42,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailCreditsPatch: async (email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options: any = {}): Promise<RequestArgs> => {
+        subaccountsByEmailCreditsPatch: async (email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('subaccountsByEmailCreditsPatch', 'email', email)
             // verify required parameter 'subaccountEmailCreditsPayload' is not null or undefined
@@ -67,7 +67,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(subaccountEmailCreditsPayload, localVarRequestOptions, configuration)
@@ -84,7 +84,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailDelete: async (email: string, options: any = {}): Promise<RequestArgs> => {
+        subaccountsByEmailDelete: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('subaccountsByEmailDelete', 'email', email)
             const localVarPath = `/subaccounts/{email}`
@@ -105,7 +105,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -121,7 +121,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailGet: async (email: string, options: any = {}): Promise<RequestArgs> => {
+        subaccountsByEmailGet: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('subaccountsByEmailGet', 'email', email)
             const localVarPath = `/subaccounts/{email}`
@@ -142,7 +142,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -159,7 +159,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailSettingsEmailPut: async (email: string, subaccountEmailSettings: SubaccountEmailSettings, options: any = {}): Promise<RequestArgs> => {
+        subaccountsByEmailSettingsEmailPut: async (email: string, subaccountEmailSettings: SubaccountEmailSettings, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('subaccountsByEmailSettingsEmailPut', 'email', email)
             // verify required parameter 'subaccountEmailSettings' is not null or undefined
@@ -184,7 +184,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(subaccountEmailSettings, localVarRequestOptions, configuration)
@@ -202,7 +202,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        subaccountsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/subaccounts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -228,7 +228,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -244,7 +244,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsPost: async (subaccountPayload: SubaccountPayload, options: any = {}): Promise<RequestArgs> => {
+        subaccountsPost: async (subaccountPayload: SubaccountPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'subaccountPayload' is not null or undefined
             assertParamExists('subaccountsPost', 'subaccountPayload', subaccountPayload)
             const localVarPath = `/subaccounts`;
@@ -266,7 +266,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(subaccountPayload, localVarRequestOptions, configuration)
@@ -294,7 +294,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsByEmailCreditsPatch(email, subaccountEmailCreditsPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -305,7 +305,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsByEmailDelete(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async subaccountsByEmailDelete(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsByEmailDelete(email, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -316,7 +316,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsByEmailGet(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubAccountInfo>> {
+        async subaccountsByEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubAccountInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsByEmailGet(email, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -328,7 +328,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubaccountEmailSettings>> {
+        async subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubaccountEmailSettings>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsByEmailSettingsEmailPut(email, subaccountEmailSettings, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -340,7 +340,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubAccountInfo>>> {
+        async subaccountsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubAccountInfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -351,7 +351,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async subaccountsPost(subaccountPayload: SubaccountPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubAccountInfo>> {
+        async subaccountsPost(subaccountPayload: SubaccountPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubAccountInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsPost(subaccountPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -446,7 +446,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: any): AxiosPromise<void>;
+    subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Deletes specified SubAccount. An email will be sent to confirm this change. Required Access Level: ModifySubAccounts
@@ -456,7 +456,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsByEmailDelete(email: string, options?: any): AxiosPromise<void>;
+    subaccountsByEmailDelete(email: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Returns details for the specified SubAccount. Required Access Level: ViewSubAccounts
@@ -466,7 +466,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsByEmailGet(email: string, options?: any): AxiosPromise<SubAccountInfo>;
+    subaccountsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<SubAccountInfo>;
 
     /**
      * Update SubAccount email settings. Required Access Level: ModifySubAccounts
@@ -477,7 +477,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: any): AxiosPromise<SubaccountEmailSettings>;
+    subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: AxiosRequestConfig): AxiosPromise<SubaccountEmailSettings>;
 
     /**
      * Returns a list of all your SubAccounts. Required Access Level: ViewSubAccounts
@@ -488,7 +488,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<SubAccountInfo>>;
+    subaccountsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<SubAccountInfo>>;
 
     /**
      * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
@@ -498,7 +498,7 @@ export interface SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApiInterface
      */
-    subaccountsPost(subaccountPayload: SubaccountPayload, options?: any): AxiosPromise<SubAccountInfo>;
+    subaccountsPost(subaccountPayload: SubaccountPayload, options?: AxiosRequestConfig): AxiosPromise<SubAccountInfo>;
 
 }
 
@@ -518,7 +518,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: any) {
+    public subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailCreditsPatch(email, subaccountEmailCreditsPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -530,7 +530,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsByEmailDelete(email: string, options?: any) {
+    public subaccountsByEmailDelete(email: string, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -542,7 +542,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsByEmailGet(email: string, options?: any) {
+    public subaccountsByEmailGet(email: string, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -555,7 +555,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: any) {
+    public subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailSettingsEmailPut(email, subaccountEmailSettings, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -568,7 +568,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsGet(limit?: number, offset?: number, options?: any) {
+    public subaccountsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -580,7 +580,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof SubAccountsApi
      */
-    public subaccountsPost(subaccountPayload: SubaccountPayload, options?: any) {
+    public subaccountsPost(subaccountPayload: SubaccountPayload, options?: AxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsPost(subaccountPayload, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -24,41 +24,40 @@ import { TemplateType } from './template-type';
  */
 export interface Template {
     /**
-     * How the template should be edited
+     * 
      * @type {TemplateType}
      * @memberof Template
      */
-    TemplateType?: TemplateType;
+    'TemplateType'?: TemplateType;
     /**
      * Template name
      * @type {string}
      * @memberof Template
      */
-    Name?: string;
+    'Name'?: string;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof Template
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * Default subject of email.
      * @type {string}
      * @memberof Template
      */
-    Subject?: string;
+    'Subject'?: string;
     /**
      * Email content of this template
      * @type {Array<BodyPart>}
      * @memberof Template
      */
-    Body?: Array<BodyPart>;
+    'Body'?: Array<BodyPart>;
     /**
-     * Visibility of a template
+     * 
      * @type {TemplateScope}
      * @memberof Template
      */
-    TemplateScope?: TemplateScope;
+    'TemplateScope'?: TemplateScope;
 }
-
 

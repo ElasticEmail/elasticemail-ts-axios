@@ -27,79 +27,78 @@ export interface RecipientEvent {
      * @type {string}
      * @memberof RecipientEvent
      */
-    TransactionID?: string;
+    'TransactionID'?: string;
     /**
      * ID number of selected message.
      * @type {string}
      * @memberof RecipientEvent
      */
-    MsgID?: string;
+    'MsgID'?: string;
     /**
      * Default From: email address.
      * @type {string}
      * @memberof RecipientEvent
      */
-    FromEmail?: string;
+    'FromEmail'?: string;
     /**
      * Ending date for search in YYYY-MM-DDThh:mm:ss format.
      * @type {string}
      * @memberof RecipientEvent
      */
-    To?: string;
+    'To'?: string;
     /**
      * Default subject of email.
      * @type {string}
      * @memberof RecipientEvent
      */
-    Subject?: string;
+    'Subject'?: string;
     /**
-     * Type of an Event
+     * 
      * @type {EventType}
      * @memberof RecipientEvent
      */
-    EventType?: EventType;
+    'EventType'?: EventType;
     /**
      * Creation date
      * @type {string}
      * @memberof RecipientEvent
      */
-    EventDate?: string;
+    'EventDate'?: string;
     /**
      * Name of selected channel.
      * @type {string}
      * @memberof RecipientEvent
      */
-    ChannelName?: string;
+    'ChannelName'?: string;
     /**
-     * Message category
+     * 
      * @type {MessageCategory}
      * @memberof RecipientEvent
      */
-    MessageCategory?: MessageCategory;
+    'MessageCategory'?: MessageCategory;
     /**
      * Date of next try
      * @type {string}
      * @memberof RecipientEvent
      */
-    NextTryOn?: string | null;
+    'NextTryOn'?: string | null;
     /**
      * Content of message, HTML encoded
      * @type {string}
      * @memberof RecipientEvent
      */
-    Message?: string;
+    'Message'?: string;
     /**
      * IP which this email was sent through
      * @type {string}
      * @memberof RecipientEvent
      */
-    IPAddress?: string;
+    'IPAddress'?: string;
     /**
      * Name of an IP pool this email was sent through
      * @type {string}
      * @memberof RecipientEvent
      */
-    PoolName?: string;
+    'PoolName'?: string;
 }
-
 

@@ -26,37 +26,36 @@ export interface Options {
      * @type {number}
      * @memberof Options
      */
-    TimeOffset?: number | null;
+    'TimeOffset'?: number | null;
     /**
      * Name of your custom IP Pool to be used in the sending process
      * @type {string}
      * @memberof Options
      */
-    PoolName?: string;
+    'PoolName'?: string;
     /**
      * Name of selected channel.
      * @type {string}
      * @memberof Options
      */
-    ChannelName?: string;
+    'ChannelName'?: string;
     /**
-     * 0 for None, 1 for Raw7Bit, 2 for Raw8Bit, 3 for QuotedPrintable, 4 for Base64 (Default), 5 for Uue note that you can also provide the text version such as \"Raw7Bit\" for value 1. NOTE: Base64 or QuotedPrintable is recommended if you are validating your domain(s) with DKIM.
+     * 
      * @type {EncodingType}
      * @memberof Options
      */
-    Encoding?: EncodingType;
+    'Encoding'?: EncodingType;
     /**
      * Should the opens be tracked? If no value has been provided, Account\'s default setting will be used.
      * @type {boolean}
      * @memberof Options
      */
-    TrackOpens?: boolean;
+    'TrackOpens'?: boolean;
     /**
      * Should the clicks be tracked? If no value has been provided, Account\'s default setting will be used.
      * @type {boolean}
      * @memberof Options
      */
-    TrackClicks?: boolean;
+    'TrackClicks'?: boolean;
 }
-
 

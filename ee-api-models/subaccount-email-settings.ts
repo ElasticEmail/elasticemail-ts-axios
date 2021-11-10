@@ -25,43 +25,42 @@ export interface SubaccountEmailSettings {
      * @type {number}
      * @memberof SubaccountEmailSettings
      */
-    MonthlyRefillCredits?: number;
+    'MonthlyRefillCredits'?: number;
     /**
      * True, if Account needs credits to send emails. Otherwise, false
      * @type {boolean}
      * @memberof SubaccountEmailSettings
      */
-    RequiresEmailCredits?: boolean;
+    'RequiresEmailCredits'?: boolean;
     /**
      * Maximum size of email including attachments in MB\'s
      * @type {number}
      * @memberof SubaccountEmailSettings
      */
-    EmailSizeLimit?: number;
+    'EmailSizeLimit'?: number;
     /**
      * Amount of emails Account can send daily
      * @type {number}
      * @memberof SubaccountEmailSettings
      */
-    DailySendLimit?: number;
+    'DailySendLimit'?: number;
     /**
      * Maximum number of contacts the Account can have. 0 means that parent account\'s limit is used.
      * @type {number}
      * @memberof SubaccountEmailSettings
      */
-    MaxContacts?: number;
+    'MaxContacts'?: number;
     /**
      * Can the SubAccount purchase Private IP for themselves
      * @type {boolean}
      * @memberof SubaccountEmailSettings
      */
-    EnablePrivateIPPurchase?: boolean;
+    'EnablePrivateIPPurchase'?: boolean;
     /**
      * Name of your custom IP Pool to be used in the sending process
      * @type {string}
      * @memberof SubaccountEmailSettings
      */
-    PoolName?: string;
+    'PoolName'?: string;
 }
-
 

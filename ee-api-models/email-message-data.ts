@@ -24,23 +24,22 @@ import { Options } from './options';
  */
 export interface EmailMessageData {
     /**
-     * List of recipients (visible to others)
+     * List of recipients
      * @type {Array<EmailRecipient>}
      * @memberof EmailMessageData
      */
-    Recipients: Array<EmailRecipient>;
+    'Recipients': Array<EmailRecipient>;
     /**
-     * Proper e-mail content
+     * 
      * @type {EmailContent}
      * @memberof EmailMessageData
      */
-    Content?: EmailContent;
+    'Content'?: EmailContent;
     /**
-     * E-mail configuration
+     * 
      * @type {Options}
      * @memberof EmailMessageData
      */
-    Options?: Options;
+    'Options'?: Options;
 }
-
 

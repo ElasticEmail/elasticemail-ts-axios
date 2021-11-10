@@ -25,13 +25,12 @@ export interface FileUploadResult {
      * @type {number}
      * @memberof FileUploadResult
      */
-    EmailsCount?: number;
+    'EmailsCount'?: number;
     /**
      * How many email duplicates were detected
      * @type {number}
      * @memberof FileUploadResult
      */
-    DuplicatedEmailsCount?: number;
+    'DuplicatedEmailsCount'?: number;
 }
-
 

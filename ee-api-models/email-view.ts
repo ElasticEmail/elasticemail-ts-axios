@@ -25,19 +25,18 @@ export interface EmailView {
      * @type {string}
      * @memberof EmailView
      */
-    Body?: string;
+    'Body'?: string;
     /**
      * Default subject of email.
      * @type {string}
      * @memberof EmailView
      */
-    Subject?: string;
+    'Subject'?: string;
     /**
      * From email address
      * @type {string}
      * @memberof EmailView
      */
-    From?: string;
+    'From'?: string;
 }
-
 

@@ -27,25 +27,24 @@ export interface TemplatePayload {
      * @type {string}
      * @memberof TemplatePayload
      */
-    Name: string;
+    'Name': string;
     /**
      * Default subject of email.
      * @type {string}
      * @memberof TemplatePayload
      */
-    Subject?: string;
+    'Subject'?: string;
     /**
      * Email content of this template
      * @type {Array<BodyPart>}
      * @memberof TemplatePayload
      */
-    Body?: Array<BodyPart>;
+    'Body'?: Array<BodyPart>;
     /**
-     * Visibility of a template
+     * 
      * @type {TemplateScope}
      * @memberof TemplatePayload
      */
-    TemplateScope?: TemplateScope;
+    'TemplateScope'?: TemplateScope;
 }
-
 

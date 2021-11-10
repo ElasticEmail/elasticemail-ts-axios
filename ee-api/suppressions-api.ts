@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -37,7 +37,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesGet: async (search?: string, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        suppressionsBouncesGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/bounces`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -67,7 +67,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -83,7 +83,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesImportPost: async (file?: any, options: any = {}): Promise<RequestArgs> => {
+        suppressionsBouncesImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/bounces/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -108,7 +108,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = localVarFormParams;
@@ -125,7 +125,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesPost: async (requestBody: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        suppressionsBouncesPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsBouncesPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/bounces`;
@@ -147,7 +147,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
@@ -164,7 +164,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsByEmailDelete: async (email: string, options: any = {}): Promise<RequestArgs> => {
+        suppressionsByEmailDelete: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('suppressionsByEmailDelete', 'email', email)
             const localVarPath = `/suppressions/{email}`
@@ -185,7 +185,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -201,7 +201,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsByEmailGet: async (email: string, options: any = {}): Promise<RequestArgs> => {
+        suppressionsByEmailGet: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('suppressionsByEmailGet', 'email', email)
             const localVarPath = `/suppressions/{email}`
@@ -222,7 +222,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -240,7 +240,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsGet: async (search?: string, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/complaints`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -270,7 +270,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -286,7 +286,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsImportPost: async (file?: any, options: any = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/complaints/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -311,7 +311,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = localVarFormParams;
@@ -328,7 +328,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsPost: async (requestBody: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsComplaintsPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/complaints`;
@@ -350,7 +350,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
@@ -368,7 +368,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        suppressionsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -394,7 +394,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -412,7 +412,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesGet: async (search?: string, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/unsubscribes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -442,7 +442,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -458,7 +458,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesImportPost: async (file?: any, options: any = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/unsubscribes/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -483,7 +483,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = localVarFormParams;
@@ -500,7 +500,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesPost: async (requestBody: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsUnsubscribesPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/unsubscribes`;
@@ -522,7 +522,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
@@ -551,7 +551,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesGet(search, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -562,7 +562,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesImportPost(file?: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -573,7 +573,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesPost(requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesPost(requestBody, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -584,7 +584,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsByEmailDelete(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsByEmailDelete(email, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -595,7 +595,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsByEmailGet(email: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Suppression>> {
+        async suppressionsByEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Suppression>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsByEmailGet(email, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -608,7 +608,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsGet(search, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -619,7 +619,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsImportPost(file?: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -630,7 +630,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsPost(requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsPost(requestBody, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -642,7 +642,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -655,7 +655,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesGet(search, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -666,7 +666,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesImportPost(file?: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -677,7 +677,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesPost(requestBody: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesPost(requestBody, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -837,7 +837,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Bounced. Required Access Level: ModifyContacts
@@ -847,7 +847,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesImportPost(file?: any, options?: any): AxiosPromise<void>;
+    suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Bounced. Required Access Level: ModifyContacts
@@ -857,7 +857,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesPost(requestBody: Array<string>, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Delete Suppression. Required Access Level: ViewContacts
@@ -867,7 +867,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsByEmailDelete(email: string, options?: any): AxiosPromise<void>;
+    suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Retrieve your suppression. Required Access Level: ViewContacts
@@ -877,7 +877,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsByEmailGet(email: string, options?: any): AxiosPromise<Suppression>;
+    suppressionsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<Suppression>;
 
     /**
      * Retrieve your list of complaints. Required Access Level: ViewContacts
@@ -889,7 +889,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Complaints. Required Access Level: ModifyContacts
@@ -899,7 +899,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsImportPost(file?: any, options?: any): AxiosPromise<void>;
+    suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Complaints. Required Access Level: ModifyContacts
@@ -909,7 +909,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsPost(requestBody: Array<string>, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Retrieve your suppressions. Required Access Level: ViewContacts
@@ -920,7 +920,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
@@ -932,7 +932,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts
@@ -942,7 +942,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesImportPost(file?: any, options?: any): AxiosPromise<void>;
+    suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts
@@ -952,7 +952,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesPost(requestBody: Array<string>, options?: any): AxiosPromise<Array<Suppression>>;
+    suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
 }
 
@@ -973,7 +973,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: any) {
+    public suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -985,7 +985,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesImportPost(file?: any, options?: any) {
+    public suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -997,7 +997,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesPost(requestBody: Array<string>, options?: any) {
+    public suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1009,7 +1009,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsByEmailDelete(email: string, options?: any) {
+    public suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1021,7 +1021,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsByEmailGet(email: string, options?: any) {
+    public suppressionsByEmailGet(email: string, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1035,7 +1035,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: any) {
+    public suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1047,7 +1047,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsImportPost(file?: any, options?: any) {
+    public suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1059,7 +1059,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsPost(requestBody: Array<string>, options?: any) {
+    public suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1072,7 +1072,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsGet(limit?: number, offset?: number, options?: any) {
+    public suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1086,7 +1086,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: any) {
+    public suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1098,7 +1098,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesImportPost(file?: any, options?: any) {
+    public suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1110,7 +1110,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesPost(requestBody: Array<string>, options?: any) {
+    public suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 }

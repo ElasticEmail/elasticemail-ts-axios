@@ -25,13 +25,12 @@ export interface EmailSend {
      * @type {string}
      * @memberof EmailSend
      */
-    TransactionID?: string;
+    'TransactionID'?: string;
     /**
      * Unique identifier for this email.
      * @type {string}
      * @memberof EmailSend
      */
-    MessageID?: string;
+    'MessageID'?: string;
 }
-
 

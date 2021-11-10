@@ -25,25 +25,24 @@ export interface Utm {
      * @type {string}
      * @memberof Utm
      */
-    Source?: string;
+    'Source'?: string;
     /**
      * utmmedium value
      * @type {string}
      * @memberof Utm
      */
-    Medium?: string;
+    'Medium'?: string;
     /**
      * utmcampaign value
      * @type {string}
      * @memberof Utm
      */
-    Campaign?: string;
+    'Campaign'?: string;
     /**
      * utmcontent value
      * @type {string}
      * @memberof Utm
      */
-    Content?: string;
+    'Content'?: string;
 }
-
 

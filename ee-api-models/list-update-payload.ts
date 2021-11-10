@@ -25,13 +25,12 @@ export interface ListUpdatePayload {
      * @type {string}
      * @memberof ListUpdatePayload
      */
-    NewListName?: string;
+    'NewListName'?: string;
     /**
      * True: Allow unsubscribing from this list. Otherwise, false
      * @type {boolean}
      * @memberof ListUpdatePayload
      */
-    AllowUnsubscribe?: boolean;
+    'AllowUnsubscribe'?: boolean;
 }
-
 

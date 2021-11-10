@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -39,7 +39,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdDelete: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        inboundrouteByIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('inboundrouteByIdDelete', 'id', id)
             const localVarPath = `/inboundroute/{id}`
@@ -60,7 +60,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -76,7 +76,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdGet: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        inboundrouteByIdGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('inboundrouteByIdGet', 'id', id)
             const localVarPath = `/inboundroute/{id}`
@@ -97,7 +97,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -114,7 +114,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdPut: async (id: string, inboundPayload: InboundPayload, options: any = {}): Promise<RequestArgs> => {
+        inboundrouteByIdPut: async (id: string, inboundPayload: InboundPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('inboundrouteByIdPut', 'id', id)
             // verify required parameter 'inboundPayload' is not null or undefined
@@ -139,7 +139,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inboundPayload, localVarRequestOptions, configuration)
@@ -155,7 +155,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteGet: async (options: any = {}): Promise<RequestArgs> => {
+        inboundrouteGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/inboundroute`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -173,7 +173,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -189,7 +189,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteOrderPut: async (sortOrderItem: Array<SortOrderItem>, options: any = {}): Promise<RequestArgs> => {
+        inboundrouteOrderPut: async (sortOrderItem: Array<SortOrderItem>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sortOrderItem' is not null or undefined
             assertParamExists('inboundrouteOrderPut', 'sortOrderItem', sortOrderItem)
             const localVarPath = `/inboundroute/order`;
@@ -211,7 +211,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(sortOrderItem, localVarRequestOptions, configuration)
@@ -228,7 +228,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundroutePost: async (inboundPayload: InboundPayload, options: any = {}): Promise<RequestArgs> => {
+        inboundroutePost: async (inboundPayload: InboundPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'inboundPayload' is not null or undefined
             assertParamExists('inboundroutePost', 'inboundPayload', inboundPayload)
             const localVarPath = `/inboundroute`;
@@ -250,7 +250,7 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inboundPayload, localVarRequestOptions, configuration)
@@ -277,7 +277,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundrouteByIdDelete(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async inboundrouteByIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundrouteByIdDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -288,7 +288,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundrouteByIdGet(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
+        async inboundrouteByIdGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundrouteByIdGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -300,7 +300,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
+        async inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundrouteByIdPut(id, inboundPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -310,7 +310,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundrouteGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InboundRoute>>> {
+        async inboundrouteGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InboundRoute>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundrouteGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -321,7 +321,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InboundRoute>>> {
+        async inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InboundRoute>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundrouteOrderPut(sortOrderItem, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -332,7 +332,7 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inboundroutePost(inboundPayload: InboundPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
+        async inboundroutePost(inboundPayload: InboundPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InboundRoute>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inboundroutePost(inboundPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -423,7 +423,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundrouteByIdDelete(id: string, options?: any): AxiosPromise<void>;
+    inboundrouteByIdDelete(id: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Load an Inbound Route. Required Access Level: ViewSettings
@@ -433,7 +433,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundrouteByIdGet(id: string, options?: any): AxiosPromise<InboundRoute>;
+    inboundrouteByIdGet(id: string, options?: AxiosRequestConfig): AxiosPromise<InboundRoute>;
 
     /**
      * Update the Inbound Route. Required Access Level: ModifySettings
@@ -444,7 +444,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: any): AxiosPromise<InboundRoute>;
+    inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: AxiosRequestConfig): AxiosPromise<InboundRoute>;
 
     /**
      * Get all your Inbound Routes. Required Access Level: ViewSettings
@@ -453,7 +453,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundrouteGet(options?: any): AxiosPromise<Array<InboundRoute>>;
+    inboundrouteGet(options?: AxiosRequestConfig): AxiosPromise<Array<InboundRoute>>;
 
     /**
      * Required Access Level: ViewSettings
@@ -463,7 +463,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: any): AxiosPromise<Array<InboundRoute>>;
+    inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: AxiosRequestConfig): AxiosPromise<Array<InboundRoute>>;
 
     /**
      * Create new Inbound Route. Required Access Level: ModifySettings
@@ -473,7 +473,7 @@ export interface InboundRouteApiInterface {
      * @throws {RequiredError}
      * @memberof InboundRouteApiInterface
      */
-    inboundroutePost(inboundPayload: InboundPayload, options?: any): AxiosPromise<InboundRoute>;
+    inboundroutePost(inboundPayload: InboundPayload, options?: AxiosRequestConfig): AxiosPromise<InboundRoute>;
 
 }
 
@@ -492,7 +492,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundrouteByIdDelete(id: string, options?: any) {
+    public inboundrouteByIdDelete(id: string, options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -504,7 +504,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundrouteByIdGet(id: string, options?: any) {
+    public inboundrouteByIdGet(id: string, options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -517,7 +517,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: any) {
+    public inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdPut(id, inboundPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -528,7 +528,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundrouteGet(options?: any) {
+    public inboundrouteGet(options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteGet(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -540,7 +540,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: any) {
+    public inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteOrderPut(sortOrderItem, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -552,7 +552,7 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @throws {RequiredError}
      * @memberof InboundRouteApi
      */
-    public inboundroutePost(inboundPayload: InboundPayload, options?: any) {
+    public inboundroutePost(inboundPayload: InboundPayload, options?: AxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundroutePost(inboundPayload, options).then((request) => request(this.axios, this.basePath));
     }
 }

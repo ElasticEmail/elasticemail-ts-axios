@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -37,7 +37,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameDelete: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        filesByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameDelete', 'name', name)
             const localVarPath = `/files/{name}`
@@ -58,7 +58,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -74,7 +74,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        filesByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameGet', 'name', name)
             const localVarPath = `/files/{name}`
@@ -95,7 +95,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -111,7 +111,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameInfoGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        filesByNameInfoGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameInfoGet', 'name', name)
             const localVarPath = `/files/{name}/info`
@@ -132,7 +132,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -149,7 +149,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        filesGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/files`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -175,7 +175,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -192,7 +192,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesPost: async (filePayload: FilePayload, expiresAfterDays?: number, options: any = {}): Promise<RequestArgs> => {
+        filesPost: async (filePayload: FilePayload, expiresAfterDays?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'filePayload' is not null or undefined
             assertParamExists('filesPost', 'filePayload', filePayload)
             const localVarPath = `/files`;
@@ -218,7 +218,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(filePayload, localVarRequestOptions, configuration)
@@ -245,7 +245,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameDelete(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async filesByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameDelete(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -256,7 +256,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async filesByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -267,7 +267,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameInfoGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
+        async filesByNameInfoGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameInfoGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -279,7 +279,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FileInfo>>> {
+        async filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FileInfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -291,7 +291,7 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
+        async filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesPost(filePayload, expiresAfterDays, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -374,7 +374,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameDelete(name: string, options?: any): AxiosPromise<void>;
+    filesByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Gets content of the specified File. Required Access Level: ViewFiles
@@ -384,7 +384,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameGet(name: string, options?: any): AxiosPromise<any>;
+    filesByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<any>;
 
     /**
      * Returns the specified File\'s details. Required Access Level: ViewFiles
@@ -394,7 +394,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameInfoGet(name: string, options?: any): AxiosPromise<FileInfo>;
+    filesByNameInfoGet(name: string, options?: AxiosRequestConfig): AxiosPromise<FileInfo>;
 
     /**
      * Returns a list of all your available files. Required Access Level: ViewFiles
@@ -405,7 +405,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<FileInfo>>;
+    filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<FileInfo>>;
 
     /**
      * Uploads selected file to the server. Required Access Level: ModifyFiles
@@ -416,7 +416,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: any): AxiosPromise<FileInfo>;
+    filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig): AxiosPromise<FileInfo>;
 
 }
 
@@ -435,7 +435,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameDelete(name: string, options?: any) {
+    public filesByNameDelete(name: string, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -447,7 +447,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameGet(name: string, options?: any) {
+    public filesByNameGet(name: string, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -459,7 +459,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameInfoGet(name: string, options?: any) {
+    public filesByNameInfoGet(name: string, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameInfoGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -472,7 +472,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesGet(limit?: number, offset?: number, options?: any) {
+    public filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -485,7 +485,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: any) {
+    public filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesPost(filePayload, expiresAfterDays, options).then((request) => request(this.axios, this.basePath));
     }
 }

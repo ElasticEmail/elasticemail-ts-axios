@@ -22,17 +22,16 @@ import { SplitOptimizationType } from './split-optimization-type';
  */
 export interface SplitOptions {
     /**
-     * Type of results by which to determine the winner template (content)
+     * 
      * @type {SplitOptimizationType}
      * @memberof SplitOptions
      */
-    OptimizeFor?: SplitOptimizationType;
+    'OptimizeFor'?: SplitOptimizationType;
     /**
      * For how long should the results be measured until determining the winner template (content)
      * @type {number}
      * @memberof SplitOptions
      */
-    OptimizePeriodMinutes?: number;
+    'OptimizePeriodMinutes'?: number;
 }
-
 

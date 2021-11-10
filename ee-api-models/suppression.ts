@@ -25,25 +25,24 @@ export interface Suppression {
      * @type {string}
      * @memberof Suppression
      */
-    Email?: string;
+    'Email'?: string;
     /**
      * RFC error message
      * @type {string}
      * @memberof Suppression
      */
-    FriendlyErrorMessage?: string;
+    'FriendlyErrorMessage'?: string;
     /**
      * SMTP Error code
      * @type {number}
      * @memberof Suppression
      */
-    ErrorCode?: number | null;
+    'ErrorCode'?: number | null;
     /**
      * Last change date
      * @type {string}
      * @memberof Suppression
      */
-    DateUpdated?: string | null;
+    'DateUpdated'?: string | null;
 }
-
 

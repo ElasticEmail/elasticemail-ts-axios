@@ -26,37 +26,36 @@ export interface ApiKey {
      * @type {Array<AccessLevel>}
      * @memberof ApiKey
      */
-    AccessLevel?: Array<AccessLevel>;
+    'AccessLevel'?: Array<AccessLevel>;
     /**
      * Name of the ApiKey.
      * @type {string}
      * @memberof ApiKey
      */
-    Name?: string;
+    'Name'?: string;
     /**
      * Date this ApiKey was created.
      * @type {string}
      * @memberof ApiKey
      */
-    DateCreated?: string;
+    'DateCreated'?: string;
     /**
      * Date this ApiKey was last used.
      * @type {string}
      * @memberof ApiKey
      */
-    LastUse?: string | null;
+    'LastUse'?: string | null;
     /**
      * Date this ApiKey expires.
      * @type {string}
      * @memberof ApiKey
      */
-    Expires?: string | null;
+    'Expires'?: string | null;
     /**
      * Which IPs can use this ApiKey
      * @type {Array<string>}
      * @memberof ApiKey
      */
-    RestrictAccessToIPRange?: Array<string>;
+    'RestrictAccessToIPRange'?: Array<string>;
 }
-
 

@@ -27,37 +27,36 @@ export interface InboundPayload {
      * @type {string}
      * @memberof InboundPayload
      */
-    Filter: string;
+    'Filter': string;
     /**
      * Name of this route
      * @type {string}
      * @memberof InboundPayload
      */
-    Name: string;
+    'Name': string;
     /**
-     * Type of the filter
+     * 
      * @type {InboundRouteFilterType}
      * @memberof InboundPayload
      */
-    FilterType: InboundRouteFilterType;
+    'FilterType': InboundRouteFilterType;
     /**
-     * Type of action to take
+     * 
      * @type {InboundRouteActionType}
      * @memberof InboundPayload
      */
-    ActionType: InboundRouteActionType;
+    'ActionType': InboundRouteActionType;
     /**
      * Email to forward the inbound to
      * @type {string}
      * @memberof InboundPayload
      */
-    EmailAddress?: string;
+    'EmailAddress'?: string;
     /**
      * Address to notify about the inbound
      * @type {string}
      * @memberof InboundPayload
      */
-    HttpAddress?: string;
+    'HttpAddress'?: string;
 }
-
 

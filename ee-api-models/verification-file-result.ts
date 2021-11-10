@@ -27,37 +27,36 @@ export interface VerificationFileResult {
      * @type {string}
      * @memberof VerificationFileResult
      */
-    VerificationID?: string;
+    'VerificationID'?: string;
     /**
      * Origin file name
      * @type {string}
      * @memberof VerificationFileResult
      */
-    Filename?: string;
+    'Filename'?: string;
     /**
-     * In what state does this verification result currently is
+     * 
      * @type {VerificationStatus}
      * @memberof VerificationFileResult
      */
-    VerificationStatus?: VerificationStatus;
+    'VerificationStatus'?: VerificationStatus;
     /**
-     * How many emails were detected in the file for verification
+     * 
      * @type {FileUploadResult}
      * @memberof VerificationFileResult
      */
-    FileUploadResult?: FileUploadResult;
+    'FileUploadResult'?: FileUploadResult;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof VerificationFileResult
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * Origin file extension
      * @type {string}
      * @memberof VerificationFileResult
      */
-    Source?: string;
+    'Source'?: string;
 }
-
 

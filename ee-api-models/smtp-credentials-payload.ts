@@ -25,25 +25,24 @@ export interface SmtpCredentialsPayload {
      * @type {string}
      * @memberof SmtpCredentialsPayload
      */
-    Name: string;
+    'Name': string;
     /**
      * Date this SmtpCredential expires.
      * @type {string}
      * @memberof SmtpCredentialsPayload
      */
-    Expires?: string | null;
+    'Expires'?: string | null;
     /**
      * Which IPs can use this SmtpCredential
      * @type {Array<string>}
      * @memberof SmtpCredentialsPayload
      */
-    RestrictAccessToIPRange?: Array<string>;
+    'RestrictAccessToIPRange'?: Array<string>;
     /**
      * Email of the subaccount for which this SmtpCredential should be created
      * @type {string}
      * @memberof SmtpCredentialsPayload
      */
-    Subaccount?: string;
+    'Subaccount'?: string;
 }
-
 

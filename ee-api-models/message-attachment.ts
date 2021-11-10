@@ -25,19 +25,18 @@ export interface MessageAttachment {
      * @type {string}
      * @memberof MessageAttachment
      */
-    BinaryContent: string;
+    'BinaryContent': string;
     /**
      * Display name of the file
      * @type {string}
      * @memberof MessageAttachment
      */
-    Name?: string;
+    'Name'?: string;
     /**
      * MIME content type
      * @type {string}
      * @memberof MessageAttachment
      */
-    ContentType?: string;
+    'ContentType'?: string;
 }
-
 

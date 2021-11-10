@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -41,7 +41,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameDelete: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        templatesByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNameDelete', 'name', name)
             const localVarPath = `/templates/{name}`
@@ -62,7 +62,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -78,7 +78,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        templatesByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNameGet', 'name', name)
             const localVarPath = `/templates/{name}`
@@ -99,7 +99,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -116,7 +116,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNamePut: async (name: string, templatePayload: TemplatePayload, options: any = {}): Promise<RequestArgs> => {
+        templatesByNamePut: async (name: string, templatePayload: TemplatePayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNamePut', 'name', name)
             // verify required parameter 'templatePayload' is not null or undefined
@@ -141,7 +141,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(templatePayload, localVarRequestOptions, configuration)
@@ -161,7 +161,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesGet: async (scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        templatesGet: async (scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scopeType' is not null or undefined
             assertParamExists('templatesGet', 'scopeType', scopeType)
             const localVarPath = `/templates`;
@@ -197,7 +197,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -213,7 +213,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesPost: async (templatePayload: TemplatePayload, options: any = {}): Promise<RequestArgs> => {
+        templatesPost: async (templatePayload: TemplatePayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'templatePayload' is not null or undefined
             assertParamExists('templatesPost', 'templatePayload', templatePayload)
             const localVarPath = `/templates`;
@@ -235,7 +235,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(templatePayload, localVarRequestOptions, configuration)
@@ -262,7 +262,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNameDelete(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async templatesByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNameDelete(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -273,7 +273,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNameGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNameGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -285,7 +285,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNamePut(name, templatePayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -299,7 +299,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
+        async templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesGet(scopeType, templateTypes, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -310,7 +310,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesPost(templatePayload: TemplatePayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesPost(templatePayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -395,7 +395,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNameDelete(name: string, options?: any): AxiosPromise<void>;
+    templatesByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Load detailed information of the specified template. Required Access Level: ViewTemplates
@@ -405,7 +405,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNameGet(name: string, options?: any): AxiosPromise<Template>;
+    templatesByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<Template>;
 
     /**
      * Update existing template, overwriting existing data. Required Access Level: ModifyTemplates
@@ -416,7 +416,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: any): AxiosPromise<Template>;
+    templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig): AxiosPromise<Template>;
 
     /**
      * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
@@ -429,7 +429,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>>;
+    templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Template>>;
 
     /**
      * Add a new Template. Required Access Level: ModifyTemplates
@@ -439,7 +439,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesPost(templatePayload: TemplatePayload, options?: any): AxiosPromise<Template>;
+    templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig): AxiosPromise<Template>;
 
 }
 
@@ -458,7 +458,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNameDelete(name: string, options?: any) {
+    public templatesByNameDelete(name: string, options?: AxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -470,7 +470,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNameGet(name: string, options?: any) {
+    public templatesByNameGet(name: string, options?: AxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -483,7 +483,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: any) {
+    public templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNamePut(name, templatePayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -498,7 +498,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any) {
+    public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -510,7 +510,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesPost(templatePayload: TemplatePayload, options?: any) {
+    public templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesPost(templatePayload, options).then((request) => request(this.axios, this.basePath));
     }
 }

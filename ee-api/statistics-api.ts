@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -37,7 +37,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsCampaignsByNameGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        statisticsCampaignsByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('statisticsCampaignsByNameGet', 'name', name)
             const localVarPath = `/statistics/campaigns/{name}`
@@ -58,7 +58,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -75,7 +75,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsCampaignsGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        statisticsCampaignsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/statistics/campaigns`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -101,7 +101,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -117,7 +117,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsChannelsByNameGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        statisticsChannelsByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('statisticsChannelsByNameGet', 'name', name)
             const localVarPath = `/statistics/channels/{name}`
@@ -138,7 +138,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -155,7 +155,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsChannelsGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        statisticsChannelsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/statistics/channels`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -181,7 +181,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -198,7 +198,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsGet: async (from: string, to?: string, options: any = {}): Promise<RequestArgs> => {
+        statisticsGet: async (from: string, to?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'from' is not null or undefined
             assertParamExists('statisticsGet', 'from', from)
             const localVarPath = `/statistics`;
@@ -230,7 +230,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -256,7 +256,7 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsCampaignsByNameGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChannelLogStatusSummary>> {
+        async statisticsCampaignsByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChannelLogStatusSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsCampaignsByNameGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -268,7 +268,7 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsCampaignsGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ChannelLogStatusSummary>>> {
+        async statisticsCampaignsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ChannelLogStatusSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsCampaignsGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -279,7 +279,7 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsChannelsByNameGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChannelLogStatusSummary>> {
+        async statisticsChannelsByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ChannelLogStatusSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsChannelsByNameGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -291,7 +291,7 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsChannelsGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ChannelLogStatusSummary>>> {
+        async statisticsChannelsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ChannelLogStatusSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsChannelsGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -303,7 +303,7 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsGet(from: string, to?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LogStatusSummary>> {
+        async statisticsGet(from: string, to?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LogStatusSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsGet(from, to, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -387,7 +387,7 @@ export interface StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApiInterface
      */
-    statisticsCampaignsByNameGet(name: string, options?: any): AxiosPromise<ChannelLogStatusSummary>;
+    statisticsCampaignsByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary>;
 
     /**
      * Returns a list of your Campaigns\' stats. Required Access Level: ViewChannels
@@ -398,7 +398,7 @@ export interface StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApiInterface
      */
-    statisticsCampaignsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<ChannelLogStatusSummary>>;
+    statisticsCampaignsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>>;
 
     /**
      * Retrieve an existing channel stats. Required Access Level: ViewChannels
@@ -408,7 +408,7 @@ export interface StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApiInterface
      */
-    statisticsChannelsByNameGet(name: string, options?: any): AxiosPromise<ChannelLogStatusSummary>;
+    statisticsChannelsByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary>;
 
     /**
      * Returns a list of your Channels\' stats. Required Access Level: ViewChannels
@@ -419,7 +419,7 @@ export interface StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApiInterface
      */
-    statisticsChannelsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<ChannelLogStatusSummary>>;
+    statisticsChannelsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>>;
 
     /**
      * Returns basic statistics. Required Access Level: ViewReports
@@ -430,7 +430,7 @@ export interface StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApiInterface
      */
-    statisticsGet(from: string, to?: string, options?: any): AxiosPromise<LogStatusSummary>;
+    statisticsGet(from: string, to?: string, options?: AxiosRequestConfig): AxiosPromise<LogStatusSummary>;
 
 }
 
@@ -449,7 +449,7 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public statisticsCampaignsByNameGet(name: string, options?: any) {
+    public statisticsCampaignsByNameGet(name: string, options?: AxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsCampaignsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -462,7 +462,7 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public statisticsCampaignsGet(limit?: number, offset?: number, options?: any) {
+    public statisticsCampaignsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsCampaignsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -474,7 +474,7 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public statisticsChannelsByNameGet(name: string, options?: any) {
+    public statisticsChannelsByNameGet(name: string, options?: AxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsChannelsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -487,7 +487,7 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public statisticsChannelsGet(limit?: number, offset?: number, options?: any) {
+    public statisticsChannelsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsChannelsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -500,7 +500,7 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public statisticsGet(from: string, to?: string, options?: any) {
+    public statisticsGet(from: string, to?: string, options?: AxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsGet(from, to, options).then((request) => request(this.axios, this.basePath));
     }
 }

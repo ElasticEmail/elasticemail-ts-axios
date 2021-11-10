@@ -24,23 +24,22 @@ import { Options } from './options';
  */
 export interface MergeEmailPayload {
     /**
-     * CSV file containing recipients with optional merge fields
+     * 
      * @type {MessageAttachment}
      * @memberof MergeEmailPayload
      */
-    MergeFile: MessageAttachment;
+    'MergeFile': MessageAttachment;
     /**
-     * Proper e-mail content
+     * 
      * @type {EmailContent}
      * @memberof MergeEmailPayload
      */
-    Content?: EmailContent;
+    'Content'?: EmailContent;
     /**
-     * E-mail configuration
+     * 
      * @type {Options}
      * @memberof MergeEmailPayload
      */
-    Options?: Options;
+    'Options'?: Options;
 }
-
 

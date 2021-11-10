@@ -26,25 +26,24 @@ export interface SubaccountPayload {
      * @type {string}
      * @memberof SubaccountPayload
      */
-    Email: string;
+    'Email': string;
     /**
      * Current password.
      * @type {string}
      * @memberof SubaccountPayload
      */
-    Password: string;
+    'Password': string;
     /**
      * True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active).
      * @type {boolean}
      * @memberof SubaccountPayload
      */
-    SendActivation?: boolean;
+    'SendActivation'?: boolean;
     /**
-     * SubAccount settings
+     * 
      * @type {SubaccountSettingsInfoPayload}
      * @memberof SubaccountPayload
      */
-    Settings?: SubaccountSettingsInfoPayload;
+    'Settings'?: SubaccountSettingsInfoPayload;
 }
-
 

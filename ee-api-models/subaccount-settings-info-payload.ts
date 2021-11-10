@@ -22,11 +22,10 @@ import { SubaccountEmailSettingsPayload } from './subaccount-email-settings-payl
  */
 export interface SubaccountSettingsInfoPayload {
     /**
-     * Settings related to sending emails
+     * 
      * @type {SubaccountEmailSettingsPayload}
      * @memberof SubaccountSettingsInfoPayload
      */
-    Email?: SubaccountEmailSettingsPayload;
+    'Email'?: SubaccountEmailSettingsPayload;
 }
-
 

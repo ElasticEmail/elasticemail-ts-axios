@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -42,7 +42,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsByNameContactsPost: async (name: string, emailsPayload: EmailsPayload, options: any = {}): Promise<RequestArgs> => {
+        listsByNameContactsPost: async (name: string, emailsPayload: EmailsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('listsByNameContactsPost', 'name', name)
             // verify required parameter 'emailsPayload' is not null or undefined
@@ -67,7 +67,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(emailsPayload, localVarRequestOptions, configuration)
@@ -85,7 +85,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsByNameContactsRemovePost: async (name: string, emailsPayload: EmailsPayload, options: any = {}): Promise<RequestArgs> => {
+        listsByNameContactsRemovePost: async (name: string, emailsPayload: EmailsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('listsByNameContactsRemovePost', 'name', name)
             // verify required parameter 'emailsPayload' is not null or undefined
@@ -110,7 +110,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(emailsPayload, localVarRequestOptions, configuration)
@@ -127,7 +127,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsByNameDelete: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        listsByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('listsByNameDelete', 'name', name)
             const localVarPath = `/lists/{name}`
@@ -148,7 +148,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -164,7 +164,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsByNameGet: async (name: string, options: any = {}): Promise<RequestArgs> => {
+        listsByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('listsByNameGet', 'name', name)
             const localVarPath = `/lists/{name}`
@@ -185,7 +185,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -202,7 +202,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsByNamePut: async (name: string, listUpdatePayload: ListUpdatePayload, options: any = {}): Promise<RequestArgs> => {
+        listsByNamePut: async (name: string, listUpdatePayload: ListUpdatePayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('listsByNamePut', 'name', name)
             // verify required parameter 'listUpdatePayload' is not null or undefined
@@ -227,7 +227,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(listUpdatePayload, localVarRequestOptions, configuration)
@@ -245,7 +245,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsGet: async (limit?: number, offset?: number, options: any = {}): Promise<RequestArgs> => {
+        listsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/lists`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -271,7 +271,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -287,7 +287,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listsPost: async (listPayload: ListPayload, options: any = {}): Promise<RequestArgs> => {
+        listsPost: async (listPayload: ListPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'listPayload' is not null or undefined
             assertParamExists('listsPost', 'listPayload', listPayload)
             const localVarPath = `/lists`;
@@ -309,7 +309,7 @@ export const ListsApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(listPayload, localVarRequestOptions, configuration)
@@ -337,7 +337,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
+        async listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsByNameContactsPost(name, emailsPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -349,7 +349,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsByNameContactsRemovePost(name, emailsPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -360,7 +360,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsByNameDelete(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async listsByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsByNameDelete(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -371,7 +371,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsByNameGet(name: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
+        async listsByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsByNameGet(name, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -383,7 +383,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
+        async listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsByNamePut(name, listUpdatePayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -395,7 +395,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsGet(limit?: number, offset?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ContactsList>>> {
+        async listsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ContactsList>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsGet(limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -406,7 +406,7 @@ export const ListsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listsPost(listPayload: ListPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
+        async listsPost(listPayload: ListPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ContactsList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listsPost(listPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -512,7 +512,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: any): AxiosPromise<ContactsList>;
+    listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig): AxiosPromise<ContactsList>;
 
     /**
      * Remove specified Contacts from your list. Required Access Level: ModifyContacts
@@ -523,7 +523,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: any): AxiosPromise<void>;
+    listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Deletes List and removes all the Contacts from it (does not delete Contacts). Required Access Level: ModifyContacts
@@ -533,7 +533,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsByNameDelete(name: string, options?: any): AxiosPromise<void>;
+    listsByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Returns detailed information about specified list. Required Access Level: ViewContacts
@@ -543,7 +543,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsByNameGet(name: string, options?: any): AxiosPromise<ContactsList>;
+    listsByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<ContactsList>;
 
     /**
      * Update existing list. Required Access Level: ModifyContacts
@@ -554,7 +554,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: any): AxiosPromise<ContactsList>;
+    listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: AxiosRequestConfig): AxiosPromise<ContactsList>;
 
     /**
      * Returns all your existing lists. Required Access Level: ViewContacts
@@ -565,7 +565,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<ContactsList>>;
+    listsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<ContactsList>>;
 
     /**
      * Add a new list. Required Access Level: ModifyContacts
@@ -575,7 +575,7 @@ export interface ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApiInterface
      */
-    listsPost(listPayload: ListPayload, options?: any): AxiosPromise<ContactsList>;
+    listsPost(listPayload: ListPayload, options?: AxiosRequestConfig): AxiosPromise<ContactsList>;
 
 }
 
@@ -595,7 +595,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: any) {
+    public listsByNameContactsPost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsByNameContactsPost(name, emailsPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -608,7 +608,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: any) {
+    public listsByNameContactsRemovePost(name: string, emailsPayload: EmailsPayload, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsByNameContactsRemovePost(name, emailsPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -620,7 +620,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsByNameDelete(name: string, options?: any) {
+    public listsByNameDelete(name: string, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -632,7 +632,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsByNameGet(name: string, options?: any) {
+    public listsByNameGet(name: string, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -645,7 +645,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: any) {
+    public listsByNamePut(name: string, listUpdatePayload: ListUpdatePayload, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsByNamePut(name, listUpdatePayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -658,7 +658,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsGet(limit?: number, offset?: number, options?: any) {
+    public listsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -670,7 +670,7 @@ export class ListsApi extends BaseAPI implements ListsApiInterface {
      * @throws {RequiredError}
      * @memberof ListsApi
      */
-    public listsPost(listPayload: ListPayload, options?: any) {
+    public listsPost(listPayload: ListPayload, options?: AxiosRequestConfig) {
         return ListsApiFp(this.configuration).listsPost(listPayload, options).then((request) => request(this.axios, this.basePath));
     }
 }

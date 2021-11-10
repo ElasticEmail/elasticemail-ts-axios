@@ -38,4 +38,3 @@ export enum ContactHistEventType {
 }
 
 
-

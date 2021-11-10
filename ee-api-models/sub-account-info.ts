@@ -27,55 +27,54 @@ export interface SubAccountInfo {
      * @type {string}
      * @memberof SubAccountInfo
      */
-    PublicAccountID?: string;
+    'PublicAccountID'?: string;
     /**
      * Proper email address.
      * @type {string}
      * @memberof SubAccountInfo
      */
-    Email?: string;
+    'Email'?: string;
     /**
-     * SubAccount settings
+     * 
      * @type {SubaccountSettingsInfo}
      * @memberof SubAccountInfo
      */
-    Settings?: SubaccountSettingsInfo;
+    'Settings'?: SubaccountSettingsInfo;
     /**
      * Date of last activity on Account
      * @type {string}
      * @memberof SubAccountInfo
      */
-    LastActivity?: string;
+    'LastActivity'?: string;
     /**
      * Amount of email credits
      * @type {number}
      * @memberof SubAccountInfo
      */
-    EmailCredits?: number;
+    'EmailCredits'?: number;
     /**
      * Amount of emails sent from this Account
      * @type {number}
      * @memberof SubAccountInfo
      */
-    TotalEmailsSent?: number;
+    'TotalEmailsSent'?: number;
     /**
      * Numeric reputation
      * @type {number}
      * @memberof SubAccountInfo
      */
-    Reputation?: number;
+    'Reputation'?: number;
     /**
-     * Account\'s current status.
+     * 
      * @type {AccountStatusEnum}
      * @memberof SubAccountInfo
      */
-    Status?: AccountStatusEnum;
+    'Status'?: AccountStatusEnum;
     /**
      * How many contacts this SubAccount has stored
      * @type {number}
      * @memberof SubAccountInfo
      */
-    ContactsCount?: number;
+    'ContactsCount'?: number;
 }
-
 

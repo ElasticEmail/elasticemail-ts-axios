@@ -24,23 +24,22 @@ import { FileInfo } from './file-info';
  */
 export interface EmailData {
     /**
-     * Email details
+     * 
      * @type {EmailView}
      * @memberof EmailData
      */
-    Preview?: EmailView;
+    'Preview'?: EmailView;
     /**
      * Attachments sent with the email
      * @type {Array<FileInfo>}
      * @memberof EmailData
      */
-    Attachments?: Array<FileInfo>;
+    'Attachments'?: Array<FileInfo>;
     /**
-     * Status of the given resource
+     * 
      * @type {EmailStatus}
      * @memberof EmailData
      */
-    Status?: EmailStatus;
+    'Status'?: EmailStatus;
 }
-
 

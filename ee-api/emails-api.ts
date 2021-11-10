@@ -13,7 +13,7 @@
  */
 
 
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -43,7 +43,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsByMsgidViewGet: async (msgid: string, options: any = {}): Promise<RequestArgs> => {
+        emailsByMsgidViewGet: async (msgid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'msgid' is not null or undefined
             assertParamExists('emailsByMsgidViewGet', 'msgid', msgid)
             const localVarPath = `/emails/{msgid}/view`
@@ -64,7 +64,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -80,7 +80,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsMergefilePost: async (mergeEmailPayload: MergeEmailPayload, options: any = {}): Promise<RequestArgs> => {
+        emailsMergefilePost: async (mergeEmailPayload: MergeEmailPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'mergeEmailPayload' is not null or undefined
             assertParamExists('emailsMergefilePost', 'mergeEmailPayload', mergeEmailPayload)
             const localVarPath = `/emails/mergefile`;
@@ -102,7 +102,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(mergeEmailPayload, localVarRequestOptions, configuration)
@@ -119,7 +119,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsPost: async (emailMessageData: EmailMessageData, options: any = {}): Promise<RequestArgs> => {
+        emailsPost: async (emailMessageData: EmailMessageData, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'emailMessageData' is not null or undefined
             assertParamExists('emailsPost', 'emailMessageData', emailMessageData)
             const localVarPath = `/emails`;
@@ -141,7 +141,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(emailMessageData, localVarRequestOptions, configuration)
@@ -158,7 +158,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsTransactionalPost: async (emailTransactionalMessageData: EmailTransactionalMessageData, options: any = {}): Promise<RequestArgs> => {
+        emailsTransactionalPost: async (emailTransactionalMessageData: EmailTransactionalMessageData, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'emailTransactionalMessageData' is not null or undefined
             assertParamExists('emailsTransactionalPost', 'emailTransactionalMessageData', emailTransactionalMessageData)
             const localVarPath = `/emails/transactional`;
@@ -180,7 +180,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(emailTransactionalMessageData, localVarRequestOptions, configuration)
@@ -207,7 +207,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsByMsgidViewGet(msgid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailData>> {
+        async emailsByMsgidViewGet(msgid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.emailsByMsgidViewGet(msgid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -218,7 +218,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+        async emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.emailsMergefilePost(mergeEmailPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -229,7 +229,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsPost(emailMessageData: EmailMessageData, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+        async emailsPost(emailMessageData: EmailMessageData, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.emailsPost(emailMessageData, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -240,7 +240,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+        async emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.emailsTransactionalPost(emailTransactionalMessageData, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -311,7 +311,7 @@ export interface EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
-    emailsByMsgidViewGet(msgid: string, options?: any): AxiosPromise<EmailData>;
+    emailsByMsgidViewGet(msgid: string, options?: AxiosRequestConfig): AxiosPromise<EmailData>;
 
     /**
      * Send bulk merge email. Required Access Level: SendHttp
@@ -321,7 +321,7 @@ export interface EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
-    emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: any): AxiosPromise<EmailSend>;
+    emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: AxiosRequestConfig): AxiosPromise<EmailSend>;
 
     /**
      * Send bulk merge email. Required Access Level: SendHttp
@@ -331,7 +331,7 @@ export interface EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
-    emailsPost(emailMessageData: EmailMessageData, options?: any): AxiosPromise<EmailSend>;
+    emailsPost(emailMessageData: EmailMessageData, options?: AxiosRequestConfig): AxiosPromise<EmailSend>;
 
     /**
      * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
@@ -341,7 +341,7 @@ export interface EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
-    emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: any): AxiosPromise<EmailSend>;
+    emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: AxiosRequestConfig): AxiosPromise<EmailSend>;
 
 }
 
@@ -360,7 +360,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsByMsgidViewGet(msgid: string, options?: any) {
+    public emailsByMsgidViewGet(msgid: string, options?: AxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsByMsgidViewGet(msgid, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -372,7 +372,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: any) {
+    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: AxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsMergefilePost(mergeEmailPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -384,7 +384,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsPost(emailMessageData: EmailMessageData, options?: any) {
+    public emailsPost(emailMessageData: EmailMessageData, options?: AxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsPost(emailMessageData, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -396,7 +396,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: any) {
+    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: AxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsTransactionalPost(emailTransactionalMessageData, options).then((request) => request(this.axios, this.basePath));
     }
 }

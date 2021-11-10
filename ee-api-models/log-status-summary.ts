@@ -25,79 +25,78 @@ export interface LogStatusSummary {
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Recipients?: number;
+    'Recipients'?: number;
     /**
      * Number of emails
      * @type {number}
      * @memberof LogStatusSummary
      */
-    EmailTotal?: number;
+    'EmailTotal'?: number;
     /**
      * Number of SMS
      * @type {number}
      * @memberof LogStatusSummary
      */
-    SmsTotal?: number;
+    'SmsTotal'?: number;
     /**
      * Number of delivered messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Delivered?: number;
+    'Delivered'?: number;
     /**
      * Number of bounced messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Bounced?: number;
+    'Bounced'?: number;
     /**
      * Number of messages in progress
      * @type {number}
      * @memberof LogStatusSummary
      */
-    InProgress?: number;
+    'InProgress'?: number;
     /**
      * Number of opened messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Opened?: number;
+    'Opened'?: number;
     /**
      * Number of clicked messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Clicked?: number;
+    'Clicked'?: number;
     /**
      * Number of unsubscribed messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Unsubscribed?: number;
+    'Unsubscribed'?: number;
     /**
      * Number of complaint messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Complaints?: number;
+    'Complaints'?: number;
     /**
      * Number of inbound messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    Inbound?: number;
+    'Inbound'?: number;
     /**
      * Number of manually cancelled messages
      * @type {number}
      * @memberof LogStatusSummary
      */
-    ManualCancel?: number;
+    'ManualCancel'?: number;
     /**
      * Number of messages flagged with \'Not Delivered\'
      * @type {number}
      * @memberof LogStatusSummary
      */
-    NotDelivered?: number;
+    'NotDelivered'?: number;
 }
-
 

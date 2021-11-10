@@ -25,19 +25,18 @@ export interface FilePayload {
      * @type {string}
      * @memberof FilePayload
      */
-    BinaryContent: string;
+    'BinaryContent': string;
     /**
      * Filename
      * @type {string}
      * @memberof FilePayload
      */
-    Name?: string;
+    'Name'?: string;
     /**
      * Type of file\'s content (e.g. image/jpeg)
      * @type {string}
      * @memberof FilePayload
      */
-    ContentType?: string;
+    'ContentType'?: string;
 }
-
 

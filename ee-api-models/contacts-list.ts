@@ -25,25 +25,24 @@ export interface ContactsList {
      * @type {string}
      * @memberof ContactsList
      */
-    ListName?: string;
+    'ListName'?: string;
     /**
      * ID code of list. Please note that this is different from the listid field.
      * @type {string}
      * @memberof ContactsList
      */
-    PublicListID?: string | null;
+    'PublicListID'?: string | null;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
      * @type {string}
      * @memberof ContactsList
      */
-    DateAdded?: string;
+    'DateAdded'?: string;
     /**
      * True: Allow unsubscribing from this list. Otherwise, false
      * @type {boolean}
      * @memberof ContactsList
      */
-    AllowUnsubscribe?: boolean;
+    'AllowUnsubscribe'?: boolean;
 }
-
 

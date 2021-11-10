@@ -25,19 +25,18 @@ export interface ListPayload {
      * @type {string}
      * @memberof ListPayload
      */
-    ListName: string;
+    'ListName': string;
     /**
      * True: Allow unsubscribing from this list. Otherwise, false
      * @type {boolean}
      * @memberof ListPayload
      */
-    AllowUnsubscribe?: boolean;
+    'AllowUnsubscribe'?: boolean;
     /**
      * Comma delimited list of existing contact emails that should be added to this list. Leave empty for all contacts
      * @type {Array<string>}
      * @memberof ListPayload
      */
-    Emails?: Array<string>;
+    'Emails'?: Array<string>;
 }
-
 

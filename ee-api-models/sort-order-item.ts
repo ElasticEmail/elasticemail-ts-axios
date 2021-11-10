@@ -25,13 +25,12 @@ export interface SortOrderItem {
      * @type {string}
      * @memberof SortOrderItem
      */
-    PublicInboundId: string;
+    'PublicInboundId': string;
     /**
      * 1 - route will be used first
      * @type {number}
      * @memberof SortOrderItem
      */
-    SortOrder: number;
+    'SortOrder': number;
 }
-
 

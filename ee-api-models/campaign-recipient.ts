@@ -25,13 +25,12 @@ export interface CampaignRecipient {
      * @type {Array<string>}
      * @memberof CampaignRecipient
      */
-    ListNames?: Array<string>;
+    'ListNames'?: Array<string>;
     /**
      * Names of segments from your Account to read recipients from
      * @type {Array<string>}
      * @memberof CampaignRecipient
      */
-    SegmentNames?: Array<string>;
+    'SegmentNames'?: Array<string>;
 }
-
 

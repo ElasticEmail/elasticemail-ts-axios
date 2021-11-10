@@ -23,35 +23,34 @@ import { SplitOptions } from './split-options';
  */
 export interface CampaignOptions {
     /**
-     * How to order email delivery - by recipients\' engagement score or by the time they open the most of the emails that were sent to them
+     * 
      * @type {DeliveryOptimizationType}
      * @memberof CampaignOptions
      */
-    DeliveryOptimization?: DeliveryOptimizationType;
+    'DeliveryOptimization'?: DeliveryOptimizationType;
     /**
      * Should the opens be tracked? If no value has been provided, Account\'s default setting will be used.
      * @type {boolean}
      * @memberof CampaignOptions
      */
-    TrackOpens?: boolean | null;
+    'TrackOpens'?: boolean | null;
     /**
      * Should the clicks be tracked? If no value has been provided, Account\'s default setting will be used.
      * @type {boolean}
      * @memberof CampaignOptions
      */
-    TrackClicks?: boolean | null;
+    'TrackClicks'?: boolean | null;
     /**
      * Date when this Campaign is scheduled to be sent on
      * @type {string}
      * @memberof CampaignOptions
      */
-    ScheduleFor?: string | null;
+    'ScheduleFor'?: string | null;
     /**
-     * Optional options for A/X split campaigns. Will be ignored if only one template content was provided
+     * 
      * @type {SplitOptions}
      * @memberof CampaignOptions
      */
-    SplitOptions?: SplitOptions;
+    'SplitOptions'?: SplitOptions;
 }
-
 
