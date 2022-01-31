@@ -20,10 +20,13 @@
  * @enum {string}
  */
 
-export enum DeliveryOptimizationType {
-    None = 'None',
-    ToEngagedFirst = 'ToEngagedFirst',
-    ByOpenTime = 'ByOpenTime'
-}
+export const DeliveryOptimizationType = {
+    None: 'None',
+    ToEngagedFirst: 'ToEngagedFirst',
+    ByOpenTime: 'ByOpenTime'
+} as const;
+
+export type DeliveryOptimizationType = typeof DeliveryOptimizationType[keyof typeof DeliveryOptimizationType];
+
 
 

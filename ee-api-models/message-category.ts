@@ -20,24 +20,27 @@
  * @enum {string}
  */
 
-export enum MessageCategory {
-    Unknown = 'Unknown',
-    Ignore = 'Ignore',
-    Spam = 'Spam',
-    BlackListed = 'BlackListed',
-    NoMailbox = 'NoMailbox',
-    GreyListed = 'GreyListed',
-    Throttled = 'Throttled',
-    Timeout = 'Timeout',
-    ConnectionProblem = 'ConnectionProblem',
-    SpfProblem = 'SPFProblem',
-    AccountProblem = 'AccountProblem',
-    DnsProblem = 'DNSProblem',
-    NotDeliveredCancelled = 'NotDeliveredCancelled',
-    CodeError = 'CodeError',
-    ManualCancel = 'ManualCancel',
-    ConnectionTerminated = 'ConnectionTerminated',
-    NotDelivered = 'NotDelivered'
-}
+export const MessageCategory = {
+    Unknown: 'Unknown',
+    Ignore: 'Ignore',
+    Spam: 'Spam',
+    BlackListed: 'BlackListed',
+    NoMailbox: 'NoMailbox',
+    GreyListed: 'GreyListed',
+    Throttled: 'Throttled',
+    Timeout: 'Timeout',
+    ConnectionProblem: 'ConnectionProblem',
+    SpfProblem: 'SPFProblem',
+    AccountProblem: 'AccountProblem',
+    DnsProblem: 'DNSProblem',
+    NotDeliveredCancelled: 'NotDeliveredCancelled',
+    CodeError: 'CodeError',
+    ManualCancel: 'ManualCancel',
+    ConnectionTerminated: 'ConnectionTerminated',
+    NotDelivered: 'NotDelivered'
+} as const;
+
+export type MessageCategory = typeof MessageCategory[keyof typeof MessageCategory];
+
 
 

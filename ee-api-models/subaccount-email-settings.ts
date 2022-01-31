@@ -62,5 +62,11 @@ export interface SubaccountEmailSettings {
      * @memberof SubaccountEmailSettings
      */
     'PoolName'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SubaccountEmailSettings
+     */
+    'ValidSenderDomainOnly'?: boolean | null;
 }
 

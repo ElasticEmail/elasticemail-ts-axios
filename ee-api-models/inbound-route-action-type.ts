@@ -20,10 +20,13 @@
  * @enum {string}
  */
 
-export enum InboundRouteActionType {
-    ForwardToEmail = 'ForwardToEmail',
-    NotifyViaHttp = 'NotifyViaHttp',
-    Stop = 'Stop'
-}
+export const InboundRouteActionType = {
+    ForwardToEmail: 'ForwardToEmail',
+    NotifyViaHttp: 'NotifyViaHttp',
+    Stop: 'Stop'
+} as const;
+
+export type InboundRouteActionType = typeof InboundRouteActionType[keyof typeof InboundRouteActionType];
+
 
 

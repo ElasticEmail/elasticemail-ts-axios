@@ -20,9 +20,12 @@
  * @enum {string}
  */
 
-export enum SplitOptimizationType {
-    Opens = 'Opens',
-    Clicks = 'Clicks'
-}
+export const SplitOptimizationType = {
+    Opens: 'Opens',
+    Clicks: 'Clicks'
+} as const;
+
+export type SplitOptimizationType = typeof SplitOptimizationType[keyof typeof SplitOptimizationType];
+
 
 

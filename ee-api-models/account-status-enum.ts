@@ -20,12 +20,15 @@
  * @enum {string}
  */
 
-export enum AccountStatusEnum {
-    Disabled = 'Disabled',
-    UnderReview = 'UnderReview',
-    NoPaymentsAllowed = 'NoPaymentsAllowed',
-    NeverSignedIn = 'NeverSignedIn',
-    Active = 'Active'
-}
+export const AccountStatusEnum = {
+    Disabled: 'Disabled',
+    UnderReview: 'UnderReview',
+    NoPaymentsAllowed: 'NoPaymentsAllowed',
+    NeverSignedIn: 'NeverSignedIn',
+    Active: 'Active'
+} as const;
+
+export type AccountStatusEnum = typeof AccountStatusEnum[keyof typeof AccountStatusEnum];
+
 
 

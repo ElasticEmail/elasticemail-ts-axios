@@ -20,10 +20,13 @@
  * @enum {string}
  */
 
-export enum ExportFileFormats {
-    Csv = 'Csv',
-    Xml = 'Xml',
-    Json = 'Json'
-}
+export const ExportFileFormats = {
+    Csv: 'Csv',
+    Xml: 'Xml',
+    Json: 'Json'
+} as const;
+
+export type ExportFileFormats = typeof ExportFileFormats[keyof typeof ExportFileFormats];
+
 
 

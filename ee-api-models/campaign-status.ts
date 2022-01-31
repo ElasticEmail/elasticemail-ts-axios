@@ -20,15 +20,18 @@
  * @enum {string}
  */
 
-export enum CampaignStatus {
-    Deleted = 'Deleted',
-    Active = 'Active',
-    Processing = 'Processing',
-    Sending = 'Sending',
-    Completed = 'Completed',
-    Paused = 'Paused',
-    Cancelled = 'Cancelled',
-    Draft = 'Draft'
-}
+export const CampaignStatus = {
+    Deleted: 'Deleted',
+    Active: 'Active',
+    Processing: 'Processing',
+    Sending: 'Sending',
+    Completed: 'Completed',
+    Paused: 'Paused',
+    Cancelled: 'Cancelled',
+    Draft: 'Draft'
+} as const;
+
+export type CampaignStatus = typeof CampaignStatus[keyof typeof CampaignStatus];
+
 
 

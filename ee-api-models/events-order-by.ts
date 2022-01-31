@@ -20,9 +20,12 @@
  * @enum {string}
  */
 
-export enum EventsOrderBy {
-    DateDescending = 'DateDescending',
-    DateAscending = 'DateAscending'
-}
+export const EventsOrderBy = {
+    DateDescending: 'DateDescending',
+    DateAscending: 'DateAscending'
+} as const;
+
+export type EventsOrderBy = typeof EventsOrderBy[keyof typeof EventsOrderBy];
+
 
 

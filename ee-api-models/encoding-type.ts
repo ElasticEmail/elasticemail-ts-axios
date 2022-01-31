@@ -20,14 +20,17 @@
  * @enum {string}
  */
 
-export enum EncodingType {
-    UserProvided = 'UserProvided',
-    None = 'None',
-    Raw7bit = 'Raw7bit',
-    Raw8bit = 'Raw8bit',
-    QuotedPrintable = 'QuotedPrintable',
-    Base64 = 'Base64',
-    Uue = 'Uue'
-}
+export const EncodingType = {
+    UserProvided: 'UserProvided',
+    None: 'None',
+    Raw7bit: 'Raw7bit',
+    Raw8bit: 'Raw8bit',
+    QuotedPrintable: 'QuotedPrintable',
+    Base64: 'Base64',
+    Uue: 'Uue'
+} as const;
+
+export type EncodingType = typeof EncodingType[keyof typeof EncodingType];
+
 
 

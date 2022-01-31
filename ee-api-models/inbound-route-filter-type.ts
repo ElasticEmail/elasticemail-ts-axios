@@ -20,9 +20,12 @@
  * @enum {string}
  */
 
-export enum InboundRouteFilterType {
-    EmailAddress = 'EmailAddress',
-    Subject = 'Subject'
-}
+export const InboundRouteFilterType = {
+    EmailAddress: 'EmailAddress',
+    Subject: 'Subject'
+} as const;
+
+export type InboundRouteFilterType = typeof InboundRouteFilterType[keyof typeof InboundRouteFilterType];
+
 
 

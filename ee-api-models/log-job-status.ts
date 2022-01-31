@@ -20,17 +20,20 @@
  * @enum {string}
  */
 
-export enum LogJobStatus {
-    All = 'All',
-    ReadyToSend = 'ReadyToSend',
-    WaitingToRetry = 'WaitingToRetry',
-    Sending = 'Sending',
-    Error = 'Error',
-    Sent = 'Sent',
-    Opened = 'Opened',
-    Clicked = 'Clicked',
-    Unsubscribed = 'Unsubscribed',
-    AbuseReport = 'AbuseReport'
-}
+export const LogJobStatus = {
+    All: 'All',
+    ReadyToSend: 'ReadyToSend',
+    WaitingToRetry: 'WaitingToRetry',
+    Sending: 'Sending',
+    Error: 'Error',
+    Sent: 'Sent',
+    Opened: 'Opened',
+    Clicked: 'Clicked',
+    Unsubscribed: 'Unsubscribed',
+    AbuseReport: 'AbuseReport'
+} as const;
+
+export type LogJobStatus = typeof LogJobStatus[keyof typeof LogJobStatus];
+
 
 

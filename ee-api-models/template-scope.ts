@@ -20,9 +20,12 @@
  * @enum {string}
  */
 
-export enum TemplateScope {
-    Personal = 'Personal',
-    Global = 'Global'
-}
+export const TemplateScope = {
+    Personal: 'Personal',
+    Global: 'Global'
+} as const;
+
+export type TemplateScope = typeof TemplateScope[keyof typeof TemplateScope];
+
 
 

@@ -20,14 +20,17 @@
  * @enum {string}
  */
 
-export enum ContactSource {
-    DeliveryApi = 'DeliveryApi',
-    ManualInput = 'ManualInput',
-    FileUpload = 'FileUpload',
-    WebForm = 'WebForm',
-    ContactApi = 'ContactApi',
-    VerificationApi = 'VerificationApi',
-    FileVerificationApi = 'FileVerificationApi'
-}
+export const ContactSource = {
+    DeliveryApi: 'DeliveryApi',
+    ManualInput: 'ManualInput',
+    FileUpload: 'FileUpload',
+    WebForm: 'WebForm',
+    ContactApi: 'ContactApi',
+    VerificationApi: 'VerificationApi',
+    FileVerificationApi: 'FileVerificationApi'
+} as const;
+
+export type ContactSource = typeof ContactSource[keyof typeof ContactSource];
+
 
 

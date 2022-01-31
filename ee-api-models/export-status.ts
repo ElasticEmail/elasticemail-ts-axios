@@ -20,11 +20,14 @@
  * @enum {string}
  */
 
-export enum ExportStatus {
-    Error = 'Error',
-    Loading = 'Loading',
-    Ready = 'Ready',
-    Expired = 'Expired'
-}
+export const ExportStatus = {
+    Error: 'Error',
+    Loading: 'Loading',
+    Ready: 'Ready',
+    Expired: 'Expired'
+} as const;
+
+export type ExportStatus = typeof ExportStatus[keyof typeof ExportStatus];
+
 
 

@@ -20,10 +20,13 @@
  * @enum {string}
  */
 
-export enum TemplateType {
-    RawHtml = 'RawHTML',
-    DragDropEditor = 'DragDropEditor',
-    LandingPageEditor = 'LandingPageEditor'
-}
+export const TemplateType = {
+    RawHtml: 'RawHTML',
+    DragDropEditor: 'DragDropEditor',
+    LandingPageEditor: 'LandingPageEditor'
+} as const;
+
+export type TemplateType = typeof TemplateType[keyof typeof TemplateType];
+
 
 

@@ -20,21 +20,24 @@
  * @enum {string}
  */
 
-export enum ContactHistEventType {
-    Opened = 'Opened',
-    Clicked = 'Clicked',
-    Bounced = 'Bounced',
-    Unsubscribed = 'Unsubscribed',
-    Complained = 'Complained',
-    Activated = 'Activated',
-    TransactionalUnsubscribed = 'TransactionalUnsubscribed',
-    ManualStatusChange = 'ManualStatusChange',
-    ManualConsentTrackingChange = 'ManualConsentTrackingChange',
-    ActivationSent = 'ActivationSent',
-    JourneyStarted = 'JourneyStarted',
-    JourneyStepProcessed = 'JourneyStepProcessed',
-    JourneyFinished = 'JourneyFinished',
-    Deleted = 'Deleted'
-}
+export const ContactHistEventType = {
+    Opened: 'Opened',
+    Clicked: 'Clicked',
+    Bounced: 'Bounced',
+    Unsubscribed: 'Unsubscribed',
+    Complained: 'Complained',
+    Activated: 'Activated',
+    TransactionalUnsubscribed: 'TransactionalUnsubscribed',
+    ManualStatusChange: 'ManualStatusChange',
+    ManualConsentTrackingChange: 'ManualConsentTrackingChange',
+    ActivationSent: 'ActivationSent',
+    JourneyStarted: 'JourneyStarted',
+    JourneyStepProcessed: 'JourneyStepProcessed',
+    JourneyFinished: 'JourneyFinished',
+    Deleted: 'Deleted'
+} as const;
+
+export type ContactHistEventType = typeof ContactHistEventType[keyof typeof ContactHistEventType];
+
 
 

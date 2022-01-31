@@ -20,12 +20,15 @@
  * @enum {string}
  */
 
-export enum EmailValidationStatus {
-    None = 'None',
-    Valid = 'Valid',
-    Unknown = 'Unknown',
-    Risky = 'Risky',
-    Invalid = 'Invalid'
-}
+export const EmailValidationStatus = {
+    None: 'None',
+    Valid: 'Valid',
+    Unknown: 'Unknown',
+    Risky: 'Risky',
+    Invalid: 'Invalid'
+} as const;
+
+export type EmailValidationStatus = typeof EmailValidationStatus[keyof typeof EmailValidationStatus];
+
 
 

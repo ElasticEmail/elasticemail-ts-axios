@@ -20,11 +20,14 @@
  * @enum {string}
  */
 
-export enum BodyContentType {
-    Html = 'HTML',
-    PlainText = 'PlainText',
-    Amp = 'AMP',
-    Css = 'CSS'
-}
+export const BodyContentType = {
+    Html: 'HTML',
+    PlainText: 'PlainText',
+    Amp: 'AMP',
+    Css: 'CSS'
+} as const;
+
+export type BodyContentType = typeof BodyContentType[keyof typeof BodyContentType];
+
 
 

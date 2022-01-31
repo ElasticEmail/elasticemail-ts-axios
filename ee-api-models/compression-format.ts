@@ -20,9 +20,12 @@
  * @enum {string}
  */
 
-export enum CompressionFormat {
-    None = 'None',
-    Zip = 'Zip'
-}
+export const CompressionFormat = {
+    None: 'None',
+    Zip: 'Zip'
+} as const;
+
+export type CompressionFormat = typeof CompressionFormat[keyof typeof CompressionFormat];
+
 
 

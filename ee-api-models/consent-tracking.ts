@@ -20,10 +20,13 @@
  * @enum {string}
  */
 
-export enum ConsentTracking {
-    Unknown = 'Unknown',
-    Allow = 'Allow',
-    Deny = 'Deny'
-}
+export const ConsentTracking = {
+    Unknown: 'Unknown',
+    Allow: 'Allow',
+    Deny: 'Deny'
+} as const;
+
+export type ConsentTracking = typeof ConsentTracking[keyof typeof ConsentTracking];
+
 
 

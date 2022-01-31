@@ -20,12 +20,15 @@
  * @enum {string}
  */
 
-export enum VerificationStatus {
-    Processing = 'Processing',
-    Ready = 'Ready',
-    Expired = 'Expired',
-    Verified = 'Verified',
-    Error = 'Error'
-}
+export const VerificationStatus = {
+    Processing: 'Processing',
+    Ready: 'Ready',
+    Expired: 'Expired',
+    Verified: 'Verified',
+    Error: 'Error'
+} as const;
+
+export type VerificationStatus = typeof VerificationStatus[keyof typeof VerificationStatus];
+
 
 

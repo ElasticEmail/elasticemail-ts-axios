@@ -20,15 +20,18 @@
  * @enum {string}
  */
 
-export enum EventType {
-    Submission = 'Submission',
-    FailedAttempt = 'FailedAttempt',
-    Bounce = 'Bounce',
-    Sent = 'Sent',
-    Open = 'Open',
-    Click = 'Click',
-    Unsubscribe = 'Unsubscribe',
-    Complaint = 'Complaint'
-}
+export const EventType = {
+    Submission: 'Submission',
+    FailedAttempt: 'FailedAttempt',
+    Bounce: 'Bounce',
+    Sent: 'Sent',
+    Open: 'Open',
+    Click: 'Click',
+    Unsubscribe: 'Unsubscribe',
+    Complaint: 'Complaint'
+} as const;
+
+export type EventType = typeof EventType[keyof typeof EventType];
+
 
 

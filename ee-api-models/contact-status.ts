@@ -20,16 +20,19 @@
  * @enum {string}
  */
 
-export enum ContactStatus {
-    Transactional = 'Transactional',
-    Engaged = 'Engaged',
-    Active = 'Active',
-    Bounced = 'Bounced',
-    Unsubscribed = 'Unsubscribed',
-    Abuse = 'Abuse',
-    Inactive = 'Inactive',
-    Stale = 'Stale',
-    NotConfirmed = 'NotConfirmed'
-}
+export const ContactStatus = {
+    Transactional: 'Transactional',
+    Engaged: 'Engaged',
+    Active: 'Active',
+    Bounced: 'Bounced',
+    Unsubscribed: 'Unsubscribed',
+    Abuse: 'Abuse',
+    Inactive: 'Inactive',
+    Stale: 'Stale',
+    NotConfirmed: 'NotConfirmed'
+} as const;
+
+export type ContactStatus = typeof ContactStatus[keyof typeof ContactStatus];
+
 
 
