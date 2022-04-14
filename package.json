@@ -1,6 +1,6 @@
 {
-  "name": "elasticemail-ts-axios",
-  "version": "4.0.17",
+  "name": "@elasticemail/elasticemail-client-ts-axios",
+  "version": "4.0.18",
   "description": "Official ElasticEmail SDK. This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.",
   "author": "Elastic Email",
   "keywords": [
@@ -27,5 +27,13 @@
   "devDependencies": {
     "@types/node": "^12.11.5",
     "typescript": "^3.6.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://elasticemail: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@github.com/elasticemail/elasticemail-ts-axios.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elasticemail/elasticemail-ts-axios/issues"
+  },
+  "homepage": "https://github.com/elasticemail/elasticemail-ts-axios#readme"
 }
