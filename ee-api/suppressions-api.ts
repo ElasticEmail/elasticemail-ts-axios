@@ -29,7 +29,7 @@ import { Suppression } from '../ee-api-models';
 export const SuppressionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Retrieve your list of bounced emails. Required Access Level: ViewContacts
+         * Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Bounce List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -77,7 +77,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -119,7 +119,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces
          * @param {Array<string>} requestBody Emails to add as bounces. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -158,7 +158,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Delete Suppression. Required Access Level: ViewContacts
+         * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Delete Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -195,7 +195,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Retrieve your suppression. Required Access Level: ViewContacts
+         * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -232,7 +232,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Retrieve your list of complaints. Required Access Level: ViewContacts
+         * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Complaints List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -280,7 +280,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -322,7 +322,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints
          * @param {Array<string>} requestBody Emails to add as complaints. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -361,7 +361,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Retrieve your suppressions. Required Access Level: ViewContacts
+         * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppressions
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
@@ -404,7 +404,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Unsubscribes List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -452,7 +452,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -494,7 +494,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes
          * @param {Array<string>} requestBody Emails to add as unsubscribes. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -543,7 +543,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SuppressionsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Retrieve your list of bounced emails. Required Access Level: ViewContacts
+         * Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Bounce List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -556,7 +556,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -567,7 +567,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces
          * @param {Array<string>} requestBody Emails to add as bounces. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -578,7 +578,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete Suppression. Required Access Level: ViewContacts
+         * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Delete Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -589,7 +589,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve your suppression. Required Access Level: ViewContacts
+         * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -600,7 +600,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve your list of complaints. Required Access Level: ViewContacts
+         * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Complaints List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -613,7 +613,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -624,7 +624,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints
          * @param {Array<string>} requestBody Emails to add as complaints. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -635,7 +635,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve your suppressions. Required Access Level: ViewContacts
+         * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppressions
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
@@ -647,7 +647,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Unsubscribes List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -660,7 +660,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -671,7 +671,7 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes
          * @param {Array<string>} requestBody Emails to add as unsubscribes. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -692,7 +692,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
     const localVarFp = SuppressionsApiFp(configuration)
     return {
         /**
-         * Retrieve your list of bounced emails. Required Access Level: ViewContacts
+         * Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Bounce List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -704,7 +704,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsBouncesGet(search, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -714,7 +714,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsBouncesImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Bounced. Required Access Level: ModifyContacts
+         * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces
          * @param {Array<string>} requestBody Emails to add as bounces. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -724,7 +724,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsBouncesPost(requestBody, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete Suppression. Required Access Level: ViewContacts
+         * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Delete Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -734,7 +734,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsByEmailDelete(email, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve your suppression. Required Access Level: ViewContacts
+         * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppression
          * @param {string} email Proper email address.
          * @param {*} [options] Override http request option.
@@ -744,7 +744,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsByEmailGet(email, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve your list of complaints. Required Access Level: ViewContacts
+         * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Complaints List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -756,7 +756,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsComplaintsGet(search, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -766,7 +766,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsComplaintsImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Complaints. Required Access Level: ModifyContacts
+         * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints
          * @param {Array<string>} requestBody Emails to add as complaints. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -776,7 +776,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsComplaintsPost(requestBody, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve your suppressions. Required Access Level: ViewContacts
+         * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Suppressions
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
@@ -787,7 +787,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+         * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
          * @summary Get Unsubscribes List
          * @param {string} [search] Text fragment used for searching.
          * @param {number} [limit] Maximum number of returned items.
@@ -799,7 +799,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsUnsubscribesGet(search, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
          * @param {any} [file] 
          * @param {*} [options] Override http request option.
@@ -809,7 +809,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
             return localVarFp.suppressionsUnsubscribesImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add Unsubscribes. Required Access Level: ModifyContacts
+         * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes
          * @param {Array<string>} requestBody Emails to add as unsubscribes. Limited to 1000 per request
          * @param {*} [options] Override http request option.
@@ -828,7 +828,7 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
  */
 export interface SuppressionsApiInterface {
     /**
-     * Retrieve your list of bounced emails. Required Access Level: ViewContacts
+     * Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Bounce List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -840,7 +840,7 @@ export interface SuppressionsApiInterface {
     suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Add Bounced. Required Access Level: ModifyContacts
+     * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -850,7 +850,7 @@ export interface SuppressionsApiInterface {
     suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Add Bounced. Required Access Level: ModifyContacts
+     * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces
      * @param {Array<string>} requestBody Emails to add as bounces. Limited to 1000 per request
      * @param {*} [options] Override http request option.
@@ -860,7 +860,7 @@ export interface SuppressionsApiInterface {
     suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Delete Suppression. Required Access Level: ViewContacts
+     * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Delete Suppression
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
@@ -870,7 +870,7 @@ export interface SuppressionsApiInterface {
     suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Retrieve your suppression. Required Access Level: ViewContacts
+     * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Suppression
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
@@ -880,7 +880,7 @@ export interface SuppressionsApiInterface {
     suppressionsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<Suppression>;
 
     /**
-     * Retrieve your list of complaints. Required Access Level: ViewContacts
+     * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Complaints List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -892,7 +892,7 @@ export interface SuppressionsApiInterface {
     suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Add Complaints. Required Access Level: ModifyContacts
+     * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -902,7 +902,7 @@ export interface SuppressionsApiInterface {
     suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Add Complaints. Required Access Level: ModifyContacts
+     * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints
      * @param {Array<string>} requestBody Emails to add as complaints. Limited to 1000 per request
      * @param {*} [options] Override http request option.
@@ -912,7 +912,7 @@ export interface SuppressionsApiInterface {
     suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Retrieve your suppressions. Required Access Level: ViewContacts
+     * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Suppressions
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
@@ -923,7 +923,7 @@ export interface SuppressionsApiInterface {
     suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+     * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Unsubscribes List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -935,7 +935,7 @@ export interface SuppressionsApiInterface {
     suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
-     * Add Unsubscribes. Required Access Level: ModifyContacts
+     * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -945,7 +945,7 @@ export interface SuppressionsApiInterface {
     suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Add Unsubscribes. Required Access Level: ModifyContacts
+     * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes
      * @param {Array<string>} requestBody Emails to add as unsubscribes. Limited to 1000 per request
      * @param {*} [options] Override http request option.
@@ -964,7 +964,7 @@ export interface SuppressionsApiInterface {
  */
 export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface {
     /**
-     * Retrieve your list of bounced emails. Required Access Level: ViewContacts
+     * Retrieve your list of bounced emails. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Bounce List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -978,7 +978,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Bounced. Required Access Level: ModifyContacts
+     * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -990,7 +990,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Bounced. Required Access Level: ModifyContacts
+     * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces
      * @param {Array<string>} requestBody Emails to add as bounces. Limited to 1000 per request
      * @param {*} [options] Override http request option.
@@ -1002,7 +1002,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Delete Suppression. Required Access Level: ViewContacts
+     * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Delete Suppression
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
@@ -1014,7 +1014,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Retrieve your suppression. Required Access Level: ViewContacts
+     * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Suppression
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
@@ -1026,7 +1026,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Retrieve your list of complaints. Required Access Level: ViewContacts
+     * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Complaints List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -1040,7 +1040,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Complaints. Required Access Level: ModifyContacts
+     * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -1052,7 +1052,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Complaints. Required Access Level: ModifyContacts
+     * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints
      * @param {Array<string>} requestBody Emails to add as complaints. Limited to 1000 per request
      * @param {*} [options] Override http request option.
@@ -1064,7 +1064,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Retrieve your suppressions. Required Access Level: ViewContacts
+     * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Suppressions
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
@@ -1077,7 +1077,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Retrieve your list of unsubscribes. Required Access Level: ViewContacts
+     * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
      * @summary Get Unsubscribes List
      * @param {string} [search] Text fragment used for searching.
      * @param {number} [limit] Maximum number of returned items.
@@ -1091,7 +1091,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Unsubscribes. Required Access Level: ModifyContacts
+     * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes Async
      * @param {any} [file] 
      * @param {*} [options] Override http request option.
@@ -1103,7 +1103,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     }
 
     /**
-     * Add Unsubscribes. Required Access Level: ModifyContacts
+     * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes
      * @param {Array<string>} requestBody Emails to add as unsubscribes. Limited to 1000 per request
      * @param {*} [options] Override http request option.

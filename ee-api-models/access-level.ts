@@ -67,7 +67,11 @@ export const AccessLevel = {
     ViewEmailVerifications: 'ViewEmailVerifications',
     ViewMarketing: 'ViewMarketing',
     ViewEmailApi: 'ViewEmailApi',
-    ViewInbound: 'ViewInbound'
+    ViewInbound: 'ViewInbound',
+    ModifyLandingPages: 'ModifyLandingPages',
+    ViewLandingPages: 'ViewLandingPages',
+    ModifySuppressions: 'ModifySuppressions',
+    ViewSuppressions: 'ViewSuppressions'
 } as const;
 
 export type AccessLevel = typeof AccessLevel[keyof typeof AccessLevel];
