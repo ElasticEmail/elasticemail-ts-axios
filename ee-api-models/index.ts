@@ -15,8 +15,6 @@ export * from './consent-data';
 export * from './consent-tracking';
 export * from './contact';
 export * from './contact-activity';
-export * from './contact-hist-event-type';
-export * from './contact-history';
 export * from './contact-payload';
 export * from './contact-source';
 export * from './contact-status';

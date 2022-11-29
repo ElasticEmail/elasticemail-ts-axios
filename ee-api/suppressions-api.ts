@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -79,11 +79,11 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsBouncesImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/bounces/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -282,11 +282,11 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/complaints/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -454,11 +454,11 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
         /**
          * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesImportPost: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/unsubscribes/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -558,11 +558,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
         /**
          * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -615,11 +615,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
         /**
          * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -662,11 +662,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
         /**
          * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesImportPost(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -706,11 +706,11 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
         /**
          * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Bounces Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesImportPost(file?: any, options?: any): AxiosPromise<void> {
+        suppressionsBouncesImportPost(file?: File, options?: any): AxiosPromise<void> {
             return localVarFp.suppressionsBouncesImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -758,11 +758,11 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
         /**
          * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Complaints Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsImportPost(file?: any, options?: any): AxiosPromise<void> {
+        suppressionsComplaintsImportPost(file?: File, options?: any): AxiosPromise<void> {
             return localVarFp.suppressionsComplaintsImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -801,11 +801,11 @@ export const SuppressionsApiFactory = function (configuration?: Configuration, b
         /**
          * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
          * @summary Add Unsubscribes Async
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesImportPost(file?: any, options?: any): AxiosPromise<void> {
+        suppressionsUnsubscribesImportPost(file?: File, options?: any): AxiosPromise<void> {
             return localVarFp.suppressionsUnsubscribesImportPost(file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -842,12 +842,12 @@ export interface SuppressionsApiInterface {
     /**
      * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -894,12 +894,12 @@ export interface SuppressionsApiInterface {
     /**
      * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -937,12 +937,12 @@ export interface SuppressionsApiInterface {
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -980,12 +980,12 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     /**
      * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Bounces Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesImportPost(file?: any, options?: AxiosRequestConfig) {
+    public suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1042,12 +1042,12 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     /**
      * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Complaints Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsImportPost(file?: any, options?: AxiosRequestConfig) {
+    public suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1093,12 +1093,12 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
      * @summary Add Unsubscribes Async
-     * @param {any} [file] 
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesImportPost(file?: any, options?: AxiosRequestConfig) {
+    public suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 

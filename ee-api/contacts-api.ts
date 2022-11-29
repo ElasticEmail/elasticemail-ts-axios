@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://elasticemail.com/account#/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -24,8 +24,6 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 import { CompressionFormat } from '../ee-api-models';
 // @ts-ignore
 import { Contact } from '../ee-api-models';
-// @ts-ignore
-import { ContactHistory } from '../ee-api-models';
 // @ts-ignore
 import { ContactPayload } from '../ee-api-models';
 // @ts-ignore
@@ -106,53 +104,6 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns detailed history of specified Contact. Required Access Level: ViewContacts
-         * @summary Load History
-         * @param {string} email Proper email address.
-         * @param {number} [limit] Maximum number of returned items.
-         * @param {number} [offset] How many items should be returned ahead.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        contactsByEmailHistoryGet: async (email: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'email' is not null or undefined
-            assertParamExists('contactsByEmailHistoryGet', 'email', email)
-            const localVarPath = `/contacts/{email}/history`
-                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication apikey required
-            await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
 
 
     
@@ -390,11 +341,12 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Upload Contacts
          * @param {string} [listName] Name of an existing list to add these contacts to
          * @param {string} [encodingName] In what encoding the file is uploaded
-         * @param {any} [file] 
+         * @param {string} [fileUrl] Optional url of csv to import
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsImportPost: async (listName?: string, encodingName?: string, file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        contactsImportPost: async (listName?: string, encodingName?: string, fileUrl?: string, file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/contacts/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -417,6 +369,10 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (encodingName !== undefined) {
                 localVarQueryParameter['encodingName'] = encodingName;
+            }
+
+            if (fileUrl !== undefined) {
+                localVarQueryParameter['fileUrl'] = fileUrl;
             }
 
 
@@ -514,19 +470,6 @@ export const ContactsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns detailed history of specified Contact. Required Access Level: ViewContacts
-         * @summary Load History
-         * @param {string} email Proper email address.
-         * @param {number} [limit] Maximum number of returned items.
-         * @param {number} [offset] How many items should be returned ahead.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async contactsByEmailHistoryGet(email: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ContactHistory>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.contactsByEmailHistoryGet(email, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Update selected contact. Omitted contact\'s fields will not be changed. Required Access Level: ModifyContacts
          * @summary Update Contact
          * @param {string} email Proper email address.
@@ -592,12 +535,13 @@ export const ContactsApiFp = function(configuration?: Configuration) {
          * @summary Upload Contacts
          * @param {string} [listName] Name of an existing list to add these contacts to
          * @param {string} [encodingName] In what encoding the file is uploaded
-         * @param {any} [file] 
+         * @param {string} [fileUrl] Optional url of csv to import
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async contactsImportPost(listName?: string, encodingName?: string, file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.contactsImportPost(listName, encodingName, file, options);
+        async contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.contactsImportPost(listName, encodingName, fileUrl, file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -641,18 +585,6 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          */
         contactsByEmailGet(email: string, options?: any): AxiosPromise<Contact> {
             return localVarFp.contactsByEmailGet(email, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns detailed history of specified Contact. Required Access Level: ViewContacts
-         * @summary Load History
-         * @param {string} email Proper email address.
-         * @param {number} [limit] Maximum number of returned items.
-         * @param {number} [offset] How many items should be returned ahead.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        contactsByEmailHistoryGet(email: string, limit?: number, offset?: number, options?: any): AxiosPromise<Array<ContactHistory>> {
-            return localVarFp.contactsByEmailHistoryGet(email, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Update selected contact. Omitted contact\'s fields will not be changed. Required Access Level: ModifyContacts
@@ -715,12 +647,13 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @summary Upload Contacts
          * @param {string} [listName] Name of an existing list to add these contacts to
          * @param {string} [encodingName] In what encoding the file is uploaded
-         * @param {any} [file] 
+         * @param {string} [fileUrl] Optional url of csv to import
+         * @param {File} [file] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsImportPost(listName?: string, encodingName?: string, file?: any, options?: any): AxiosPromise<void> {
-            return localVarFp.contactsImportPost(listName, encodingName, file, options).then((request) => request(axios, basePath));
+        contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: any): AxiosPromise<void> {
+            return localVarFp.contactsImportPost(listName, encodingName, fileUrl, file, options).then((request) => request(axios, basePath));
         },
         /**
          * Add new Contacts to your Lists. Up to 1000 can be added (for more please refer to the import request). Required Access Level: ModifyContacts
@@ -761,18 +694,6 @@ export interface ContactsApiInterface {
      * @memberof ContactsApiInterface
      */
     contactsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<Contact>;
-
-    /**
-     * Returns detailed history of specified Contact. Required Access Level: ViewContacts
-     * @summary Load History
-     * @param {string} email Proper email address.
-     * @param {number} [limit] Maximum number of returned items.
-     * @param {number} [offset] How many items should be returned ahead.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ContactsApiInterface
-     */
-    contactsByEmailHistoryGet(email: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<ContactHistory>>;
 
     /**
      * Update selected contact. Omitted contact\'s fields will not be changed. Required Access Level: ModifyContacts
@@ -835,12 +756,13 @@ export interface ContactsApiInterface {
      * @summary Upload Contacts
      * @param {string} [listName] Name of an existing list to add these contacts to
      * @param {string} [encodingName] In what encoding the file is uploaded
-     * @param {any} [file] 
+     * @param {string} [fileUrl] Optional url of csv to import
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    contactsImportPost(listName?: string, encodingName?: string, file?: any, options?: AxiosRequestConfig): AxiosPromise<void>;
+    contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add new Contacts to your Lists. Up to 1000 can be added (for more please refer to the import request). Required Access Level: ModifyContacts
@@ -884,20 +806,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      */
     public contactsByEmailGet(email: string, options?: AxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns detailed history of specified Contact. Required Access Level: ViewContacts
-     * @summary Load History
-     * @param {string} email Proper email address.
-     * @param {number} [limit] Maximum number of returned items.
-     * @param {number} [offset] How many items should be returned ahead.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ContactsApi
-     */
-    public contactsByEmailHistoryGet(email: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
-        return ContactsApiFp(this.configuration).contactsByEmailHistoryGet(email, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -971,13 +879,14 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @summary Upload Contacts
      * @param {string} [listName] Name of an existing list to add these contacts to
      * @param {string} [encodingName] In what encoding the file is uploaded
-     * @param {any} [file] 
+     * @param {string} [fileUrl] Optional url of csv to import
+     * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ContactsApi
      */
-    public contactsImportPost(listName?: string, encodingName?: string, file?: any, options?: AxiosRequestConfig) {
-        return ContactsApiFp(this.configuration).contactsImportPost(listName, encodingName, file, options).then((request) => request(this.axios, this.basePath));
+    public contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: AxiosRequestConfig) {
+        return ContactsApiFp(this.configuration).contactsImportPost(listName, encodingName, fileUrl, file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
