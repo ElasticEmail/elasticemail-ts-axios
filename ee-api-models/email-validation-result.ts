@@ -79,3 +79,5 @@ export interface EmailValidationResult {
     'Result'?: EmailValidationStatus;
 }
 
+
+

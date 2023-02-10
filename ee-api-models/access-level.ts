@@ -64,7 +64,6 @@ export const AccessLevel = {
     ModifyWebNotifications: 'ModifyWebNotifications',
     ExtendedLogs: 'ExtendedLogs',
     VerifyEmails: 'VerifyEmails',
-    ViewEmailVerifications: 'ViewEmailVerifications',
     DisableContactsStore: 'DisableContactsStore',
     ModifyLandingPages: 'ModifyLandingPages',
     ViewLandingPages: 'ViewLandingPages',

@@ -38,5 +38,11 @@ export interface MessageAttachment {
      * @memberof MessageAttachment
      */
     'ContentType'?: string;
+    /**
+     * Size of your attachment (in bytes).
+     * @type {number}
+     * @memberof MessageAttachment
+     */
+    'Size'?: number;
 }
 

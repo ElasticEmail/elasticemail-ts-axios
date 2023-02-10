@@ -97,3 +97,5 @@ export interface EmailStatus {
     'EnvelopeFrom'?: string;
 }
 
+
+
