@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import { EmailPredictedValidationStatus } from './email-predicted-validation-status';
+// May contain unused imports in some cases
+// @ts-ignore
 import { EmailValidationStatus } from './email-validation-status';
 
 /**
@@ -77,6 +80,18 @@ export interface EmailValidationResult {
      * @memberof EmailValidationResult
      */
     'Result'?: EmailValidationStatus;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmailValidationResult
+     */
+    'PredictedScore'?: number;
+    /**
+     * 
+     * @type {EmailPredictedValidationStatus}
+     * @memberof EmailValidationResult
+     */
+    'PredictedStatus'?: EmailPredictedValidationStatus;
 }
 
 
