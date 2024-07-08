@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ConsentTracking } from './consent-tracking';
+import type { ConsentTracking } from './consent-tracking';
 
 /**
  * 

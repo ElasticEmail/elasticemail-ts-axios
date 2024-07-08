@@ -14,17 +14,17 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { FileInfo } from '../ee-api-models';
+import type { FileInfo } from '../ee-api-models';
 // @ts-ignore
-import { FilePayload } from '../ee-api-models';
+import type { FilePayload } from '../ee-api-models';
 /**
  * FilesApi - axios parameter creator
  * @export
@@ -38,7 +38,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        filesByNameDelete: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameDelete', 'name', name)
             const localVarPath = `/files/{name}`
@@ -75,7 +75,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        filesByNameGet: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameGet', 'name', name)
             const localVarPath = `/files/{name}`
@@ -112,7 +112,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameInfoGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        filesByNameInfoGet: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('filesByNameInfoGet', 'name', name)
             const localVarPath = `/files/{name}/info`
@@ -150,7 +150,7 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        filesGet: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/files`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -189,11 +189,11 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
          * Uploads selected file to the server. Required Access Level: ModifyFiles
          * @summary Upload File
          * @param {FilePayload} filePayload 
-         * @param {number} [expiresAfterDays] After how many days should the file be deleted.
+         * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesPost: async (filePayload: FilePayload, expiresAfterDays?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        filesPost: async (filePayload: FilePayload, expiresAfterDays?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'filePayload' is not null or undefined
             assertParamExists('filesPost', 'filePayload', filePayload)
             const localVarPath = `/files`;
@@ -246,9 +246,11 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async filesByNameDelete(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameDelete(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FilesApi.filesByNameDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Gets content of the specified File. Required Access Level: ViewFiles
@@ -257,9 +259,11 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async filesByNameGet(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameGet(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FilesApi.filesByNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns the specified File\'s details. Required Access Level: ViewFiles
@@ -268,9 +272,11 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesByNameInfoGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
+        async filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesByNameInfoGet(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FilesApi.filesByNameInfoGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a list of all your available files. Required Access Level: ViewFiles
@@ -280,21 +286,25 @@ export const FilesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FileInfo>>> {
+        async filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FileInfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesGet(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FilesApi.filesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Uploads selected file to the server. Required Access Level: ModifyFiles
          * @summary Upload File
          * @param {FilePayload} filePayload 
-         * @param {number} [expiresAfterDays] After how many days should the file be deleted.
+         * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
+        async filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FileInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.filesPost(filePayload, expiresAfterDays, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['FilesApi.filesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -351,11 +361,11 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * Uploads selected file to the server. Required Access Level: ModifyFiles
          * @summary Upload File
          * @param {FilePayload} filePayload 
-         * @param {number} [expiresAfterDays] After how many days should the file be deleted.
+         * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: any): AxiosPromise<FileInfo> {
+        filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: any): AxiosPromise<FileInfo> {
             return localVarFp.filesPost(filePayload, expiresAfterDays, options).then((request) => request(axios, basePath));
         },
     };
@@ -375,7 +385,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    filesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Gets content of the specified File. Required Access Level: ViewFiles
@@ -385,7 +395,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<File>;
+    filesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
     /**
      * Returns the specified File\'s details. Required Access Level: ViewFiles
@@ -395,7 +405,7 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesByNameInfoGet(name: string, options?: AxiosRequestConfig): AxiosPromise<FileInfo>;
+    filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo>;
 
     /**
      * Returns a list of all your available files. Required Access Level: ViewFiles
@@ -406,18 +416,18 @@ export interface FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<FileInfo>>;
+    filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<FileInfo>>;
 
     /**
      * Uploads selected file to the server. Required Access Level: ModifyFiles
      * @summary Upload File
      * @param {FilePayload} filePayload 
-     * @param {number} [expiresAfterDays] After how many days should the file be deleted.
+     * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApiInterface
      */
-    filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig): AxiosPromise<FileInfo>;
+    filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo>;
 
 }
 
@@ -436,7 +446,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameDelete(name: string, options?: AxiosRequestConfig) {
+    public filesByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -448,7 +458,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameGet(name: string, options?: AxiosRequestConfig) {
+    public filesByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -460,7 +470,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesByNameInfoGet(name: string, options?: AxiosRequestConfig) {
+    public filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameInfoGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -473,7 +483,7 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -481,12 +491,13 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * Uploads selected file to the server. Required Access Level: ModifyFiles
      * @summary Upload File
      * @param {FilePayload} filePayload 
-     * @param {number} [expiresAfterDays] After how many days should the file be deleted.
+     * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApi
      */
-    public filesPost(filePayload: FilePayload, expiresAfterDays?: number, options?: AxiosRequestConfig) {
+    public filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesPost(filePayload, expiresAfterDays, options).then((request) => request(this.axios, this.basePath));
     }
 }
+

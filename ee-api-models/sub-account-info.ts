@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AccountStatusEnum } from './account-status-enum';
+import type { AccountStatusEnum } from './account-status-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { SubaccountSettingsInfo } from './subaccount-settings-info';
+import type { SubaccountSettingsInfo } from './subaccount-settings-info';
 
 /**
  * Detailed information about SubAccount.

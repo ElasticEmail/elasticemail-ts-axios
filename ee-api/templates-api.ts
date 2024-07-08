@@ -14,21 +14,21 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Template } from '../ee-api-models';
+import type { Template } from '../ee-api-models';
 // @ts-ignore
-import { TemplatePayload } from '../ee-api-models';
+import type { TemplatePayload } from '../ee-api-models';
 // @ts-ignore
-import { TemplateScope } from '../ee-api-models';
+import type { TemplateScope } from '../ee-api-models';
 // @ts-ignore
-import { TemplateType } from '../ee-api-models';
+import type { TemplateType } from '../ee-api-models';
 /**
  * TemplatesApi - axios parameter creator
  * @export
@@ -42,7 +42,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        templatesByNameDelete: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNameDelete', 'name', name)
             const localVarPath = `/templates/{name}`
@@ -79,7 +79,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        templatesByNameGet: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNameGet', 'name', name)
             const localVarPath = `/templates/{name}`
@@ -117,7 +117,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNamePut: async (name: string, templatePayload: TemplatePayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        templatesByNamePut: async (name: string, templatePayload: TemplatePayload, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('templatesByNamePut', 'name', name)
             // verify required parameter 'templatePayload' is not null or undefined
@@ -162,7 +162,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesGet: async (scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        templatesGet: async (scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scopeType' is not null or undefined
             assertParamExists('templatesGet', 'scopeType', scopeType)
             const localVarPath = `/templates`;
@@ -214,7 +214,7 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesPost: async (templatePayload: TemplatePayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        templatesPost: async (templatePayload: TemplatePayload, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'templatePayload' is not null or undefined
             assertParamExists('templatesPost', 'templatePayload', templatePayload)
             const localVarPath = `/templates`;
@@ -263,9 +263,11 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async templatesByNameDelete(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNameDelete(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.templatesByNameDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Load detailed information of the specified template. Required Access Level: ViewTemplates
@@ -274,9 +276,11 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesByNameGet(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNameGet(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.templatesByNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update existing template, overwriting existing data. Required Access Level: ModifyTemplates
@@ -286,9 +290,11 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesByNamePut(name, templatePayload, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.templatesByNamePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
@@ -300,9 +306,11 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
+        async templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Template>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesGet(scopeType, templateTypes, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.templatesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add a new Template. Required Access Level: ModifyTemplates
@@ -311,9 +319,11 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
+        async templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Template>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.templatesPost(templatePayload, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.templatesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -396,7 +406,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    templatesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Load detailed information of the specified template. Required Access Level: ViewTemplates
@@ -406,7 +416,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<Template>;
+    templatesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
     /**
      * Update existing template, overwriting existing data. Required Access Level: ModifyTemplates
@@ -417,7 +427,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig): AxiosPromise<Template>;
+    templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
     /**
      * Returns a list of templates for the specified type. Required Access Level: ViewTemplates
@@ -430,7 +440,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Template>>;
+    templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Template>>;
 
     /**
      * Add a new Template. Required Access Level: ModifyTemplates
@@ -440,7 +450,7 @@ export interface TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApiInterface
      */
-    templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig): AxiosPromise<Template>;
+    templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
 }
 
@@ -459,7 +469,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNameDelete(name: string, options?: AxiosRequestConfig) {
+    public templatesByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -471,7 +481,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNameGet(name: string, options?: AxiosRequestConfig) {
+    public templatesByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -484,7 +494,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: AxiosRequestConfig) {
+    public templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNamePut(name, templatePayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -499,7 +509,7 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -511,7 +521,8 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @throws {RequiredError}
      * @memberof TemplatesApi
      */
-    public templatesPost(templatePayload: TemplatePayload, options?: AxiosRequestConfig) {
+    public templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesPost(templatePayload, options).then((request) => request(this.axios, this.basePath));
     }
 }
+

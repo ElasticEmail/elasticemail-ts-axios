@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { LogJobStatus } from './log-job-status';
+import type { LogJobStatus } from './log-job-status';
 
 /**
  * Status information of the specified email

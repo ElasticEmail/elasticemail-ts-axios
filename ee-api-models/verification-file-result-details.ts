@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { EmailValidationResult } from './email-validation-result';
+import type { EmailValidationResult } from './email-validation-result';
 // May contain unused imports in some cases
 // @ts-ignore
-import { FileUploadResult } from './file-upload-result';
+import type { FileUploadResult } from './file-upload-result';
 // May contain unused imports in some cases
 // @ts-ignore
-import { VerificationStatus } from './verification-status';
+import type { VerificationStatus } from './verification-status';
 
 /**
  * Detailed verification file result info

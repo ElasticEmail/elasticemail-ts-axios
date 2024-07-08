@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AccessLevel } from './access-level';
+import type { AccessLevel } from './access-level';
 
 /**
  * Newly generated SMTP Credentials with Token

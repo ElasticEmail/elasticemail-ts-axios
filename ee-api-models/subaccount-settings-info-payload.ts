@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { SubaccountEmailSettingsPayload } from './subaccount-email-settings-payload';
+import type { SubaccountEmailSettingsPayload } from './subaccount-email-settings-payload';
 
 /**
  * SubAccount settings

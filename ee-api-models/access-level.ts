@@ -65,13 +65,13 @@ export const AccessLevel = {
     ExtendedLogs: 'ExtendedLogs',
     VerifyEmails: 'VerifyEmails',
     Modify2FaSms: 'Modify2FASms',
-    DisableContactsStore: 'DisableContactsStore',
     ModifyLandingPages: 'ModifyLandingPages',
     ViewLandingPages: 'ViewLandingPages',
     ModifySuppressions: 'ModifySuppressions',
     ViewSuppressions: 'ViewSuppressions',
     ViewDragDropEditor: 'ViewDragDropEditor',
-    ViewTemplateEditor: 'ViewTemplateEditor'
+    ViewTemplateEditor: 'ViewTemplateEditor',
+    ViewAiTools: 'ViewAITools'
 } as const;
 
 export type AccessLevel = typeof AccessLevel[keyof typeof AccessLevel];

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { SplitOptimizationType } from './split-optimization-type';
+import type { SplitOptimizationType } from './split-optimization-type';
 
 /**
  * Optional A/X split campaign options

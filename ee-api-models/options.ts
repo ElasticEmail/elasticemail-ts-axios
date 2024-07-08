@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { EncodingType } from './encoding-type';
+import type { EncodingType } from './encoding-type';
 
 /**
  * E-mail configuration
@@ -52,13 +52,13 @@ export interface Options {
      * @type {boolean}
      * @memberof Options
      */
-    'TrackOpens'?: boolean;
+    'TrackOpens'?: boolean | null;
     /**
      * Should the clicks be tracked? If no value has been provided, Account\'s default setting will be used.
      * @type {boolean}
      * @memberof Options
      */
-    'TrackClicks'?: boolean;
+    'TrackClicks'?: boolean | null;
 }
 
 

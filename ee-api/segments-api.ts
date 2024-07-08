@@ -14,17 +14,17 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Segment } from '../ee-api-models';
+import type { Segment } from '../ee-api-models';
 // @ts-ignore
-import { SegmentPayload } from '../ee-api-models';
+import type { SegmentPayload } from '../ee-api-models';
 /**
  * SegmentsApi - axios parameter creator
  * @export
@@ -38,7 +38,7 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNameDelete: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        segmentsByNameDelete: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('segmentsByNameDelete', 'name', name)
             const localVarPath = `/segments/{name}`
@@ -75,7 +75,7 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNameGet: async (name: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        segmentsByNameGet: async (name: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('segmentsByNameGet', 'name', name)
             const localVarPath = `/segments/{name}`
@@ -113,7 +113,7 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNamePut: async (name: string, segmentPayload: SegmentPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        segmentsByNamePut: async (name: string, segmentPayload: SegmentPayload, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('segmentsByNamePut', 'name', name)
             // verify required parameter 'segmentPayload' is not null or undefined
@@ -156,7 +156,7 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        segmentsGet: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/segments`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -198,7 +198,7 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsPost: async (segmentPayload: SegmentPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        segmentsPost: async (segmentPayload: SegmentPayload, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'segmentPayload' is not null or undefined
             assertParamExists('segmentsPost', 'segmentPayload', segmentPayload)
             const localVarPath = `/segments`;
@@ -247,9 +247,11 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async segmentsByNameDelete(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.segmentsByNameDelete(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.segmentsByNameDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns details for the specified segment. Required Access Level: ViewContacts
@@ -258,9 +260,11 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async segmentsByNameGet(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+        async segmentsByNameGet(name: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.segmentsByNameGet(name, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.segmentsByNameGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Rename or change RULE for your segment. Required Access Level: ModifyContacts
@@ -270,9 +274,11 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+        async segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.segmentsByNamePut(name, segmentPayload, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.segmentsByNamePut']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a list of all your available Segments. Required Access Level: ViewContacts
@@ -282,9 +288,11 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async segmentsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
+        async segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.segmentsGet(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.segmentsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add a new segment, based on specified RULE. Required Access Level: ModifyContacts
@@ -293,9 +301,11 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async segmentsPost(segmentPayload: SegmentPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+        async segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.segmentsPost(segmentPayload, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SegmentsApi.segmentsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -376,7 +386,7 @@ export interface SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApiInterface
      */
-    segmentsByNameDelete(name: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Returns details for the specified segment. Required Access Level: ViewContacts
@@ -386,7 +396,7 @@ export interface SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApiInterface
      */
-    segmentsByNameGet(name: string, options?: AxiosRequestConfig): AxiosPromise<Segment>;
+    segmentsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
     /**
      * Rename or change RULE for your segment. Required Access Level: ModifyContacts
@@ -397,7 +407,7 @@ export interface SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApiInterface
      */
-    segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: AxiosRequestConfig): AxiosPromise<Segment>;
+    segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
     /**
      * Returns a list of all your available Segments. Required Access Level: ViewContacts
@@ -408,7 +418,7 @@ export interface SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApiInterface
      */
-    segmentsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Segment>>;
+    segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Segment>>;
 
     /**
      * Add a new segment, based on specified RULE. Required Access Level: ModifyContacts
@@ -418,7 +428,7 @@ export interface SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApiInterface
      */
-    segmentsPost(segmentPayload: SegmentPayload, options?: AxiosRequestConfig): AxiosPromise<Segment>;
+    segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
 }
 
@@ -437,7 +447,7 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public segmentsByNameDelete(name: string, options?: AxiosRequestConfig) {
+    public segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -449,7 +459,7 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public segmentsByNameGet(name: string, options?: AxiosRequestConfig) {
+    public segmentsByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -462,7 +472,7 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: AxiosRequestConfig) {
+    public segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNamePut(name, segmentPayload, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -475,7 +485,7 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public segmentsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -487,7 +497,8 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public segmentsPost(segmentPayload: SegmentPayload, options?: AxiosRequestConfig) {
+    public segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsPost(segmentPayload, options).then((request) => request(this.axios, this.basePath));
     }
 }
+

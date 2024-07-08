@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { BodyPart } from './body-part';
+import type { BodyPart } from './body-part';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageAttachment } from './message-attachment';
+import type { MessageAttachment } from './message-attachment';
 // May contain unused imports in some cases
 // @ts-ignore
-import { Utm } from './utm';
+import type { Utm } from './utm';
 
 /**
  * Proper e-mail content
@@ -70,7 +70,7 @@ export interface EmailContent {
      * @type {string}
      * @memberof EmailContent
      */
-    'From'?: string;
+    'From': string;
     /**
      * To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
      * @type {string}

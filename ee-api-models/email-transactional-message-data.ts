@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { EmailContent } from './email-content';
+import type { EmailContent } from './email-content';
 // May contain unused imports in some cases
 // @ts-ignore
-import { Options } from './options';
+import type { Options } from './options';
 // May contain unused imports in some cases
 // @ts-ignore
-import { TransactionalRecipient } from './transactional-recipient';
+import type { TransactionalRecipient } from './transactional-recipient';
 
 /**
  * Email data
@@ -40,7 +40,7 @@ export interface EmailTransactionalMessageData {
      * @type {EmailContent}
      * @memberof EmailTransactionalMessageData
      */
-    'Content'?: EmailContent;
+    'Content': EmailContent;
     /**
      * 
      * @type {Options}

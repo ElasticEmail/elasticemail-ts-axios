@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { EmailContent } from './email-content';
+import type { EmailContent } from './email-content';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageAttachment } from './message-attachment';
+import type { MessageAttachment } from './message-attachment';
 // May contain unused imports in some cases
 // @ts-ignore
-import { Options } from './options';
+import type { Options } from './options';
 
 /**
  * 
@@ -40,7 +40,7 @@ export interface MergeEmailPayload {
      * @type {EmailContent}
      * @memberof MergeEmailPayload
      */
-    'Content'?: EmailContent;
+    'Content': EmailContent;
     /**
      * 
      * @type {Options}

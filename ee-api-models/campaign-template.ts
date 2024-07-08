@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Utm } from './utm';
+import type { Utm } from './utm';
 
 /**
  * Content of a Campaign
@@ -34,7 +34,7 @@ export interface CampaignTemplate {
      * @type {string}
      * @memberof CampaignTemplate
      */
-    'From'?: string;
+    'From': string;
     /**
      * To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
      * @type {string}

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { SubaccountSettingsInfoPayload } from './subaccount-settings-info-payload';
+import type { SubaccountSettingsInfoPayload } from './subaccount-settings-info-payload';
 
 /**
  * New SubAccount payload

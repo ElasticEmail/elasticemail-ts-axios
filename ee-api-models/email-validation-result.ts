@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { EmailPredictedValidationStatus } from './email-predicted-validation-status';
+import type { EmailPredictedValidationStatus } from './email-predicted-validation-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import { EmailValidationStatus } from './email-validation-status';
+import type { EmailValidationStatus } from './email-validation-status';
 
 /**
  * 
@@ -69,7 +69,7 @@ export interface EmailValidationResult {
      */
     'Reason'?: string;
     /**
-     * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * Added date
      * @type {string}
      * @memberof EmailValidationResult
      */
@@ -81,7 +81,7 @@ export interface EmailValidationResult {
      */
     'Result'?: EmailValidationStatus;
     /**
-     * 
+     * Predicted score
      * @type {number}
      * @memberof EmailValidationResult
      */

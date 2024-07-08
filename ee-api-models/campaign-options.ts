@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { DeliveryOptimizationType } from './delivery-optimization-type';
+import type { DeliveryOptimizationType } from './delivery-optimization-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import { SplitOptions } from './split-options';
+import type { SplitOptions } from './split-options';
 
 /**
  * Different send options for a Campaign
@@ -50,6 +50,18 @@ export interface CampaignOptions {
      * @memberof CampaignOptions
      */
     'ScheduleFor'?: string | null;
+    /**
+     * How often (in minutes) to send the campaign
+     * @type {number}
+     * @memberof CampaignOptions
+     */
+    'TriggerFrequency'?: number;
+    /**
+     * How many times send the campaign
+     * @type {number}
+     * @memberof CampaignOptions
+     */
+    'TriggerCount'?: number;
     /**
      * 
      * @type {SplitOptions}

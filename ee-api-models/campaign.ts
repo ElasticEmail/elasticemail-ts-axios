@@ -15,16 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignOptions } from './campaign-options';
+import type { CampaignOptions } from './campaign-options';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignRecipient } from './campaign-recipient';
+import type { CampaignRecipient } from './campaign-recipient';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignStatus } from './campaign-status';
+import type { CampaignStatus } from './campaign-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignTemplate } from './campaign-template';
+import type { CampaignTemplate } from './campaign-template';
 
 /**
  * 

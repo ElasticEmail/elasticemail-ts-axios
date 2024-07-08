@@ -13,59 +13,36 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { BodyPart } from './body-part';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TemplateScope } from './template-scope';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { TemplateType } from './template-type';
 
 /**
- * Template info
+ * 
  * @export
- * @interface Template
+ * @interface EmailJobFailedStatus
  */
-export interface Template {
+export interface EmailJobFailedStatus {
     /**
      * 
-     * @type {TemplateType}
-     * @memberof Template
-     */
-    'TemplateType'?: TemplateType;
-    /**
-     * Template name
      * @type {string}
-     * @memberof Template
+     * @memberof EmailJobFailedStatus
      */
-    'Name'?: string;
-    /**
-     * Date of creation in YYYY-MM-DDThh:ii:ss format
-     * @type {string}
-     * @memberof Template
-     */
-    'DateAdded'?: string;
-    /**
-     * Default subject of email.
-     * @type {string}
-     * @memberof Template
-     */
-    'Subject'?: string;
-    /**
-     * Email content of this template
-     * @type {Array<BodyPart>}
-     * @memberof Template
-     */
-    'Body'?: Array<BodyPart>;
+    'Address'?: string;
     /**
      * 
-     * @type {TemplateScope}
-     * @memberof Template
+     * @type {string}
+     * @memberof EmailJobFailedStatus
      */
-    'TemplateScope'?: TemplateScope;
+    'Error'?: string;
+    /**
+     * RFC Error code
+     * @type {number}
+     * @memberof EmailJobFailedStatus
+     */
+    'ErrorCode'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EmailJobFailedStatus
+     */
+    'Category'?: string;
 }
-
-
 

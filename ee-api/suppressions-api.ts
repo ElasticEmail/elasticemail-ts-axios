@@ -14,15 +14,15 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Suppression } from '../ee-api-models';
+import type { Suppression } from '../ee-api-models';
 /**
  * SuppressionsApi - axios parameter creator
  * @export
@@ -38,7 +38,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsBouncesGet: async (search?: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/bounces`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -84,7 +84,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsBouncesImportPost: async (file?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/bounces/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -126,7 +126,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsBouncesPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsBouncesPost: async (requestBody: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsBouncesPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/bounces`;
@@ -165,7 +165,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsByEmailDelete: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsByEmailDelete: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('suppressionsByEmailDelete', 'email', email)
             const localVarPath = `/suppressions/{email}`
@@ -202,7 +202,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsByEmailGet: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsByEmailGet: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('suppressionsByEmailGet', 'email', email)
             const localVarPath = `/suppressions/{email}`
@@ -241,7 +241,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsGet: async (search?: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/complaints`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -287,7 +287,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsImportPost: async (file?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/complaints/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -329,7 +329,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsComplaintsPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsComplaintsPost: async (requestBody: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsComplaintsPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/complaints`;
@@ -369,7 +369,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsGet: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -413,7 +413,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesGet: async (search?: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesGet: async (search?: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/unsubscribes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -459,7 +459,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesImportPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesImportPost: async (file?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/suppressions/unsubscribes/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -501,7 +501,7 @@ export const SuppressionsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        suppressionsUnsubscribesPost: async (requestBody: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        suppressionsUnsubscribesPost: async (requestBody: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestBody' is not null or undefined
             assertParamExists('suppressionsUnsubscribesPost', 'requestBody', requestBody)
             const localVarPath = `/suppressions/unsubscribes`;
@@ -552,9 +552,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesGet(search, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsBouncesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -563,9 +565,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsBouncesImportPost(file?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesImportPost(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsBouncesImportPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -574,9 +578,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsBouncesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsBouncesPost(requestBody, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsBouncesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
@@ -585,9 +591,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsByEmailDelete(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsByEmailDelete(email, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsByEmailDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
@@ -596,9 +604,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsByEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Suppression>> {
+        async suppressionsByEmailGet(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Suppression>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsByEmailGet(email, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsByEmailGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
@@ -609,9 +619,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsGet(search, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsComplaintsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -620,9 +632,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsComplaintsImportPost(file?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsImportPost(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsComplaintsImportPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -631,9 +645,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsComplaintsPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsComplaintsPost(requestBody, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsComplaintsPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
@@ -643,9 +659,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsGet(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
@@ -656,9 +674,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesGet(search, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsUnsubscribesGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -667,9 +687,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async suppressionsUnsubscribesImportPost(file?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesImportPost(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsUnsubscribesImportPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -678,9 +700,11 @@ export const SuppressionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
+        async suppressionsUnsubscribesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Suppression>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.suppressionsUnsubscribesPost(requestBody, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SuppressionsApi.suppressionsUnsubscribesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -838,7 +862,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -848,7 +872,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsBouncesImportPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Bounced. Required Access Level: ModifyContacts, ModifySuppressions
@@ -858,7 +882,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsBouncesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Delete Suppression. Required Access Level: ViewContacts, ViewSuppressions
@@ -868,7 +892,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Retrieve your suppression. Required Access Level: ViewContacts, ViewSuppressions
@@ -878,7 +902,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<Suppression>;
+    suppressionsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<Suppression>;
 
     /**
      * Retrieve your list of complaints. Required Access Level: ViewContacts, ViewSuppressions
@@ -890,7 +914,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -900,7 +924,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsComplaintsImportPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Complaints. Required Access Level: ModifyContacts, ModifySuppressions
@@ -910,7 +934,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsComplaintsPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Retrieve your suppressions. Required Access Level: ViewContacts, ViewSuppressions
@@ -921,7 +945,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Retrieve your list of unsubscribes. Required Access Level: ViewContacts, ViewSuppressions
@@ -933,7 +957,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -943,7 +967,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<void>;
+    suppressionsUnsubscribesImportPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Add Unsubscribes. Required Access Level: ModifyContacts, ModifySuppressions
@@ -953,7 +977,7 @@ export interface SuppressionsApiInterface {
      * @throws {RequiredError}
      * @memberof SuppressionsApiInterface
      */
-    suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig): AxiosPromise<Array<Suppression>>;
+    suppressionsUnsubscribesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Suppression>>;
 
 }
 
@@ -974,7 +998,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public suppressionsBouncesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -986,7 +1010,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesImportPost(file?: File, options?: AxiosRequestConfig) {
+    public suppressionsBouncesImportPost(file?: File, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -998,7 +1022,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsBouncesPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
+    public suppressionsBouncesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsBouncesPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1010,7 +1034,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsByEmailDelete(email: string, options?: AxiosRequestConfig) {
+    public suppressionsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1022,7 +1046,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsByEmailGet(email: string, options?: AxiosRequestConfig) {
+    public suppressionsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1036,7 +1060,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public suppressionsComplaintsGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1048,7 +1072,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsImportPost(file?: File, options?: AxiosRequestConfig) {
+    public suppressionsComplaintsImportPost(file?: File, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1060,7 +1084,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsComplaintsPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
+    public suppressionsComplaintsPost(requestBody: Array<string>, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsComplaintsPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1073,7 +1097,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public suppressionsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1087,7 +1111,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public suppressionsUnsubscribesGet(search?: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesGet(search, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1099,7 +1123,7 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesImportPost(file?: File, options?: AxiosRequestConfig) {
+    public suppressionsUnsubscribesImportPost(file?: File, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesImportPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1111,7 +1135,8 @@ export class SuppressionsApi extends BaseAPI implements SuppressionsApiInterface
      * @throws {RequiredError}
      * @memberof SuppressionsApi
      */
-    public suppressionsUnsubscribesPost(requestBody: Array<string>, options?: AxiosRequestConfig) {
+    public suppressionsUnsubscribesPost(requestBody: Array<string>, options?: RawAxiosRequestConfig) {
         return SuppressionsApiFp(this.configuration).suppressionsUnsubscribesPost(requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 }
+

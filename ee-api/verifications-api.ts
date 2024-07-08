@@ -14,19 +14,19 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { EmailValidationResult } from '../ee-api-models';
+import type { EmailValidationResult } from '../ee-api-models';
 // @ts-ignore
-import { VerificationFileResult } from '../ee-api-models';
+import type { VerificationFileResult } from '../ee-api-models';
 // @ts-ignore
-import { VerificationFileResultDetails } from '../ee-api-models';
+import type { VerificationFileResultDetails } from '../ee-api-models';
 /**
  * VerificationsApi - axios parameter creator
  * @export
@@ -40,7 +40,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailDelete: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsByEmailDelete: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('verificationsByEmailDelete', 'email', email)
             const localVarPath = `/verifications/{email}`
@@ -77,7 +77,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailGet: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsByEmailGet: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('verificationsByEmailGet', 'email', email)
             const localVarPath = `/verifications/{email}`
@@ -114,7 +114,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailPost: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsByEmailPost: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('verificationsByEmailPost', 'email', email)
             const localVarPath = `/verifications/{email}`
@@ -151,7 +151,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesByIdDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('verificationsFilesByIdDelete', 'id', id)
             const localVarPath = `/verifications/files/{id}`
@@ -188,7 +188,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdResultDownloadGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesByIdResultDownloadGet: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('verificationsFilesByIdResultDownloadGet', 'id', id)
             const localVarPath = `/verifications/files/{id}/result/download`
@@ -227,7 +227,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdResultGet: async (id: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesByIdResultGet: async (id: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('verificationsFilesByIdResultGet', 'id', id)
             const localVarPath = `/verifications/files/{id}/result`
@@ -272,7 +272,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdVerificationPost: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesByIdVerificationPost: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('verificationsFilesByIdVerificationPost', 'id', id)
             const localVarPath = `/verifications/files/{id}/verification`
@@ -309,7 +309,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesPost: async (file?: File, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesPost: async (file?: File, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/verifications/files`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -350,7 +350,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesResultGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsFilesResultGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/verifications/files/result`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -385,7 +385,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsGet: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verificationsGet: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/verifications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -437,9 +437,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsByEmailDelete(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsByEmailDelete(email, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsByEmailDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a result of verified email. Required Access Level: VerifyEmails
@@ -448,9 +450,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsByEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailValidationResult>> {
+        async verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailValidationResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsByEmailGet(email, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsByEmailGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Verify single email address and returns result of verification. Required Access Level: VerifyEmails
@@ -459,9 +463,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsByEmailPost(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailValidationResult>> {
+        async verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailValidationResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsByEmailPost(email, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsByEmailPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Delete Verification Results if they exist. Required Access Level: VerifyEmails
@@ -470,9 +476,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesByIdDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesByIdDelete(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesByIdDelete']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Download verification results as a ZIP file. Required Access Level: VerifyEmails
@@ -481,9 +489,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesByIdResultDownloadGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesByIdResultDownloadGet(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesByIdResultDownloadGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
@@ -494,9 +504,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationFileResultDetails>> {
+        async verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationFileResultDetails>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesByIdResultGet(id, limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesByIdResultGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
@@ -505,9 +517,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesByIdVerificationPost(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesByIdVerificationPost(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesByIdVerificationPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
@@ -516,9 +530,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesPost(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationFileResult>> {
+        async verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationFileResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesPost(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
@@ -526,9 +542,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsFilesResultGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VerificationFileResult>>> {
+        async verificationsFilesResultGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VerificationFileResult>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsFilesResultGet(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsFilesResultGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a results of all verified single emails. Required Access Level: VerifyEmails
@@ -538,9 +556,11 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verificationsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailValidationResult>>> {
+        async verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailValidationResult>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verificationsGet(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['VerificationsApi.verificationsGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -671,7 +691,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsByEmailDelete(email: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Returns a result of verified email. Required Access Level: VerifyEmails
@@ -681,7 +701,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsByEmailGet(email: string, options?: AxiosRequestConfig): AxiosPromise<EmailValidationResult>;
+    verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
     /**
      * Verify single email address and returns result of verification. Required Access Level: VerifyEmails
@@ -691,7 +711,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsByEmailPost(email: string, options?: AxiosRequestConfig): AxiosPromise<EmailValidationResult>;
+    verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
     /**
      * Delete Verification Results if they exist. Required Access Level: VerifyEmails
@@ -701,7 +721,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesByIdDelete(id: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Download verification results as a ZIP file. Required Access Level: VerifyEmails
@@ -711,7 +731,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesByIdResultDownloadGet(id: string, options?: AxiosRequestConfig): AxiosPromise<File>;
+    verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
     /**
      * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
@@ -723,7 +743,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<VerificationFileResultDetails>;
+    verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResultDetails>;
 
     /**
      * Start a verification of the previously uploaded file with emails. Required Access Level: VerifyEmails
@@ -733,7 +753,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesByIdVerificationPost(id: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+    verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
      * Uploads a CSV file with list of emails that can then be triggered for verification. An \'email\' column is required. Required Access Level: VerifyEmails
@@ -743,7 +763,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesPost(file?: File, options?: AxiosRequestConfig): AxiosPromise<VerificationFileResult>;
+    verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResult>;
 
     /**
      * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
@@ -752,7 +772,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsFilesResultGet(options?: AxiosRequestConfig): AxiosPromise<Array<VerificationFileResult>>;
+    verificationsFilesResultGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<VerificationFileResult>>;
 
     /**
      * Returns a results of all verified single emails. Required Access Level: VerifyEmails
@@ -763,7 +783,7 @@ export interface VerificationsApiInterface {
      * @throws {RequiredError}
      * @memberof VerificationsApiInterface
      */
-    verificationsGet(limit?: number, offset?: number, options?: AxiosRequestConfig): AxiosPromise<Array<EmailValidationResult>>;
+    verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<EmailValidationResult>>;
 
 }
 
@@ -782,7 +802,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsByEmailDelete(email: string, options?: AxiosRequestConfig) {
+    public verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -794,7 +814,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsByEmailGet(email: string, options?: AxiosRequestConfig) {
+    public verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -806,7 +826,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsByEmailPost(email: string, options?: AxiosRequestConfig) {
+    public verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailPost(email, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -818,7 +838,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesByIdDelete(id: string, options?: AxiosRequestConfig) {
+    public verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -830,7 +850,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesByIdResultDownloadGet(id: string, options?: AxiosRequestConfig) {
+    public verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultDownloadGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -844,7 +864,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultGet(id, limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -856,7 +876,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesByIdVerificationPost(id: string, options?: AxiosRequestConfig) {
+    public verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdVerificationPost(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -868,7 +888,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesPost(file?: File, options?: AxiosRequestConfig) {
+    public verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -879,7 +899,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsFilesResultGet(options?: AxiosRequestConfig) {
+    public verificationsFilesResultGet(options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesResultGet(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -892,7 +912,8 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @throws {RequiredError}
      * @memberof VerificationsApi
      */
-    public verificationsGet(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
+

@@ -15,16 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ConsentData } from './consent-data';
+import type { ConsentData } from './consent-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ContactActivity } from './contact-activity';
+import type { ContactActivity } from './contact-activity';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ContactSource } from './contact-source';
+import type { ContactSource } from './contact-source';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ContactStatus } from './contact-status';
+import type { ContactStatus } from './contact-status';
 
 /**
  * Contact
