@@ -20,17 +20,17 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { Contact } from '../ee-api-models';
+import { Contact } from '../ee-api-models';
 // @ts-ignore
-import type { ContactsList } from '../ee-api-models';
+import { ContactsList } from '../ee-api-models';
 // @ts-ignore
-import type { EmailsPayload } from '../ee-api-models';
+import { EmailsPayload } from '../ee-api-models';
 // @ts-ignore
-import type { ListPayload } from '../ee-api-models';
+import { ListPayload } from '../ee-api-models';
 // @ts-ignore
-import type { ListUpdatePayload } from '../ee-api-models';
+import { ListUpdatePayload } from '../ee-api-models';
 /**
  * ListsApi - axios parameter creator
  * @export

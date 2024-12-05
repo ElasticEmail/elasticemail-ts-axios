@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BodyPart } from './body-part';
+import { BodyPart } from './body-part';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MessageAttachment } from './message-attachment';
+import { MessageAttachment } from './message-attachment';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Utm } from './utm';
+import { Utm } from './utm';
 
 /**
  * Proper e-mail content

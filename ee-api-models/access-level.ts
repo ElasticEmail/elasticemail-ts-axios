@@ -71,7 +71,8 @@ export const AccessLevel = {
     ViewSuppressions: 'ViewSuppressions',
     ViewDragDropEditor: 'ViewDragDropEditor',
     ViewTemplateEditor: 'ViewTemplateEditor',
-    ViewAiTools: 'ViewAITools'
+    ViewAiTools: 'ViewAITools',
+    ModifySubscriptionAntiSpam: 'ModifySubscriptionAntiSpam'
 } as const;
 
 export type AccessLevel = typeof AccessLevel[keyof typeof AccessLevel];

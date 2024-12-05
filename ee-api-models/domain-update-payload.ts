@@ -15,49 +15,39 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { AccessLevel } from './access-level';
+import { CertificateValidationStatus } from './certificate-validation-status';
 
 /**
- * ApiKey info
+ * 
  * @export
- * @interface ApiKey
+ * @interface DomainUpdatePayload
  */
-export interface ApiKey {
+export interface DomainUpdatePayload {
     /**
-     * Access level or permission to be assigned to this ApiKey.
-     * @type {Array<AccessLevel>}
-     * @memberof ApiKey
+     * 
+     * @type {CertificateValidationStatus}
+     * @memberof DomainUpdatePayload
      */
-    'AccessLevel'?: Array<AccessLevel>;
+    'CertificateStatus'?: CertificateValidationStatus;
     /**
-     * Name of the ApiKey.
+     * 
+     * @type {boolean}
+     * @memberof DomainUpdatePayload
+     */
+    'VERP'?: boolean;
+    /**
+     * 
      * @type {string}
-     * @memberof ApiKey
+     * @memberof DomainUpdatePayload
      */
-    'Name'?: string;
+    'CustomBouncesDomain'?: string;
     /**
-     * Date this ApiKey was created.
-     * @type {string}
-     * @memberof ApiKey
+     * 
+     * @type {boolean}
+     * @memberof DomainUpdatePayload
      */
-    'DateCreated'?: string;
-    /**
-     * Date this ApiKey was last used.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'LastUse'?: string | null;
-    /**
-     * Date this ApiKey expires.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Expires'?: string | null;
-    /**
-     * Which IPs can use this ApiKey
-     * @type {Array<string>}
-     * @memberof ApiKey
-     */
-    'RestrictAccessToIPRange'?: Array<string>;
+    'IsCustomBouncesDomainDefault'?: boolean;
 }
+
+
 

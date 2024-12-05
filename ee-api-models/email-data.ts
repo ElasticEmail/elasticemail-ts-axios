@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmailStatus } from './email-status';
+import { EmailStatus } from './email-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmailView } from './email-view';
+import { EmailView } from './email-view';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FileInfo } from './file-info';
+import { FileInfo } from './file-info';
 
 /**
  * 

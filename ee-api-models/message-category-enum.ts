@@ -13,51 +13,34 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { AccessLevel } from './access-level';
 
 /**
- * ApiKey info
+ * 
  * @export
- * @interface ApiKey
+ * @enum {string}
  */
-export interface ApiKey {
-    /**
-     * Access level or permission to be assigned to this ApiKey.
-     * @type {Array<AccessLevel>}
-     * @memberof ApiKey
-     */
-    'AccessLevel'?: Array<AccessLevel>;
-    /**
-     * Name of the ApiKey.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Name'?: string;
-    /**
-     * Date this ApiKey was created.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'DateCreated'?: string;
-    /**
-     * Date this ApiKey was last used.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'LastUse'?: string | null;
-    /**
-     * Date this ApiKey expires.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Expires'?: string | null;
-    /**
-     * Which IPs can use this ApiKey
-     * @type {Array<string>}
-     * @memberof ApiKey
-     */
-    'RestrictAccessToIPRange'?: Array<string>;
-}
+
+export const MessageCategoryEnum = {
+    Unknown: 'Unknown',
+    Ignore: 'Ignore',
+    Spam: 'Spam',
+    BlackListed: 'BlackListed',
+    NoMailbox: 'NoMailbox',
+    GreyListed: 'GreyListed',
+    Throttled: 'Throttled',
+    Timeout: 'Timeout',
+    ConnectionProblem: 'ConnectionProblem',
+    SpfProblem: 'SPFProblem',
+    AccountProblem: 'AccountProblem',
+    DnsProblem: 'DNSProblem',
+    NotDeliveredCancelled: 'NotDeliveredCancelled',
+    CodeError: 'CodeError',
+    ManualCancel: 'ManualCancel',
+    ConnectionTerminated: 'ConnectionTerminated',
+    NotDelivered: 'NotDelivered'
+} as const;
+
+export type MessageCategoryEnum = typeof MessageCategoryEnum[keyof typeof MessageCategoryEnum];
+
+
 

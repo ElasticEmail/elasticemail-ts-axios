@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { FileUploadResult } from './file-upload-result';
+import { FileUploadResult } from './file-upload-result';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { VerificationStatus } from './verification-status';
+import { VerificationStatus } from './verification-status';
 
 /**
  * Simple verification file result info

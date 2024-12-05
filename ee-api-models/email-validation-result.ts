@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmailPredictedValidationStatus } from './email-predicted-validation-status';
+import { EmailPredictedValidationStatus } from './email-predicted-validation-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmailValidationStatus } from './email-validation-status';
+import { EmailValidationStatus } from './email-validation-status';
 
 /**
  * 

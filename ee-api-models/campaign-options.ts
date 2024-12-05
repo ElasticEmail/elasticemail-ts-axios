@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { DeliveryOptimizationType } from './delivery-optimization-type';
+import { DeliveryOptimizationType } from './delivery-optimization-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SplitOptions } from './split-options';
+import { SplitOptions } from './split-options';
 
 /**
  * Different send options for a Campaign

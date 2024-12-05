@@ -13,51 +13,21 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { AccessLevel } from './access-level';
 
 /**
- * ApiKey info
+ * Status of ValidDomain to determine how often tracking validation should be performed.
  * @export
- * @interface ApiKey
+ * @enum {string}
  */
-export interface ApiKey {
-    /**
-     * Access level or permission to be assigned to this ApiKey.
-     * @type {Array<AccessLevel>}
-     * @memberof ApiKey
-     */
-    'AccessLevel'?: Array<AccessLevel>;
-    /**
-     * Name of the ApiKey.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Name'?: string;
-    /**
-     * Date this ApiKey was created.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'DateCreated'?: string;
-    /**
-     * Date this ApiKey was last used.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'LastUse'?: string | null;
-    /**
-     * Date this ApiKey expires.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Expires'?: string | null;
-    /**
-     * Which IPs can use this ApiKey
-     * @type {Array<string>}
-     * @memberof ApiKey
-     */
-    'RestrictAccessToIPRange'?: Array<string>;
-}
+
+export const TrackingValidationStatus = {
+    Validated: 'Validated',
+    NotValidated: 'NotValidated',
+    Invalid: 'Invalid',
+    Broken: 'Broken'
+} as const;
+
+export type TrackingValidationStatus = typeof TrackingValidationStatus[keyof typeof TrackingValidationStatus];
+
+
 

@@ -15,7 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LogJobStatus } from './log-job-status';
+import { LogJobStatus } from './log-job-status';
+// May contain unused imports in some cases
+// @ts-ignore
+import { MessageCategoryEnum } from './message-category-enum';
 
 /**
  * Status information of the specified email
@@ -95,6 +98,12 @@ export interface EmailStatus {
      * @memberof EmailStatus
      */
     'EnvelopeFrom'?: string;
+    /**
+     * 
+     * @type {MessageCategoryEnum}
+     * @memberof EmailStatus
+     */
+    'ErrorCategory'?: MessageCategoryEnum;
 }
 
 

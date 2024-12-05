@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EmailContent } from './email-content';
+import { EmailContent } from './email-content';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Options } from './options';
+import { Options } from './options';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TransactionalRecipient } from './transactional-recipient';
+import { TransactionalRecipient } from './transactional-recipient';
 
 /**
  * Email data

@@ -20,15 +20,15 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { SubAccountInfo } from '../ee-api-models';
+import { SubAccountInfo } from '../ee-api-models';
 // @ts-ignore
-import type { SubaccountEmailCreditsPayload } from '../ee-api-models';
+import { SubaccountEmailCreditsPayload } from '../ee-api-models';
 // @ts-ignore
-import type { SubaccountEmailSettings } from '../ee-api-models';
+import { SubaccountEmailSettings } from '../ee-api-models';
 // @ts-ignore
-import type { SubaccountPayload } from '../ee-api-models';
+import { SubaccountPayload } from '../ee-api-models';
 /**
  * SubAccountsApi - axios parameter creator
  * @export

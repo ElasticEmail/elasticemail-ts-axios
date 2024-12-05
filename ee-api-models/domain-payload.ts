@@ -13,51 +13,24 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { AccessLevel } from './access-level';
 
 /**
- * ApiKey info
+ * 
  * @export
- * @interface ApiKey
+ * @interface DomainPayload
  */
-export interface ApiKey {
+export interface DomainPayload {
     /**
-     * Access level or permission to be assigned to this ApiKey.
-     * @type {Array<AccessLevel>}
-     * @memberof ApiKey
-     */
-    'AccessLevel'?: Array<AccessLevel>;
-    /**
-     * Name of the ApiKey.
+     * Name of selected domain.
      * @type {string}
-     * @memberof ApiKey
+     * @memberof DomainPayload
      */
-    'Name'?: string;
+    'Domain'?: string;
     /**
-     * Date this ApiKey was created.
-     * @type {string}
-     * @memberof ApiKey
+     * 
+     * @type {boolean}
+     * @memberof DomainPayload
      */
-    'DateCreated'?: string;
-    /**
-     * Date this ApiKey was last used.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'LastUse'?: string | null;
-    /**
-     * Date this ApiKey expires.
-     * @type {string}
-     * @memberof ApiKey
-     */
-    'Expires'?: string | null;
-    /**
-     * Which IPs can use this ApiKey
-     * @type {Array<string>}
-     * @memberof ApiKey
-     */
-    'RestrictAccessToIPRange'?: Array<string>;
+    'SetAsDefault'?: boolean;
 }
 

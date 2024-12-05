@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { InboundRouteActionType } from './inbound-route-action-type';
+import { InboundRouteActionType } from './inbound-route-action-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { InboundRouteFilterType } from './inbound-route-filter-type';
+import { InboundRouteFilterType } from './inbound-route-filter-type';
 
 /**
  * 

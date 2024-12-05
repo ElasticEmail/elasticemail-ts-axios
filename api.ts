@@ -16,6 +16,7 @@
 
 export * from './ee-api/campaigns-api';
 export * from './ee-api/contacts-api';
+export * from './ee-api/domains-api';
 export * from './ee-api/emails-api';
 export * from './ee-api/events-api';
 export * from './ee-api/files-api';

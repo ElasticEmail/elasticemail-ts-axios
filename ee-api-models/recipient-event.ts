@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EventType } from './event-type';
+import { EventType } from './event-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MessageCategory } from './message-category';
+import { MessageCategory } from './message-category';
 
 /**
  * Detailed information about message recipient

@@ -20,21 +20,21 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { CompressionFormat } from '../ee-api-models';
+import { CompressionFormat } from '../ee-api-models';
 // @ts-ignore
-import type { EventType } from '../ee-api-models';
+import { EventType } from '../ee-api-models';
 // @ts-ignore
-import type { EventsOrderBy } from '../ee-api-models';
+import { EventsOrderBy } from '../ee-api-models';
 // @ts-ignore
-import type { ExportFileFormats } from '../ee-api-models';
+import { ExportFileFormats } from '../ee-api-models';
 // @ts-ignore
-import type { ExportLink } from '../ee-api-models';
+import { ExportLink } from '../ee-api-models';
 // @ts-ignore
-import type { ExportStatus } from '../ee-api-models';
+import { ExportStatus } from '../ee-api-models';
 // @ts-ignore
-import type { RecipientEvent } from '../ee-api-models';
+import { RecipientEvent } from '../ee-api-models';
 /**
  * EventsApi - axios parameter creator
  * @export

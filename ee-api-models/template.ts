@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BodyPart } from './body-part';
+import { BodyPart } from './body-part';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TemplateScope } from './template-scope';
+import { TemplateScope } from './template-scope';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TemplateType } from './template-type';
+import { TemplateType } from './template-type';
 
 /**
  * Template info

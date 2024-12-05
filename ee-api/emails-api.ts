@@ -20,19 +20,19 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { EmailData } from '../ee-api-models';
+import { EmailData } from '../ee-api-models';
 // @ts-ignore
-import type { EmailJobStatus } from '../ee-api-models';
+import { EmailJobStatus } from '../ee-api-models';
 // @ts-ignore
-import type { EmailMessageData } from '../ee-api-models';
+import { EmailMessageData } from '../ee-api-models';
 // @ts-ignore
-import type { EmailSend } from '../ee-api-models';
+import { EmailSend } from '../ee-api-models';
 // @ts-ignore
-import type { EmailTransactionalMessageData } from '../ee-api-models';
+import { EmailTransactionalMessageData } from '../ee-api-models';
 // @ts-ignore
-import type { MergeEmailPayload } from '../ee-api-models';
+import { MergeEmailPayload } from '../ee-api-models';
 /**
  * EmailsApi - axios parameter creator
  * @export
@@ -164,7 +164,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Send bulk merge email. Required Access Level: SendHttp
+         * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
          * @param {*} [options] Override http request option.
@@ -327,7 +327,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Send bulk merge email. Required Access Level: SendHttp
+         * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
          * @param {*} [options] Override http request option.
@@ -406,7 +406,7 @@ export const EmailsApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.emailsByTransactionidStatusGet(transactionid, showFailed, showSent, showDelivered, showPending, showOpened, showClicked, showAbuse, showUnsubscribed, showErrors, showMessageIDs, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send bulk merge email. Required Access Level: SendHttp
+         * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
          * @param {*} [options] Override http request option.
@@ -475,7 +475,7 @@ export interface EmailsApiInterface {
     emailsByTransactionidStatusGet(transactionid: string, showFailed?: boolean, showSent?: boolean, showDelivered?: boolean, showPending?: boolean, showOpened?: boolean, showClicked?: boolean, showAbuse?: boolean, showUnsubscribed?: boolean, showErrors?: boolean, showMessageIDs?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<EmailJobStatus>;
 
     /**
-     * Send bulk merge email. Required Access Level: SendHttp
+     * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
      * @summary Send Bulk Emails CSV
      * @param {MergeEmailPayload} mergeEmailPayload Email data
      * @param {*} [options] Override http request option.
@@ -548,7 +548,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
     }
 
     /**
-     * Send bulk merge email. Required Access Level: SendHttp
+     * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
      * @summary Send Bulk Emails CSV
      * @param {MergeEmailPayload} mergeEmailPayload Email data
      * @param {*} [options] Override http request option.

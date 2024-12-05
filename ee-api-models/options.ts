@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { EncodingType } from './encoding-type';
+import { EncodingType } from './encoding-type';
 
 /**
  * E-mail configuration

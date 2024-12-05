@@ -20,13 +20,13 @@ import globalAxios from 'axios';
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { InboundPayload } from '../ee-api-models';
+import { InboundPayload } from '../ee-api-models';
 // @ts-ignore
-import type { InboundRoute } from '../ee-api-models';
+import { InboundRoute } from '../ee-api-models';
 // @ts-ignore
-import type { SortOrderItem } from '../ee-api-models';
+import { SortOrderItem } from '../ee-api-models';
 /**
  * InboundRouteApi - axios parameter creator
  * @export

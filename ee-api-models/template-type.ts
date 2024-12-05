@@ -25,7 +25,8 @@ export const TemplateType = {
     DragDropEditor: 'DragDropEditor',
     LandingPageEditor: 'LandingPageEditor',
     TemplateEditor: 'TemplateEditor',
-    FormTemplate: 'FormTemplate'
+    FormTemplate: 'FormTemplate',
+    LandingPageTemplate: 'LandingPageTemplate'
 } as const;
 
 export type TemplateType = typeof TemplateType[keyof typeof TemplateType];

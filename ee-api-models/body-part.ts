@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BodyContentType } from './body-content-type';
+import { BodyContentType } from './body-content-type';
 
 /**
  * Email body part with user-provided MIME type (text/html, text/plain, etc)
