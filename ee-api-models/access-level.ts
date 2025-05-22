@@ -72,7 +72,13 @@ export const AccessLevel = {
     ViewDragDropEditor: 'ViewDragDropEditor',
     ViewTemplateEditor: 'ViewTemplateEditor',
     ViewAiTools: 'ViewAITools',
-    ModifySubscriptionAntiSpam: 'ModifySubscriptionAntiSpam'
+    ModifySubscriptionAntiSpam: 'ModifySubscriptionAntiSpam',
+    ViewLandingPagesCheckout: 'ViewLandingPagesCheckout',
+    ModifyLandingPagesCheckout: 'ModifyLandingPagesCheckout',
+    ViewHtmlEditor: 'ViewHTMLEditor',
+    ModifyAccessTokens: 'ModifyAccessTokens',
+    ViewPaidNewsletters: 'ViewPaidNewsletters',
+    ModifyPaidNewsletters: 'ModifyPaidNewsletters'
 } as const;
 
 export type AccessLevel = typeof AccessLevel[keyof typeof AccessLevel];

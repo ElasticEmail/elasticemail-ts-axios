@@ -26,7 +26,11 @@ export const TemplateType = {
     LandingPageEditor: 'LandingPageEditor',
     TemplateEditor: 'TemplateEditor',
     FormTemplate: 'FormTemplate',
-    LandingPageTemplate: 'LandingPageTemplate'
+    LandingPageTemplate: 'LandingPageTemplate',
+    PaymentConfirmationTemplate: 'PaymentConfirmationTemplate',
+    LandingPageProductTemplate: 'LandingPageProductTemplate',
+    LandingPageCheckoutTemplate: 'LandingPageCheckoutTemplate',
+    LandingPagePaymentConfirmationTemplate: 'LandingPagePaymentConfirmationTemplate'
 } as const;
 
 export type TemplateType = typeof TemplateType[keyof typeof TemplateType];

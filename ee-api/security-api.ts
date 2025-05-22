@@ -40,7 +40,7 @@ import { SmtpCredentialsPayload } from '../ee-api-models';
 export const SecurityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Delete your existing ApiKey. Required Access Level: Security
+         * Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Delete ApiKey
          * @param {string} name Name of the ApiKey
          * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
@@ -124,7 +124,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update your existing ApiKey. Required Access Level: Security
+         * Update your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Update ApiKey
          * @param {string} name Name of the ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
@@ -205,7 +205,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Add a new ApiKey. Required Access Level: Security
+         * Add a new ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Add ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
          * @param {*} [options] Override http request option.
@@ -244,7 +244,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Delete your existing SMTP Credentials. Required Access Level: Security
+         * Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Delete SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
@@ -328,7 +328,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update your existing SMTP Credentials. Required Access Level: Security
+         * Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Update SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
@@ -409,7 +409,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Add new SMTP Credential. Required Access Level: Security
+         * Add new SMTP Credential. Required Access Level: ModifyAccessTokens
          * @summary Add SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
          * @param {*} [options] Override http request option.
@@ -458,7 +458,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SecurityApiAxiosParamCreator(configuration)
     return {
         /**
-         * Delete your existing ApiKey. Required Access Level: Security
+         * Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Delete ApiKey
          * @param {string} name Name of the ApiKey
          * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
@@ -486,7 +486,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Update your existing ApiKey. Required Access Level: Security
+         * Update your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Update ApiKey
          * @param {string} name Name of the ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
@@ -513,7 +513,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Add a new ApiKey. Required Access Level: Security
+         * Add a new ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Add ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
          * @param {*} [options] Override http request option.
@@ -526,7 +526,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Delete your existing SMTP Credentials. Required Access Level: Security
+         * Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Delete SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
@@ -554,7 +554,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Update your existing SMTP Credentials. Required Access Level: Security
+         * Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Update SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
@@ -581,7 +581,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Add new SMTP Credential. Required Access Level: Security
+         * Add new SMTP Credential. Required Access Level: ModifyAccessTokens
          * @summary Add SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
          * @param {*} [options] Override http request option.
@@ -604,7 +604,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = SecurityApiFp(configuration)
     return {
         /**
-         * Delete your existing ApiKey. Required Access Level: Security
+         * Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Delete ApiKey
          * @param {string} name Name of the ApiKey
          * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
@@ -626,7 +626,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.securityApikeysByNameGet(name, subaccount, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update your existing ApiKey. Required Access Level: Security
+         * Update your existing ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Update ApiKey
          * @param {string} name Name of the ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
@@ -647,7 +647,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.securityApikeysGet(subaccount, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add a new ApiKey. Required Access Level: Security
+         * Add a new ApiKey. Required Access Level: ModifyAccessTokens
          * @summary Add ApiKey
          * @param {ApiKeyPayload} apiKeyPayload 
          * @param {*} [options] Override http request option.
@@ -657,7 +657,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.securityApikeysPost(apiKeyPayload, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete your existing SMTP Credentials. Required Access Level: Security
+         * Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Delete SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
@@ -679,7 +679,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.securitySmtpByNameGet(name, subaccount, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update your existing SMTP Credentials. Required Access Level: Security
+         * Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
          * @summary Update SMTP Credential
          * @param {string} name Name of the SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
@@ -700,7 +700,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.securitySmtpGet(subaccount, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add new SMTP Credential. Required Access Level: Security
+         * Add new SMTP Credential. Required Access Level: ModifyAccessTokens
          * @summary Add SMTP Credential
          * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
          * @param {*} [options] Override http request option.
@@ -719,7 +719,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
  */
 export interface SecurityApiInterface {
     /**
-     * Delete your existing ApiKey. Required Access Level: Security
+     * Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Delete ApiKey
      * @param {string} name Name of the ApiKey
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
@@ -741,7 +741,7 @@ export interface SecurityApiInterface {
     securityApikeysByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<ApiKey>;
 
     /**
-     * Update your existing ApiKey. Required Access Level: Security
+     * Update your existing ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Update ApiKey
      * @param {string} name Name of the ApiKey
      * @param {ApiKeyPayload} apiKeyPayload 
@@ -762,7 +762,7 @@ export interface SecurityApiInterface {
     securityApikeysGet(subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ApiKey>>;
 
     /**
-     * Add a new ApiKey. Required Access Level: Security
+     * Add a new ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Add ApiKey
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
@@ -772,7 +772,7 @@ export interface SecurityApiInterface {
     securityApikeysPost(apiKeyPayload: ApiKeyPayload, options?: RawAxiosRequestConfig): AxiosPromise<NewApiKey>;
 
     /**
-     * Delete your existing SMTP Credentials. Required Access Level: Security
+     * Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
      * @summary Delete SMTP Credential
      * @param {string} name Name of the SMTP Credential
      * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
@@ -794,7 +794,7 @@ export interface SecurityApiInterface {
     securitySmtpByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<SmtpCredentials>;
 
     /**
-     * Update your existing SMTP Credentials. Required Access Level: Security
+     * Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
      * @summary Update SMTP Credential
      * @param {string} name Name of the SMTP Credential
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
@@ -815,7 +815,7 @@ export interface SecurityApiInterface {
     securitySmtpGet(subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<SmtpCredentials>>;
 
     /**
-     * Add new SMTP Credential. Required Access Level: Security
+     * Add new SMTP Credential. Required Access Level: ModifyAccessTokens
      * @summary Add SMTP Credential
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
@@ -834,7 +834,7 @@ export interface SecurityApiInterface {
  */
 export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     /**
-     * Delete your existing ApiKey. Required Access Level: Security
+     * Delete your existing ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Delete ApiKey
      * @param {string} name Name of the ApiKey
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
@@ -860,7 +860,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     }
 
     /**
-     * Update your existing ApiKey. Required Access Level: Security
+     * Update your existing ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Update ApiKey
      * @param {string} name Name of the ApiKey
      * @param {ApiKeyPayload} apiKeyPayload 
@@ -885,7 +885,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     }
 
     /**
-     * Add a new ApiKey. Required Access Level: Security
+     * Add a new ApiKey. Required Access Level: ModifyAccessTokens
      * @summary Add ApiKey
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
@@ -897,7 +897,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     }
 
     /**
-     * Delete your existing SMTP Credentials. Required Access Level: Security
+     * Delete your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
      * @summary Delete SMTP Credential
      * @param {string} name Name of the SMTP Credential
      * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
@@ -923,7 +923,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     }
 
     /**
-     * Update your existing SMTP Credentials. Required Access Level: Security
+     * Update your existing SMTP Credentials. Required Access Level: ModifyAccessTokens
      * @summary Update SMTP Credential
      * @param {string} name Name of the SMTP Credential
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
@@ -948,7 +948,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     }
 
     /**
-     * Add new SMTP Credential. Required Access Level: Security
+     * Add new SMTP Credential. Required Access Level: ModifyAccessTokens
      * @summary Add SMTP Credential
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
