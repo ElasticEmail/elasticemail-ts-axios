@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -15,130 +15,59 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CertificateValidationStatus } from './certificate-validation-status';
+import type { CertificateValidationStatus } from './certificate-validation-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import { DomainOwner } from './domain-owner';
+import type { DomainOwner } from './domain-owner';
 // May contain unused imports in some cases
 // @ts-ignore
-import { TrackingType } from './tracking-type';
+import type { TrackingType } from './tracking-type';
 // May contain unused imports in some cases
 // @ts-ignore
-import { TrackingValidationStatus } from './tracking-validation-status';
+import type { TrackingValidationStatus } from './tracking-validation-status';
 
 /**
  * Domain data, with information about domain records.
- * @export
- * @interface DomainDetail
  */
 export interface DomainDetail {
     /**
      * Name of selected domain.
-     * @type {string}
-     * @memberof DomainDetail
      */
     'Domain'?: string;
     /**
      * True, if domain is used as default. Otherwise, false,
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'DefaultDomain'?: boolean;
     /**
      * True, if SPF record is verified
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'Spf'?: boolean;
     /**
      * True, if DKIM record is verified
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'Dkim'?: boolean;
     /**
      * True, if MX record is verified
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'MX'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DomainDetail
-     */
     'DMARC'?: boolean;
     /**
      * True, if tracking CNAME record is verified
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'IsRewriteDomainValid'?: boolean;
     /**
      * True, if DKIM, SPF, or tracking are still to be verified
-     * @type {boolean}
-     * @memberof DomainDetail
      */
     'Verify'?: boolean;
-    /**
-     * 
-     * @type {TrackingType}
-     * @memberof DomainDetail
-     */
     'Type'?: TrackingType;
-    /**
-     * 
-     * @type {TrackingValidationStatus}
-     * @memberof DomainDetail
-     */
     'TrackingStatus'?: TrackingValidationStatus;
-    /**
-     * 
-     * @type {CertificateValidationStatus}
-     * @memberof DomainDetail
-     */
     'CertificateStatus'?: CertificateValidationStatus;
-    /**
-     * 
-     * @type {string}
-     * @memberof DomainDetail
-     */
     'CertificateValidationError'?: string;
-    /**
-     * 
-     * @type {TrackingType}
-     * @memberof DomainDetail
-     */
     'TrackingTypeUserRequest'?: TrackingType;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DomainDetail
-     */
     'VERP'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof DomainDetail
-     */
     'CustomBouncesDomain'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DomainDetail
-     */
     'IsCustomBouncesDomainDefault'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DomainDetail
-     */
     'IsMarkedForDeletion'?: boolean;
-    /**
-     * 
-     * @type {DomainOwner}
-     * @memberof DomainDetail
-     */
     'Ownership'?: DomainOwner;
 }
 

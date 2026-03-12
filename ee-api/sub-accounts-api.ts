@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,20 +18,19 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { SubAccountInfo } from '../ee-api-models';
+import type { SubAccountInfo } from '../ee-api-models';
 // @ts-ignore
-import { SubaccountEmailCreditsPayload } from '../ee-api-models';
+import type { SubaccountEmailCreditsPayload } from '../ee-api-models';
 // @ts-ignore
-import { SubaccountEmailSettings } from '../ee-api-models';
+import type { SubaccountEmailSettings } from '../ee-api-models';
 // @ts-ignore
-import { SubaccountPayload } from '../ee-api-models';
+import type { SubaccountPayload } from '../ee-api-models';
 /**
  * SubAccountsApi - axios parameter creator
- * @export
  */
 export const SubAccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -64,8 +63,6 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -105,7 +102,6 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -141,8 +137,8 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -181,9 +177,8 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -227,8 +222,8 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -263,9 +258,8 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -282,7 +276,6 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * SubAccountsApi - functional programming interface
- * @export
  */
 export const SubAccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SubAccountsApiAxiosParamCreator(configuration)
@@ -373,7 +366,6 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
 
 /**
  * SubAccountsApi - factory interface
- * @export
  */
 export const SubAccountsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SubAccountsApiFp(configuration)
@@ -386,7 +378,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: any): AxiosPromise<void> {
+        subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.subaccountsByEmailCreditsPatch(email, subaccountEmailCreditsPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -396,7 +388,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailDelete(email: string, options?: any): AxiosPromise<void> {
+        subaccountsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.subaccountsByEmailDelete(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -406,7 +398,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailGet(email: string, options?: any): AxiosPromise<SubAccountInfo> {
+        subaccountsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<SubAccountInfo> {
             return localVarFp.subaccountsByEmailGet(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -417,7 +409,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: any): AxiosPromise<SubaccountEmailSettings> {
+        subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: RawAxiosRequestConfig): AxiosPromise<SubaccountEmailSettings> {
             return localVarFp.subaccountsByEmailSettingsEmailPut(email, subaccountEmailSettings, options).then((request) => request(axios, basePath));
         },
         /**
@@ -428,7 +420,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<SubAccountInfo>> {
+        subaccountsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<SubAccountInfo>> {
             return localVarFp.subaccountsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -438,7 +430,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        subaccountsPost(subaccountPayload: SubaccountPayload, options?: any): AxiosPromise<SubAccountInfo> {
+        subaccountsPost(subaccountPayload: SubaccountPayload, options?: RawAxiosRequestConfig): AxiosPromise<SubAccountInfo> {
             return localVarFp.subaccountsPost(subaccountPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -446,8 +438,6 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
 
 /**
  * SubAccountsApi - interface
- * @export
- * @interface SubAccountsApi
  */
 export interface SubAccountsApiInterface {
     /**
@@ -457,7 +447,6 @@ export interface SubAccountsApiInterface {
      * @param {SubaccountEmailCreditsPayload} subaccountEmailCreditsPayload Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -467,7 +456,6 @@ export interface SubAccountsApiInterface {
      * @param {string} email Email address of Sub-Account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -477,7 +465,6 @@ export interface SubAccountsApiInterface {
      * @param {string} email Email address of Sub-Account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<SubAccountInfo>;
 
@@ -488,7 +475,6 @@ export interface SubAccountsApiInterface {
      * @param {SubaccountEmailSettings} subaccountEmailSettings Updated Email Settings
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: RawAxiosRequestConfig): AxiosPromise<SubaccountEmailSettings>;
 
@@ -499,7 +485,6 @@ export interface SubAccountsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<SubAccountInfo>>;
 
@@ -509,7 +494,6 @@ export interface SubAccountsApiInterface {
      * @param {SubaccountPayload} subaccountPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApiInterface
      */
     subaccountsPost(subaccountPayload: SubaccountPayload, options?: RawAxiosRequestConfig): AxiosPromise<SubAccountInfo>;
 
@@ -517,9 +501,6 @@ export interface SubAccountsApiInterface {
 
 /**
  * SubAccountsApi - object-oriented interface
- * @export
- * @class SubAccountsApi
- * @extends {BaseAPI}
  */
 export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
     /**
@@ -529,7 +510,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {SubaccountEmailCreditsPayload} subaccountEmailCreditsPayload Amount of email credits to add or subtract from the current SubAccount email credits pool (positive or negative value)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsByEmailCreditsPatch(email: string, subaccountEmailCreditsPayload: SubaccountEmailCreditsPayload, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailCreditsPatch(email, subaccountEmailCreditsPayload, options).then((request) => request(this.axios, this.basePath));
@@ -541,7 +521,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {string} email Email address of Sub-Account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
@@ -553,7 +532,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {string} email Email address of Sub-Account
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
@@ -566,7 +544,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {SubaccountEmailSettings} subaccountEmailSettings Updated Email Settings
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsByEmailSettingsEmailPut(email: string, subaccountEmailSettings: SubaccountEmailSettings, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsByEmailSettingsEmailPut(email, subaccountEmailSettings, options).then((request) => request(this.axios, this.basePath));
@@ -579,7 +556,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -591,7 +567,6 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
      * @param {SubaccountPayload} subaccountPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SubAccountsApi
      */
     public subaccountsPost(subaccountPayload: SubaccountPayload, options?: RawAxiosRequestConfig) {
         return SubAccountsApiFp(this.configuration).subaccountsPost(subaccountPayload, options).then((request) => request(this.axios, this.basePath));

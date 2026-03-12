@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -15,52 +15,29 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignOptions } from './campaign-options';
+import type { CampaignOptions } from './campaign-options';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignRecipient } from './campaign-recipient';
+import type { CampaignRecipient } from './campaign-recipient';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignStatus } from './campaign-status';
+import type { CampaignStatus } from './campaign-status';
 // May contain unused imports in some cases
 // @ts-ignore
-import { CampaignTemplate } from './campaign-template';
+import type { CampaignTemplate } from './campaign-template';
 
-/**
- * 
- * @export
- * @interface Campaign
- */
 export interface Campaign {
     /**
      * Campaign\'s email content. Provide multiple items to send an A/X Split Campaign
-     * @type {Array<CampaignTemplate>}
-     * @memberof Campaign
      */
     'Content'?: Array<CampaignTemplate>;
     /**
      * Campaign name
-     * @type {string}
-     * @memberof Campaign
      */
     'Name': string;
-    /**
-     * 
-     * @type {CampaignStatus}
-     * @memberof Campaign
-     */
     'Status'?: CampaignStatus;
-    /**
-     * 
-     * @type {CampaignRecipient}
-     * @memberof Campaign
-     */
     'Recipients': CampaignRecipient;
-    /**
-     * 
-     * @type {CampaignOptions}
-     * @memberof Campaign
-     */
+    'ExcludedRecipients'?: CampaignRecipient;
     'Options'?: CampaignOptions;
 }
 

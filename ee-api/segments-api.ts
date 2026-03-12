@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,16 +18,15 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Segment } from '../ee-api-models';
+import type { Segment } from '../ee-api-models';
 // @ts-ignore
-import { SegmentPayload } from '../ee-api-models';
+import type { SegmentPayload } from '../ee-api-models';
 /**
  * SegmentsApi - axios parameter creator
- * @export
  */
 export const SegmentsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,7 +57,6 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -94,8 +92,8 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -134,9 +132,8 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -180,8 +177,8 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -216,9 +213,8 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -235,7 +231,6 @@ export const SegmentsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * SegmentsApi - functional programming interface
- * @export
  */
 export const SegmentsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SegmentsApiAxiosParamCreator(configuration)
@@ -312,7 +307,6 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
 
 /**
  * SegmentsApi - factory interface
- * @export
  */
 export const SegmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SegmentsApiFp(configuration)
@@ -324,7 +318,7 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNameDelete(name: string, options?: any): AxiosPromise<void> {
+        segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.segmentsByNameDelete(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -334,7 +328,7 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNameGet(name: string, options?: any): AxiosPromise<Segment> {
+        segmentsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Segment> {
             return localVarFp.segmentsByNameGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -345,7 +339,7 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: any): AxiosPromise<Segment> {
+        segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment> {
             return localVarFp.segmentsByNamePut(name, segmentPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -356,7 +350,7 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<Segment>> {
+        segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Segment>> {
             return localVarFp.segmentsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -366,7 +360,7 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        segmentsPost(segmentPayload: SegmentPayload, options?: any): AxiosPromise<Segment> {
+        segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment> {
             return localVarFp.segmentsPost(segmentPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -374,8 +368,6 @@ export const SegmentsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * SegmentsApi - interface
- * @export
- * @interface SegmentsApi
  */
 export interface SegmentsApiInterface {
     /**
@@ -384,7 +376,6 @@ export interface SegmentsApiInterface {
      * @param {string} name Name of your segment.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApiInterface
      */
     segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -394,7 +385,6 @@ export interface SegmentsApiInterface {
      * @param {string} name Name of the segment you want to load. Will load all contacts if the \&#39;All Contacts\&#39; name has been provided
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApiInterface
      */
     segmentsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
@@ -405,7 +395,6 @@ export interface SegmentsApiInterface {
      * @param {SegmentPayload} segmentPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApiInterface
      */
     segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
@@ -416,7 +405,6 @@ export interface SegmentsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApiInterface
      */
     segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Segment>>;
 
@@ -426,7 +414,6 @@ export interface SegmentsApiInterface {
      * @param {SegmentPayload} segmentPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApiInterface
      */
     segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig): AxiosPromise<Segment>;
 
@@ -434,9 +421,6 @@ export interface SegmentsApiInterface {
 
 /**
  * SegmentsApi - object-oriented interface
- * @export
- * @class SegmentsApi
- * @extends {BaseAPI}
  */
 export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
     /**
@@ -445,7 +429,6 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @param {string} name Name of your segment.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApi
      */
     public segmentsByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
@@ -457,7 +440,6 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @param {string} name Name of the segment you want to load. Will load all contacts if the \&#39;All Contacts\&#39; name has been provided
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApi
      */
     public segmentsByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -470,7 +452,6 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @param {SegmentPayload} segmentPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApi
      */
     public segmentsByNamePut(name: string, segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsByNamePut(name, segmentPayload, options).then((request) => request(this.axios, this.basePath));
@@ -483,7 +464,6 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApi
      */
     public segmentsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -495,7 +475,6 @@ export class SegmentsApi extends BaseAPI implements SegmentsApiInterface {
      * @param {SegmentPayload} segmentPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SegmentsApi
      */
     public segmentsPost(segmentPayload: SegmentPayload, options?: RawAxiosRequestConfig) {
         return SegmentsApiFp(this.configuration).segmentsPost(segmentPayload, options).then((request) => request(this.axios, this.basePath));

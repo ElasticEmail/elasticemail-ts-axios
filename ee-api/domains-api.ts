@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,20 +18,19 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { DomainData } from '../ee-api-models';
+import type { DomainData } from '../ee-api-models';
 // @ts-ignore
-import { DomainDetail } from '../ee-api-models';
+import type { DomainDetail } from '../ee-api-models';
 // @ts-ignore
-import { DomainPayload } from '../ee-api-models';
+import type { DomainPayload } from '../ee-api-models';
 // @ts-ignore
-import { DomainUpdatePayload } from '../ee-api-models';
+import type { DomainUpdatePayload } from '../ee-api-models';
 /**
  * DomainsApi - axios parameter creator
- * @export
  */
 export const DomainsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -62,7 +61,6 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -98,8 +96,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -138,9 +136,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -178,8 +175,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -218,9 +215,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -258,8 +254,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -291,8 +287,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -327,9 +323,8 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -346,7 +341,6 @@ export const DomainsApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * DomainsApi - functional programming interface
- * @export
  */
 export const DomainsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DomainsApiAxiosParamCreator(configuration)
@@ -461,7 +455,6 @@ export const DomainsApiFp = function(configuration?: Configuration) {
 
 /**
  * DomainsApi - factory interface
- * @export
  */
 export const DomainsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DomainsApiFp(configuration)
@@ -473,7 +466,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByDomainDelete(domain: string, options?: any): AxiosPromise<void> {
+        domainsByDomainDelete(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.domainsByDomainDelete(domain, options).then((request) => request(axios, basePath));
         },
         /**
@@ -483,7 +476,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByDomainGet(domain: string, options?: any): AxiosPromise<DomainData> {
+        domainsByDomainGet(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainData> {
             return localVarFp.domainsByDomainGet(domain, options).then((request) => request(axios, basePath));
         },
         /**
@@ -494,7 +487,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByDomainPut(domain: string, domainUpdatePayload: DomainUpdatePayload, options?: any): AxiosPromise<DomainDetail> {
+        domainsByDomainPut(domain: string, domainUpdatePayload: DomainUpdatePayload, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail> {
             return localVarFp.domainsByDomainPut(domain, domainUpdatePayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -504,7 +497,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByDomainRestrictedGet(domain: string, options?: any): AxiosPromise<boolean> {
+        domainsByDomainRestrictedGet(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<boolean> {
             return localVarFp.domainsByDomainRestrictedGet(domain, options).then((request) => request(axios, basePath));
         },
         /**
@@ -515,7 +508,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByDomainVerificationPut(domain: string, body: string, options?: any): AxiosPromise<DomainData> {
+        domainsByDomainVerificationPut(domain: string, body: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainData> {
             return localVarFp.domainsByDomainVerificationPut(domain, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -525,7 +518,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsByEmailDefaultPatch(email: string, options?: any): AxiosPromise<DomainDetail> {
+        domainsByEmailDefaultPatch(email: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail> {
             return localVarFp.domainsByEmailDefaultPatch(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -534,7 +527,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsGet(options?: any): AxiosPromise<Array<DomainDetail>> {
+        domainsGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<DomainDetail>> {
             return localVarFp.domainsGet(options).then((request) => request(axios, basePath));
         },
         /**
@@ -544,7 +537,7 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        domainsPost(domainPayload: DomainPayload, options?: any): AxiosPromise<DomainDetail> {
+        domainsPost(domainPayload: DomainPayload, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail> {
             return localVarFp.domainsPost(domainPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -552,8 +545,6 @@ export const DomainsApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * DomainsApi - interface
- * @export
- * @interface DomainsApi
  */
 export interface DomainsApiInterface {
     /**
@@ -562,7 +553,6 @@ export interface DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByDomainDelete(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -572,7 +562,6 @@ export interface DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByDomainGet(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainData>;
 
@@ -583,7 +572,6 @@ export interface DomainsApiInterface {
      * @param {DomainUpdatePayload} domainUpdatePayload Updated Domain resource
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByDomainPut(domain: string, domainUpdatePayload: DomainUpdatePayload, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail>;
 
@@ -593,7 +581,6 @@ export interface DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByDomainRestrictedGet(domain: string, options?: RawAxiosRequestConfig): AxiosPromise<boolean>;
 
@@ -604,7 +591,6 @@ export interface DomainsApiInterface {
      * @param {string} body Tracking type used in the Tracking verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByDomainVerificationPut(domain: string, body: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainData>;
 
@@ -614,7 +600,6 @@ export interface DomainsApiInterface {
      * @param {string} email Default email sender, example: mail@yourdomain.com
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsByEmailDefaultPatch(email: string, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail>;
 
@@ -623,7 +608,6 @@ export interface DomainsApiInterface {
      * @summary Load Domains
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<DomainDetail>>;
 
@@ -633,7 +617,6 @@ export interface DomainsApiInterface {
      * @param {DomainPayload} domainPayload Domain to add
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApiInterface
      */
     domainsPost(domainPayload: DomainPayload, options?: RawAxiosRequestConfig): AxiosPromise<DomainDetail>;
 
@@ -641,9 +624,6 @@ export interface DomainsApiInterface {
 
 /**
  * DomainsApi - object-oriented interface
- * @export
- * @class DomainsApi
- * @extends {BaseAPI}
  */
 export class DomainsApi extends BaseAPI implements DomainsApiInterface {
     /**
@@ -652,7 +632,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByDomainDelete(domain: string, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByDomainDelete(domain, options).then((request) => request(this.axios, this.basePath));
@@ -664,7 +643,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByDomainGet(domain: string, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByDomainGet(domain, options).then((request) => request(this.axios, this.basePath));
@@ -677,7 +655,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {DomainUpdatePayload} domainUpdatePayload Updated Domain resource
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByDomainPut(domain: string, domainUpdatePayload: DomainUpdatePayload, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByDomainPut(domain, domainUpdatePayload, options).then((request) => request(this.axios, this.basePath));
@@ -689,7 +666,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {string} domain Name of the given domain
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByDomainRestrictedGet(domain: string, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByDomainRestrictedGet(domain, options).then((request) => request(this.axios, this.basePath));
@@ -702,7 +678,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {string} body Tracking type used in the Tracking verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByDomainVerificationPut(domain: string, body: string, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByDomainVerificationPut(domain, body, options).then((request) => request(this.axios, this.basePath));
@@ -714,7 +689,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {string} email Default email sender, example: mail@yourdomain.com
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsByEmailDefaultPatch(email: string, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsByEmailDefaultPatch(email, options).then((request) => request(this.axios, this.basePath));
@@ -725,7 +699,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @summary Load Domains
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsGet(options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsGet(options).then((request) => request(this.axios, this.basePath));
@@ -737,7 +710,6 @@ export class DomainsApi extends BaseAPI implements DomainsApiInterface {
      * @param {DomainPayload} domainPayload Domain to add
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DomainsApi
      */
     public domainsPost(domainPayload: DomainPayload, options?: RawAxiosRequestConfig) {
         return DomainsApiFp(this.configuration).domainsPost(domainPayload, options).then((request) => request(this.axios, this.basePath));

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,18 +18,17 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { InboundPayload } from '../ee-api-models';
+import type { InboundPayload } from '../ee-api-models';
 // @ts-ignore
-import { InboundRoute } from '../ee-api-models';
+import type { InboundRoute } from '../ee-api-models';
 // @ts-ignore
-import { SortOrderItem } from '../ee-api-models';
+import type { SortOrderItem } from '../ee-api-models';
 /**
  * InboundRouteApi - axios parameter creator
- * @export
  */
 export const InboundRouteApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -60,7 +59,6 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -96,8 +94,8 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -136,9 +134,8 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -172,8 +169,8 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -208,9 +205,8 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -247,9 +243,8 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -266,7 +261,6 @@ export const InboundRouteApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * InboundRouteApi - functional programming interface
- * @export
  */
 export const InboundRouteApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InboundRouteApiAxiosParamCreator(configuration)
@@ -354,7 +348,6 @@ export const InboundRouteApiFp = function(configuration?: Configuration) {
 
 /**
  * InboundRouteApi - factory interface
- * @export
  */
 export const InboundRouteApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = InboundRouteApiFp(configuration)
@@ -366,7 +359,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdDelete(id: string, options?: any): AxiosPromise<void> {
+        inboundrouteByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.inboundrouteByIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -376,7 +369,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdGet(id: string, options?: any): AxiosPromise<InboundRoute> {
+        inboundrouteByIdGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute> {
             return localVarFp.inboundrouteByIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -387,7 +380,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: any): AxiosPromise<InboundRoute> {
+        inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute> {
             return localVarFp.inboundrouteByIdPut(id, inboundPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -396,7 +389,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteGet(options?: any): AxiosPromise<Array<InboundRoute>> {
+        inboundrouteGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<InboundRoute>> {
             return localVarFp.inboundrouteGet(options).then((request) => request(axios, basePath));
         },
         /**
@@ -406,7 +399,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: any): AxiosPromise<Array<InboundRoute>> {
+        inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: RawAxiosRequestConfig): AxiosPromise<Array<InboundRoute>> {
             return localVarFp.inboundrouteOrderPut(sortOrderItem, options).then((request) => request(axios, basePath));
         },
         /**
@@ -416,7 +409,7 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inboundroutePost(inboundPayload: InboundPayload, options?: any): AxiosPromise<InboundRoute> {
+        inboundroutePost(inboundPayload: InboundPayload, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute> {
             return localVarFp.inboundroutePost(inboundPayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -424,8 +417,6 @@ export const InboundRouteApiFactory = function (configuration?: Configuration, b
 
 /**
  * InboundRouteApi - interface
- * @export
- * @interface InboundRouteApi
  */
 export interface InboundRouteApiInterface {
     /**
@@ -434,7 +425,6 @@ export interface InboundRouteApiInterface {
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundrouteByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -444,7 +434,6 @@ export interface InboundRouteApiInterface {
      * @param {string} id ID number of your attachment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundrouteByIdGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute>;
 
@@ -455,7 +444,6 @@ export interface InboundRouteApiInterface {
      * @param {InboundPayload} inboundPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute>;
 
@@ -464,7 +452,6 @@ export interface InboundRouteApiInterface {
      * @summary Get Routes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundrouteGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<InboundRoute>>;
 
@@ -474,7 +461,6 @@ export interface InboundRouteApiInterface {
      * @param {Array<SortOrderItem>} sortOrderItem Change the ordering of inbound routes for when matching the inbound
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: RawAxiosRequestConfig): AxiosPromise<Array<InboundRoute>>;
 
@@ -484,7 +470,6 @@ export interface InboundRouteApiInterface {
      * @param {InboundPayload} inboundPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApiInterface
      */
     inboundroutePost(inboundPayload: InboundPayload, options?: RawAxiosRequestConfig): AxiosPromise<InboundRoute>;
 
@@ -492,9 +477,6 @@ export interface InboundRouteApiInterface {
 
 /**
  * InboundRouteApi - object-oriented interface
- * @export
- * @class InboundRouteApi
- * @extends {BaseAPI}
  */
 export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface {
     /**
@@ -503,7 +485,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundrouteByIdDelete(id: string, options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdDelete(id, options).then((request) => request(this.axios, this.basePath));
@@ -515,7 +496,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @param {string} id ID number of your attachment
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundrouteByIdGet(id: string, options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -528,7 +508,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @param {InboundPayload} inboundPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundrouteByIdPut(id: string, inboundPayload: InboundPayload, options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteByIdPut(id, inboundPayload, options).then((request) => request(this.axios, this.basePath));
@@ -539,7 +518,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @summary Get Routes
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundrouteGet(options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteGet(options).then((request) => request(this.axios, this.basePath));
@@ -551,7 +529,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @param {Array<SortOrderItem>} sortOrderItem Change the ordering of inbound routes for when matching the inbound
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundrouteOrderPut(sortOrderItem: Array<SortOrderItem>, options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundrouteOrderPut(sortOrderItem, options).then((request) => request(this.axios, this.basePath));
@@ -563,7 +540,6 @@ export class InboundRouteApi extends BaseAPI implements InboundRouteApiInterface
      * @param {InboundPayload} inboundPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof InboundRouteApi
      */
     public inboundroutePost(inboundPayload: InboundPayload, options?: RawAxiosRequestConfig) {
         return InboundRouteApiFp(this.configuration).inboundroutePost(inboundPayload, options).then((request) => request(this.axios, this.basePath));

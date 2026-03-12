@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,16 +18,15 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { ChannelLogStatusSummary } from '../ee-api-models';
+import type { ChannelLogStatusSummary } from '../ee-api-models';
 // @ts-ignore
-import { LogStatusSummary } from '../ee-api-models';
+import type { LogStatusSummary } from '../ee-api-models';
 /**
  * StatisticsApi - axios parameter creator
- * @export
  */
 export const StatisticsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -57,8 +56,8 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -100,8 +99,8 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -137,8 +136,8 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -180,8 +179,8 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -229,8 +228,8 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
                     to;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -245,7 +244,6 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * StatisticsApi - functional programming interface
- * @export
  */
 export const StatisticsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StatisticsApiAxiosParamCreator(configuration)
@@ -323,7 +321,6 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
 
 /**
  * StatisticsApi - factory interface
- * @export
  */
 export const StatisticsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StatisticsApiFp(configuration)
@@ -335,7 +332,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsCampaignsByNameGet(name: string, options?: any): AxiosPromise<ChannelLogStatusSummary> {
+        statisticsCampaignsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary> {
             return localVarFp.statisticsCampaignsByNameGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -346,7 +343,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsCampaignsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<ChannelLogStatusSummary>> {
+        statisticsCampaignsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>> {
             return localVarFp.statisticsCampaignsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -356,7 +353,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsChannelsByNameGet(name: string, options?: any): AxiosPromise<ChannelLogStatusSummary> {
+        statisticsChannelsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary> {
             return localVarFp.statisticsChannelsByNameGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -367,7 +364,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsChannelsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<ChannelLogStatusSummary>> {
+        statisticsChannelsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>> {
             return localVarFp.statisticsChannelsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -378,7 +375,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsGet(from: string, to?: string | null, options?: any): AxiosPromise<LogStatusSummary> {
+        statisticsGet(from: string, to?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<LogStatusSummary> {
             return localVarFp.statisticsGet(from, to, options).then((request) => request(axios, basePath));
         },
     };
@@ -386,8 +383,6 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
 
 /**
  * StatisticsApi - interface
- * @export
- * @interface StatisticsApi
  */
 export interface StatisticsApiInterface {
     /**
@@ -396,7 +391,6 @@ export interface StatisticsApiInterface {
      * @param {string} name The name of the campaign to get.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApiInterface
      */
     statisticsCampaignsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary>;
 
@@ -407,7 +401,6 @@ export interface StatisticsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApiInterface
      */
     statisticsCampaignsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>>;
 
@@ -417,7 +410,6 @@ export interface StatisticsApiInterface {
      * @param {string} name The name of the channel to get.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApiInterface
      */
     statisticsChannelsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<ChannelLogStatusSummary>;
 
@@ -428,7 +420,6 @@ export interface StatisticsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApiInterface
      */
     statisticsChannelsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<ChannelLogStatusSummary>>;
 
@@ -439,7 +430,6 @@ export interface StatisticsApiInterface {
      * @param {string | null} [to] Ending date for search in YYYY-MM-DDThh:mm:ss format.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApiInterface
      */
     statisticsGet(from: string, to?: string | null, options?: RawAxiosRequestConfig): AxiosPromise<LogStatusSummary>;
 
@@ -447,9 +437,6 @@ export interface StatisticsApiInterface {
 
 /**
  * StatisticsApi - object-oriented interface
- * @export
- * @class StatisticsApi
- * @extends {BaseAPI}
  */
 export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
     /**
@@ -458,7 +445,6 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @param {string} name The name of the campaign to get.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public statisticsCampaignsByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsCampaignsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -471,7 +457,6 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public statisticsCampaignsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsCampaignsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -483,7 +468,6 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @param {string} name The name of the channel to get.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public statisticsChannelsByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsChannelsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -496,7 +480,6 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public statisticsChannelsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsChannelsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -509,7 +492,6 @@ export class StatisticsApi extends BaseAPI implements StatisticsApiInterface {
      * @param {string | null} [to] Ending date for search in YYYY-MM-DDThh:mm:ss format.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public statisticsGet(from: string, to?: string | null, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).statisticsGet(from, to, options).then((request) => request(this.axios, this.basePath));

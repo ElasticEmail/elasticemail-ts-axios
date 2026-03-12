@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,18 +18,17 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { EmailValidationResult } from '../ee-api-models';
+import type { EmailValidationResult } from '../ee-api-models';
 // @ts-ignore
-import { VerificationFileResult } from '../ee-api-models';
+import type { VerificationFileResult } from '../ee-api-models';
 // @ts-ignore
-import { VerificationFileResultDetails } from '../ee-api-models';
+import type { VerificationFileResultDetails } from '../ee-api-models';
 /**
  * VerificationsApi - axios parameter creator
- * @export
  */
 export const VerificationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -60,7 +59,6 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -71,7 +69,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns a result of verified email. Required Access Level: VerifyEmails
+         * Returns a result of verified email. Required Access Level: ViewVerifyEmails
          * @summary Get Email Verification Result
          * @param {string} email Email address to view verification result of
          * @param {*} [options] Override http request option.
@@ -96,8 +94,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -133,8 +131,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -171,7 +169,6 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -182,7 +179,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Download verification results as a ZIP file. Required Access Level: VerifyEmails
+         * Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
          * @summary Download File Verification Result
          * @param {string} id Verification ID to download
          * @param {*} [options] Override http request option.
@@ -207,8 +204,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/*';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -219,7 +216,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+         * Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
          * @summary Get Detailed File Verification Result
          * @param {string} id ID of the Verification to display status of
          * @param {number} [limit] Maximum number of returned email verification results
@@ -254,8 +251,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -292,7 +289,6 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -330,10 +326,9 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+            localVarHeaderParameter['Accept'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -345,7 +340,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+         * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
          * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -366,8 +361,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -378,7 +373,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns a results of all verified single emails. Required Access Level: VerifyEmails
+         * Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
          * @summary Get Emails Verification Results
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
@@ -409,8 +404,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -425,7 +420,6 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * VerificationsApi - functional programming interface
- * @export
  */
 export const VerificationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = VerificationsApiAxiosParamCreator(configuration)
@@ -444,7 +438,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns a result of verified email. Required Access Level: VerifyEmails
+         * Returns a result of verified email. Required Access Level: ViewVerifyEmails
          * @summary Get Email Verification Result
          * @param {string} email Email address to view verification result of
          * @param {*} [options] Override http request option.
@@ -483,7 +477,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Download verification results as a ZIP file. Required Access Level: VerifyEmails
+         * Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
          * @summary Download File Verification Result
          * @param {string} id Verification ID to download
          * @param {*} [options] Override http request option.
@@ -496,7 +490,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+         * Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
          * @summary Get Detailed File Verification Result
          * @param {string} id ID of the Verification to display status of
          * @param {number} [limit] Maximum number of returned email verification results
@@ -537,7 +531,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+         * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
          * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -549,7 +543,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns a results of all verified single emails. Required Access Level: VerifyEmails
+         * Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
          * @summary Get Emails Verification Results
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
@@ -567,7 +561,6 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
 
 /**
  * VerificationsApi - factory interface
- * @export
  */
 export const VerificationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = VerificationsApiFp(configuration)
@@ -579,17 +572,17 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailDelete(email: string, options?: any): AxiosPromise<void> {
+        verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.verificationsByEmailDelete(email, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a result of verified email. Required Access Level: VerifyEmails
+         * Returns a result of verified email. Required Access Level: ViewVerifyEmails
          * @summary Get Email Verification Result
          * @param {string} email Email address to view verification result of
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailGet(email: string, options?: any): AxiosPromise<EmailValidationResult> {
+        verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult> {
             return localVarFp.verificationsByEmailGet(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -599,7 +592,7 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsByEmailPost(email: string, options?: any): AxiosPromise<EmailValidationResult> {
+        verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult> {
             return localVarFp.verificationsByEmailPost(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -609,21 +602,21 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdDelete(id: string, options?: any): AxiosPromise<void> {
+        verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.verificationsFilesByIdDelete(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Download verification results as a ZIP file. Required Access Level: VerifyEmails
+         * Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
          * @summary Download File Verification Result
          * @param {string} id Verification ID to download
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdResultDownloadGet(id: string, options?: any): AxiosPromise<File> {
+        verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.verificationsFilesByIdResultDownloadGet(id, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+         * Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
          * @summary Get Detailed File Verification Result
          * @param {string} id ID of the Verification to display status of
          * @param {number} [limit] Maximum number of returned email verification results
@@ -631,7 +624,7 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: any): AxiosPromise<VerificationFileResultDetails> {
+        verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResultDetails> {
             return localVarFp.verificationsFilesByIdResultGet(id, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -641,7 +634,7 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesByIdVerificationPost(id: string, options?: any): AxiosPromise<void> {
+        verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.verificationsFilesByIdVerificationPost(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -651,27 +644,27 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesPost(file?: File, options?: any): AxiosPromise<VerificationFileResult> {
+        verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResult> {
             return localVarFp.verificationsFilesPost(file, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+         * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
          * @summary Get Files Verification Results
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsFilesResultGet(options?: any): AxiosPromise<Array<VerificationFileResult>> {
+        verificationsFilesResultGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<VerificationFileResult>> {
             return localVarFp.verificationsFilesResultGet(options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a results of all verified single emails. Required Access Level: VerifyEmails
+         * Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
          * @summary Get Emails Verification Results
          * @param {number} [limit] Maximum number of returned items.
          * @param {number} [offset] How many items should be returned ahead.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verificationsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<EmailValidationResult>> {
+        verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<EmailValidationResult>> {
             return localVarFp.verificationsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
     };
@@ -679,8 +672,6 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
 
 /**
  * VerificationsApi - interface
- * @export
- * @interface VerificationsApi
  */
 export interface VerificationsApiInterface {
     /**
@@ -689,17 +680,15 @@ export interface VerificationsApiInterface {
      * @param {string} email Email address to verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Returns a result of verified email. Required Access Level: VerifyEmails
+     * Returns a result of verified email. Required Access Level: ViewVerifyEmails
      * @summary Get Email Verification Result
      * @param {string} email Email address to view verification result of
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
@@ -709,7 +698,6 @@ export interface VerificationsApiInterface {
      * @param {string} email Email address to verify
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
@@ -719,29 +707,26 @@ export interface VerificationsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
     /**
-     * Download verification results as a ZIP file. Required Access Level: VerifyEmails
+     * Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
      * @summary Download File Verification Result
      * @param {string} id Verification ID to download
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
     /**
-     * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+     * Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
      * @summary Get Detailed File Verification Result
      * @param {string} id ID of the Verification to display status of
      * @param {number} [limit] Maximum number of returned email verification results
      * @param {number} [offset] How many result items should be returned ahead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResultDetails>;
 
@@ -751,7 +736,6 @@ export interface VerificationsApiInterface {
      * @param {string} id File ID to start verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -761,27 +745,24 @@ export interface VerificationsApiInterface {
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResult>;
 
     /**
-     * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+     * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
      * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsFilesResultGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<VerificationFileResult>>;
 
     /**
-     * Returns a results of all verified single emails. Required Access Level: VerifyEmails
+     * Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
      * @summary Get Emails Verification Results
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApiInterface
      */
     verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<EmailValidationResult>>;
 
@@ -789,9 +770,6 @@ export interface VerificationsApiInterface {
 
 /**
  * VerificationsApi - object-oriented interface
- * @export
- * @class VerificationsApi
- * @extends {BaseAPI}
  */
 export class VerificationsApi extends BaseAPI implements VerificationsApiInterface {
     /**
@@ -800,19 +778,17 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} email Email address to verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns a result of verified email. Required Access Level: VerifyEmails
+     * Returns a result of verified email. Required Access Level: ViewVerifyEmails
      * @summary Get Email Verification Result
      * @param {string} email Email address to view verification result of
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
@@ -824,7 +800,6 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} email Email address to verify
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailPost(email, options).then((request) => request(this.axios, this.basePath));
@@ -836,33 +811,30 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Download verification results as a ZIP file. Required Access Level: VerifyEmails
+     * Download verification results as a ZIP file. Required Access Level: ViewVerifyEmails
      * @summary Download File Verification Result
      * @param {string} id Verification ID to download
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultDownloadGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns status and results (if verified) of file with given ID. Required Access Level: VerifyEmails
+     * Returns status and results (if verified) of file with given ID. Required Access Level: ViewVerifyEmails
      * @summary Get Detailed File Verification Result
      * @param {string} id ID of the Verification to display status of
      * @param {number} [limit] Maximum number of returned email verification results
      * @param {number} [offset] How many result items should be returned ahead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultGet(id, limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -874,7 +846,6 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} id File ID to start verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdVerificationPost(id, options).then((request) => request(this.axios, this.basePath));
@@ -886,31 +857,28 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesPost(file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns a list of uploaded files, their statuses and results. Required Access Level: VerifyEmails
+     * Returns a list of uploaded files, their statuses and results. Required Access Level: ViewVerifyEmails
      * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsFilesResultGet(options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesResultGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns a results of all verified single emails. Required Access Level: VerifyEmails
+     * Returns a results of all verified single emails. Required Access Level: ViewVerifyEmails
      * @summary Get Emails Verification Results
      * @param {number} [limit] Maximum number of returned items.
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VerificationsApi
      */
     public verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));

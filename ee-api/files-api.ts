@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,16 +18,15 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { FileInfo } from '../ee-api-models';
+import type { FileInfo } from '../ee-api-models';
 // @ts-ignore
-import { FilePayload } from '../ee-api-models';
+import type { FilePayload } from '../ee-api-models';
 /**
  * FilesApi - axios parameter creator
- * @export
  */
 export const FilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,7 +57,6 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -94,8 +92,8 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/*';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -131,8 +129,8 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -174,8 +172,8 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -215,9 +213,8 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['expiresAfterDays'] = expiresAfterDays;
             }
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -234,7 +231,6 @@ export const FilesApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * FilesApi - functional programming interface
- * @export
  */
 export const FilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FilesApiAxiosParamCreator(configuration)
@@ -311,7 +307,6 @@ export const FilesApiFp = function(configuration?: Configuration) {
 
 /**
  * FilesApi - factory interface
- * @export
  */
 export const FilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = FilesApiFp(configuration)
@@ -323,7 +318,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameDelete(name: string, options?: any): AxiosPromise<void> {
+        filesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.filesByNameDelete(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -333,7 +328,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameGet(name: string, options?: any): AxiosPromise<File> {
+        filesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.filesByNameGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -343,7 +338,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesByNameInfoGet(name: string, options?: any): AxiosPromise<FileInfo> {
+        filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo> {
             return localVarFp.filesByNameInfoGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -354,7 +349,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<FileInfo>> {
+        filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<FileInfo>> {
             return localVarFp.filesGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -365,7 +360,7 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: any): AxiosPromise<FileInfo> {
+        filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo> {
             return localVarFp.filesPost(filePayload, expiresAfterDays, options).then((request) => request(axios, basePath));
         },
     };
@@ -373,8 +368,6 @@ export const FilesApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * FilesApi - interface
- * @export
- * @interface FilesApi
  */
 export interface FilesApiInterface {
     /**
@@ -383,7 +376,6 @@ export interface FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApiInterface
      */
     filesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -393,7 +385,6 @@ export interface FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApiInterface
      */
     filesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
@@ -403,7 +394,6 @@ export interface FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApiInterface
      */
     filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo>;
 
@@ -414,7 +404,6 @@ export interface FilesApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApiInterface
      */
     filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<FileInfo>>;
 
@@ -425,7 +414,6 @@ export interface FilesApiInterface {
      * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApiInterface
      */
     filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig): AxiosPromise<FileInfo>;
 
@@ -433,9 +421,6 @@ export interface FilesApiInterface {
 
 /**
  * FilesApi - object-oriented interface
- * @export
- * @class FilesApi
- * @extends {BaseAPI}
  */
 export class FilesApi extends BaseAPI implements FilesApiInterface {
     /**
@@ -444,7 +429,6 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApi
      */
     public filesByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
@@ -456,7 +440,6 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApi
      */
     public filesByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -468,7 +451,6 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @param {string} name Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApi
      */
     public filesByNameInfoGet(name: string, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesByNameInfoGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -481,7 +463,6 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApi
      */
     public filesGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -494,7 +475,6 @@ export class FilesApi extends BaseAPI implements FilesApiInterface {
      * @param {number | null} [expiresAfterDays] After how many days should the file be deleted.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof FilesApi
      */
     public filesPost(filePayload: FilePayload, expiresAfterDays?: number | null, options?: RawAxiosRequestConfig) {
         return FilesApiFp(this.configuration).filesPost(filePayload, expiresAfterDays, options).then((request) => request(this.axios, this.basePath));

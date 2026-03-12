@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,28 +18,27 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CompressionFormat } from '../ee-api-models';
+import type { CompressionFormat } from '../ee-api-models';
 // @ts-ignore
-import { Contact } from '../ee-api-models';
+import type { Contact } from '../ee-api-models';
 // @ts-ignore
-import { ContactPayload } from '../ee-api-models';
+import type { ContactPayload } from '../ee-api-models';
 // @ts-ignore
-import { ContactUpdatePayload } from '../ee-api-models';
+import type { ContactUpdatePayload } from '../ee-api-models';
 // @ts-ignore
-import { EmailsPayload } from '../ee-api-models';
+import type { EmailsPayload } from '../ee-api-models';
 // @ts-ignore
-import { ExportFileFormats } from '../ee-api-models';
+import type { ExportFileFormats } from '../ee-api-models';
 // @ts-ignore
-import { ExportLink } from '../ee-api-models';
+import type { ExportLink } from '../ee-api-models';
 // @ts-ignore
-import { ExportStatus } from '../ee-api-models';
+import type { ExportStatus } from '../ee-api-models';
 /**
  * ContactsApi - axios parameter creator
- * @export
  */
 export const ContactsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -70,7 +69,6 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -106,8 +104,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,9 +144,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -185,8 +182,6 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -225,8 +220,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -283,8 +278,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['fileName'] = fileName;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -326,8 +321,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -380,10 +375,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
             }
-    
-    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -424,9 +417,8 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['listnames'] = listnames;
             }
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -443,7 +435,6 @@ export const ContactsApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * ContactsApi - functional programming interface
- * @export
  */
 export const ContactsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ContactsApiAxiosParamCreator(configuration)
@@ -580,7 +571,6 @@ export const ContactsApiFp = function(configuration?: Configuration) {
 
 /**
  * ContactsApi - factory interface
- * @export
  */
 export const ContactsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ContactsApiFp(configuration)
@@ -592,7 +582,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsByEmailDelete(email: string, options?: any): AxiosPromise<void> {
+        contactsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.contactsByEmailDelete(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -602,7 +592,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsByEmailGet(email: string, options?: any): AxiosPromise<Contact> {
+        contactsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<Contact> {
             return localVarFp.contactsByEmailGet(email, options).then((request) => request(axios, basePath));
         },
         /**
@@ -613,7 +603,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsByEmailPut(email: string, contactUpdatePayload: ContactUpdatePayload, options?: any): AxiosPromise<Contact> {
+        contactsByEmailPut(email: string, contactUpdatePayload: ContactUpdatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Contact> {
             return localVarFp.contactsByEmailPut(email, contactUpdatePayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -623,7 +613,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsDeletePost(emailsPayload: EmailsPayload, options?: any): AxiosPromise<void> {
+        contactsDeletePost(emailsPayload: EmailsPayload, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.contactsDeletePost(emailsPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -633,7 +623,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsExportByIdStatusGet(id: string, options?: any): AxiosPromise<ExportStatus> {
+        contactsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportStatus> {
             return localVarFp.contactsExportByIdStatusGet(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -647,7 +637,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsExportPost(fileFormat?: ExportFileFormats, rule?: string, emails?: Array<string>, compressionFormat?: CompressionFormat, fileName?: string, options?: any): AxiosPromise<ExportLink> {
+        contactsExportPost(fileFormat?: ExportFileFormats, rule?: string, emails?: Array<string>, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportLink> {
             return localVarFp.contactsExportPost(fileFormat, rule, emails, compressionFormat, fileName, options).then((request) => request(axios, basePath));
         },
         /**
@@ -658,7 +648,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsGet(limit?: number, offset?: number, options?: any): AxiosPromise<Array<Contact>> {
+        contactsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Contact>> {
             return localVarFp.contactsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -671,7 +661,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: any): AxiosPromise<void> {
+        contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.contactsImportPost(listName, encodingName, fileUrl, file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -682,7 +672,7 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contactsPost(contactPayload: Array<ContactPayload>, listnames?: Array<string>, options?: any): AxiosPromise<Array<Contact>> {
+        contactsPost(contactPayload: Array<ContactPayload>, listnames?: Array<string>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Contact>> {
             return localVarFp.contactsPost(contactPayload, listnames, options).then((request) => request(axios, basePath));
         },
     };
@@ -690,8 +680,6 @@ export const ContactsApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * ContactsApi - interface
- * @export
- * @interface ContactsApi
  */
 export interface ContactsApiInterface {
     /**
@@ -700,7 +688,6 @@ export interface ContactsApiInterface {
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -710,7 +697,6 @@ export interface ContactsApiInterface {
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<Contact>;
 
@@ -721,7 +707,6 @@ export interface ContactsApiInterface {
      * @param {ContactUpdatePayload} contactUpdatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsByEmailPut(email: string, contactUpdatePayload: ContactUpdatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Contact>;
 
@@ -731,7 +716,6 @@ export interface ContactsApiInterface {
      * @param {EmailsPayload} emailsPayload Provide either rule or a list of emails, not both.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsDeletePost(emailsPayload: EmailsPayload, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -741,7 +725,6 @@ export interface ContactsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportStatus>;
 
@@ -755,7 +738,6 @@ export interface ContactsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsExportPost(fileFormat?: ExportFileFormats, rule?: string, emails?: Array<string>, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportLink>;
 
@@ -766,7 +748,6 @@ export interface ContactsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Contact>>;
 
@@ -779,7 +760,6 @@ export interface ContactsApiInterface {
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -790,7 +770,6 @@ export interface ContactsApiInterface {
      * @param {Array<string>} [listnames] Names of lists to which the uploaded contacts should be added to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApiInterface
      */
     contactsPost(contactPayload: Array<ContactPayload>, listnames?: Array<string>, options?: RawAxiosRequestConfig): AxiosPromise<Array<Contact>>;
 
@@ -798,9 +777,6 @@ export interface ContactsApiInterface {
 
 /**
  * ContactsApi - object-oriented interface
- * @export
- * @class ContactsApi
- * @extends {BaseAPI}
  */
 export class ContactsApi extends BaseAPI implements ContactsApiInterface {
     /**
@@ -809,7 +785,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
@@ -821,7 +796,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {string} email Proper email address.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
@@ -834,7 +808,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {ContactUpdatePayload} contactUpdatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsByEmailPut(email: string, contactUpdatePayload: ContactUpdatePayload, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsByEmailPut(email, contactUpdatePayload, options).then((request) => request(this.axios, this.basePath));
@@ -846,7 +819,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {EmailsPayload} emailsPayload Provide either rule or a list of emails, not both.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsDeletePost(emailsPayload: EmailsPayload, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsDeletePost(emailsPayload, options).then((request) => request(this.axios, this.basePath));
@@ -858,7 +830,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsExportByIdStatusGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -874,7 +845,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsExportPost(fileFormat?: ExportFileFormats, rule?: string, emails?: Array<string>, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsExportPost(fileFormat, rule, emails, compressionFormat, fileName, options).then((request) => request(this.axios, this.basePath));
@@ -887,7 +857,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -902,7 +871,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsImportPost(listName?: string, encodingName?: string, fileUrl?: string, file?: File, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsImportPost(listName, encodingName, fileUrl, file, options).then((request) => request(this.axios, this.basePath));
@@ -915,7 +883,6 @@ export class ContactsApi extends BaseAPI implements ContactsApiInterface {
      * @param {Array<string>} [listnames] Names of lists to which the uploaded contacts should be added to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContactsApi
      */
     public contactsPost(contactPayload: Array<ContactPayload>, listnames?: Array<string>, options?: RawAxiosRequestConfig) {
         return ContactsApiFp(this.configuration).contactsPost(contactPayload, listnames, options).then((request) => request(this.axios, this.basePath));

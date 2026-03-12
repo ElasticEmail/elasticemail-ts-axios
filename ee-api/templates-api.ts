@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Elastic Email REST API
- * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\"_blank\" href=\"https://app.elasticemail.com/marketing/settings/new/manage-api\">here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\"_blank\" href=\"https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\">here</a>
+ * This API is based on the REST API architecture, allowing the user to easily manage their data with this resource-based approach.    Every API call is established on which specific request type (GET, POST, PUT, DELETE) will be used.    The API has a limit of 20 concurrent connections and a hard timeout of 600 seconds per request.    To start using this API, you will need your Access Token (available <a target=\'_blank\' href=\'https://app.elasticemail.com/marketing/settings/new/manage-api\'>here</a>). Remember to keep it safe. Required access levels are listed in the given request’s description.    Downloadable library clients can be found in our Github repository <a target=\'_blank\' href=\'https://github.com/ElasticEmail?tab=repositories&q=%22rest+api%22+in%3Areadme\'>here</a>
  *
  * The version of the OpenAPI document: 4.0.0
  * Contact: support@elasticemail.com
@@ -18,20 +18,19 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Template } from '../ee-api-models';
+import type { Template } from '../ee-api-models';
 // @ts-ignore
-import { TemplatePayload } from '../ee-api-models';
+import type { TemplatePayload } from '../ee-api-models';
 // @ts-ignore
-import { TemplateScope } from '../ee-api-models';
+import type { TemplateScope } from '../ee-api-models';
 // @ts-ignore
-import { TemplateType } from '../ee-api-models';
+import type { TemplateType } from '../ee-api-models';
 /**
  * TemplatesApi - axios parameter creator
- * @export
  */
 export const TemplatesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -62,7 +61,6 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -98,8 +96,8 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -138,9 +136,8 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -196,8 +193,8 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -232,9 +229,8 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -251,7 +247,6 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * TemplatesApi - functional programming interface
- * @export
  */
 export const TemplatesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TemplatesApiAxiosParamCreator(configuration)
@@ -330,7 +325,6 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
 
 /**
  * TemplatesApi - factory interface
- * @export
  */
 export const TemplatesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TemplatesApiFp(configuration)
@@ -342,7 +336,7 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameDelete(name: string, options?: any): AxiosPromise<void> {
+        templatesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.templatesByNameDelete(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -352,7 +346,7 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNameGet(name: string, options?: any): AxiosPromise<Template> {
+        templatesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
             return localVarFp.templatesByNameGet(name, options).then((request) => request(axios, basePath));
         },
         /**
@@ -363,7 +357,7 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: any): AxiosPromise<Template> {
+        templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
             return localVarFp.templatesByNamePut(name, templatePayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -376,7 +370,7 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: any): AxiosPromise<Array<Template>> {
+        templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Template>> {
             return localVarFp.templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -386,7 +380,7 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        templatesPost(templatePayload: TemplatePayload, options?: any): AxiosPromise<Template> {
+        templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template> {
             return localVarFp.templatesPost(templatePayload, options).then((request) => request(axios, basePath));
         },
     };
@@ -394,8 +388,6 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
 
 /**
  * TemplatesApi - interface
- * @export
- * @interface TemplatesApi
  */
 export interface TemplatesApiInterface {
     /**
@@ -404,7 +396,6 @@ export interface TemplatesApiInterface {
      * @param {string} name Name of template.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApiInterface
      */
     templatesByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -414,7 +405,6 @@ export interface TemplatesApiInterface {
      * @param {string} name Name of template.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApiInterface
      */
     templatesByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
@@ -425,7 +415,6 @@ export interface TemplatesApiInterface {
      * @param {TemplatePayload} templatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApiInterface
      */
     templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
@@ -438,7 +427,6 @@ export interface TemplatesApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApiInterface
      */
     templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Template>>;
 
@@ -448,7 +436,6 @@ export interface TemplatesApiInterface {
      * @param {TemplatePayload} templatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApiInterface
      */
     templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Template>;
 
@@ -456,9 +443,6 @@ export interface TemplatesApiInterface {
 
 /**
  * TemplatesApi - object-oriented interface
- * @export
- * @class TemplatesApi
- * @extends {BaseAPI}
  */
 export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
     /**
@@ -467,7 +451,6 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @param {string} name Name of template.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApi
      */
     public templatesByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
@@ -479,7 +462,6 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @param {string} name Name of template.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApi
      */
     public templatesByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -492,7 +474,6 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @param {TemplatePayload} templatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApi
      */
     public templatesByNamePut(name: string, templatePayload: TemplatePayload, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesByNamePut(name, templatePayload, options).then((request) => request(this.axios, this.basePath));
@@ -507,7 +488,6 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApi
      */
     public templatesGet(scopeType: Array<TemplateScope>, templateTypes?: Array<TemplateType>, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesGet(scopeType, templateTypes, limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -519,7 +499,6 @@ export class TemplatesApi extends BaseAPI implements TemplatesApiInterface {
      * @param {TemplatePayload} templatePayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TemplatesApi
      */
     public templatesPost(templatePayload: TemplatePayload, options?: RawAxiosRequestConfig) {
         return TemplatesApiFp(this.configuration).templatesPost(templatePayload, options).then((request) => request(this.axios, this.basePath));
