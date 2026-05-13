@@ -22,20 +22,33 @@ import type { TemplateScope } from './template-scope';
 
 /**
  * New template object
+ * @export
+ * @interface TemplatePayload
  */
 export interface TemplatePayload {
     /**
      * Template name
+     * @type {string}
+     * @memberof TemplatePayload
      */
     'Name': string;
     /**
      * Default subject of email.
+     * @type {string}
+     * @memberof TemplatePayload
      */
     'Subject'?: string;
     /**
      * Email content of this template
+     * @type {Array<BodyPart>}
+     * @memberof TemplatePayload
      */
     'Body'?: Array<BodyPart>;
+    /**
+     * 
+     * @type {TemplateScope}
+     * @memberof TemplatePayload
+     */
     'TemplateScope'?: TemplateScope;
 }
 

@@ -22,53 +22,87 @@ import type { MessageCategoryEnum } from './message-category-enum';
 
 /**
  * Status information of the specified email
+ * @export
+ * @interface EmailStatus
  */
 export interface EmailStatus {
     /**
      * Email address this email was sent from.
+     * @type {string}
+     * @memberof EmailStatus
      */
     'From'?: string;
     /**
      * Email address this email was sent to.
+     * @type {string}
+     * @memberof EmailStatus
      */
     'To'?: string;
     /**
      * Date the email was submitted.
+     * @type {string}
+     * @memberof EmailStatus
      */
     'Date'?: string;
+    /**
+     * 
+     * @type {LogJobStatus}
+     * @memberof EmailStatus
+     */
     'Status'?: LogJobStatus;
     /**
      * Name of email\'s status
+     * @type {string}
+     * @memberof EmailStatus
      */
     'StatusName'?: string;
     /**
      * Date of last status change.
+     * @type {string}
+     * @memberof EmailStatus
      */
     'StatusChangeDate'?: string;
     /**
      * Date when the email was sent
+     * @type {string}
+     * @memberof EmailStatus
      */
     'DateSent'?: string;
     /**
      * Date when the email changed the status to \'opened\'
+     * @type {string}
+     * @memberof EmailStatus
      */
     'DateOpened'?: string | null;
     /**
      * Date when the email changed the status to \'clicked\'
+     * @type {string}
+     * @memberof EmailStatus
      */
     'DateClicked'?: string | null;
     /**
      * Detailed error or bounced message.
+     * @type {string}
+     * @memberof EmailStatus
      */
     'ErrorMessage'?: string;
     /**
      * ID number of transaction
+     * @type {string}
+     * @memberof EmailStatus
      */
     'TransactionID'?: string;
     /**
      * Envelope from address
+     * @type {string}
+     * @memberof EmailStatus
      */
     'EnvelopeFrom'?: string;
+    /**
+     * 
+     * @type {MessageCategoryEnum}
+     * @memberof EmailStatus
+     */
     'ErrorCategory'?: MessageCategoryEnum;
 }
 

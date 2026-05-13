@@ -28,46 +28,117 @@ import type { TrackingValidationStatus } from './tracking-validation-status';
 
 /**
  * Domain data, with information about domain records.
+ * @export
+ * @interface DomainDetail
  */
 export interface DomainDetail {
     /**
      * Name of selected domain.
+     * @type {string}
+     * @memberof DomainDetail
      */
     'Domain'?: string;
     /**
      * True, if domain is used as default. Otherwise, false,
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'DefaultDomain'?: boolean;
     /**
      * True, if SPF record is verified
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'Spf'?: boolean;
     /**
      * True, if DKIM record is verified
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'Dkim'?: boolean;
     /**
      * True, if MX record is verified
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'MX'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainDetail
+     */
     'DMARC'?: boolean;
     /**
      * True, if tracking CNAME record is verified
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'IsRewriteDomainValid'?: boolean;
     /**
      * True, if DKIM, SPF, or tracking are still to be verified
+     * @type {boolean}
+     * @memberof DomainDetail
      */
     'Verify'?: boolean;
+    /**
+     * 
+     * @type {TrackingType}
+     * @memberof DomainDetail
+     */
     'Type'?: TrackingType;
+    /**
+     * 
+     * @type {TrackingValidationStatus}
+     * @memberof DomainDetail
+     */
     'TrackingStatus'?: TrackingValidationStatus;
+    /**
+     * 
+     * @type {CertificateValidationStatus}
+     * @memberof DomainDetail
+     */
     'CertificateStatus'?: CertificateValidationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainDetail
+     */
     'CertificateValidationError'?: string;
+    /**
+     * 
+     * @type {TrackingType}
+     * @memberof DomainDetail
+     */
     'TrackingTypeUserRequest'?: TrackingType;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainDetail
+     */
     'VERP'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainDetail
+     */
     'CustomBouncesDomain'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainDetail
+     */
     'IsCustomBouncesDomainDefault'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainDetail
+     */
     'IsMarkedForDeletion'?: boolean;
+    /**
+     * 
+     * @type {DomainOwner}
+     * @memberof DomainDetail
+     */
     'Ownership'?: DomainOwner;
 }
 

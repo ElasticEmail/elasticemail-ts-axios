@@ -13,51 +13,72 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { AccessLevel } from './access-level';
 
 /**
- * ApiKey info
+ * Update webhook payload
  * @export
- * @interface ApiKey
+ * @interface WebhookUpdatePayload
  */
-export interface ApiKey {
+export interface WebhookUpdatePayload {
     /**
-     * Access level or permission to be assigned to this ApiKey.
-     * @type {Array<AccessLevel>}
-     * @memberof ApiKey
-     */
-    'AccessLevel'?: Array<AccessLevel>;
-    /**
-     * Name of the ApiKey.
+     * Filename
      * @type {string}
-     * @memberof ApiKey
+     * @memberof WebhookUpdatePayload
      */
     'Name'?: string;
     /**
-     * Date this ApiKey was created.
+     * URL of notification.
      * @type {string}
-     * @memberof ApiKey
+     * @memberof WebhookUpdatePayload
      */
-    'DateCreated'?: string;
+    'URL'?: string;
     /**
-     * Date this ApiKey was last used.
-     * @type {string}
-     * @memberof ApiKey
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
      */
-    'LastUse'?: string | null;
+    'NotifyOncePerEmail'?: boolean | null;
     /**
-     * Date this ApiKey expires.
-     * @type {string}
-     * @memberof ApiKey
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
      */
-    'Expires'?: string | null;
+    'NotificationForSent'?: boolean | null;
     /**
-     * Which IPs can use this ApiKey
-     * @type {Array<string>}
-     * @memberof ApiKey
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
      */
-    'RestrictAccessToIPRange'?: Array<string>;
+    'NotificationForOpened'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
+     */
+    'NotificationForClicked'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
+     */
+    'NotificationForUnsubscribed'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
+     */
+    'NotificationForAbuseReport'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
+     */
+    'NotificationForError'?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookUpdatePayload
+     */
+    'IsEnabled'?: boolean | null;
 }
 

@@ -16,6 +16,8 @@
 
 /**
  * Status of ValidDomain to determine how often tracking validation should be performed.
+ * @export
+ * @enum {string}
  */
 
 export const TrackingValidationStatus = {

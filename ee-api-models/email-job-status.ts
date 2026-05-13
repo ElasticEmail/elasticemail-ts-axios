@@ -17,61 +17,130 @@
 // @ts-ignore
 import type { EmailJobFailedStatus } from './email-job-failed-status';
 
+/**
+ * 
+ * @export
+ * @interface EmailJobStatus
+ */
 export interface EmailJobStatus {
     /**
      * ID number of your attachment
+     * @type {string}
+     * @memberof EmailJobStatus
      */
     'ID'?: string;
     /**
      * Name of status: submitted, complete, in_progress
+     * @type {string}
+     * @memberof EmailJobStatus
      */
     'Status'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmailJobStatus
+     */
     'RecipientsCount'?: number;
+    /**
+     * 
+     * @type {Array<EmailJobFailedStatus>}
+     * @memberof EmailJobStatus
+     */
     'Failed'?: Array<EmailJobFailedStatus>;
     /**
      * Total emails failed.
+     * @type {number}
+     * @memberof EmailJobStatus
      */
     'FailedCount'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
+     */
     'Sent'?: Array<string>;
     /**
      * Total emails sent.
+     * @type {number}
+     * @memberof EmailJobStatus
      */
     'SentCount'?: number;
     /**
      * Number of delivered messages
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
      */
     'Delivered'?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmailJobStatus
+     */
     'DeliveredCount'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
+     */
     'Pending'?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmailJobStatus
+     */
     'PendingCount'?: number;
     /**
      * Number of opened messages
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
      */
     'Opened'?: Array<string>;
     /**
      * Total emails opened.
+     * @type {number}
+     * @memberof EmailJobStatus
      */
     'OpenedCount'?: number;
     /**
      * Number of clicked messages
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
      */
     'Clicked'?: Array<string>;
     /**
      * Total emails clicked
+     * @type {number}
+     * @memberof EmailJobStatus
      */
     'ClickedCount'?: number;
     /**
      * Number of unsubscribed messages
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
      */
     'Unsubscribed'?: Array<string>;
     /**
      * Total emails unsubscribed
+     * @type {number}
+     * @memberof EmailJobStatus
      */
     'UnsubscribedCount'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
+     */
     'AbuseReports'?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof EmailJobStatus
+     */
     'AbuseReportsCount'?: number;
     /**
      * List of all MessageIDs for this job.
+     * @type {Array<string>}
+     * @memberof EmailJobStatus
      */
     'MessageIDs'?: Array<string>;
 }

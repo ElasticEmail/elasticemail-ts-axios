@@ -28,50 +28,123 @@ import type { TrackingValidationStatus } from './tracking-validation-status';
 
 /**
  * Domain data, with information about domain records.
+ * @export
+ * @interface DomainData
  */
 export interface DomainData {
     /**
      * Domain validation results - when domain has been running through validation process
+     * @type {string}
+     * @memberof DomainData
      */
     'ValidationLog'?: string;
     /**
      * Name of selected domain.
+     * @type {string}
+     * @memberof DomainData
      */
     'Domain'?: string;
     /**
      * True, if domain is used as default. Otherwise, false,
+     * @type {boolean}
+     * @memberof DomainData
      */
     'DefaultDomain'?: boolean;
     /**
      * True, if SPF record is verified
+     * @type {boolean}
+     * @memberof DomainData
      */
     'Spf'?: boolean;
     /**
      * True, if DKIM record is verified
+     * @type {boolean}
+     * @memberof DomainData
      */
     'Dkim'?: boolean;
     /**
      * True, if MX record is verified
+     * @type {boolean}
+     * @memberof DomainData
      */
     'MX'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainData
+     */
     'DMARC'?: boolean;
     /**
      * True, if tracking CNAME record is verified
+     * @type {boolean}
+     * @memberof DomainData
      */
     'IsRewriteDomainValid'?: boolean;
     /**
      * True, if DKIM, SPF, or tracking are still to be verified
+     * @type {boolean}
+     * @memberof DomainData
      */
     'Verify'?: boolean;
+    /**
+     * 
+     * @type {TrackingType}
+     * @memberof DomainData
+     */
     'Type'?: TrackingType;
+    /**
+     * 
+     * @type {TrackingValidationStatus}
+     * @memberof DomainData
+     */
     'TrackingStatus'?: TrackingValidationStatus;
+    /**
+     * 
+     * @type {CertificateValidationStatus}
+     * @memberof DomainData
+     */
     'CertificateStatus'?: CertificateValidationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainData
+     */
     'CertificateValidationError'?: string;
+    /**
+     * 
+     * @type {TrackingType}
+     * @memberof DomainData
+     */
     'TrackingTypeUserRequest'?: TrackingType;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainData
+     */
     'VERP'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainData
+     */
     'CustomBouncesDomain'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainData
+     */
     'IsCustomBouncesDomainDefault'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainData
+     */
     'IsMarkedForDeletion'?: boolean;
+    /**
+     * 
+     * @type {DomainOwner}
+     * @memberof DomainData
+     */
     'Ownership'?: DomainOwner;
 }
 

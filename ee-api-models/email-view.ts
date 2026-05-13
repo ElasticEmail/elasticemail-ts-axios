@@ -16,18 +16,26 @@
 
 /**
  * Email details formatted in json
+ * @export
+ * @interface EmailView
  */
 export interface EmailView {
     /**
      * Body (HTML, otherwise plain text) of email
+     * @type {string}
+     * @memberof EmailView
      */
     'Body'?: string;
     /**
      * Default subject of email.
+     * @type {string}
+     * @memberof EmailView
      */
     'Subject'?: string;
     /**
      * From email address
+     * @type {string}
+     * @memberof EmailView
      */
     'From'?: string;
 }

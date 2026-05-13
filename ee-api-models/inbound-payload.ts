@@ -20,23 +20,46 @@ import type { InboundRouteActionType } from './inbound-route-action-type';
 // @ts-ignore
 import type { InboundRouteFilterType } from './inbound-route-filter-type';
 
+/**
+ * 
+ * @export
+ * @interface InboundPayload
+ */
 export interface InboundPayload {
     /**
      * Filter of the inbound data
+     * @type {string}
+     * @memberof InboundPayload
      */
     'Filter': string;
     /**
      * Name of this route
+     * @type {string}
+     * @memberof InboundPayload
      */
     'Name': string;
+    /**
+     * 
+     * @type {InboundRouteFilterType}
+     * @memberof InboundPayload
+     */
     'FilterType': InboundRouteFilterType;
+    /**
+     * 
+     * @type {InboundRouteActionType}
+     * @memberof InboundPayload
+     */
     'ActionType': InboundRouteActionType;
     /**
      * Email to forward the inbound to
+     * @type {string}
+     * @memberof InboundPayload
      */
     'EmailAddress'?: string;
     /**
      * Address to notify about the inbound
+     * @type {string}
+     * @memberof InboundPayload
      */
     'HttpAddress'?: string;
 }

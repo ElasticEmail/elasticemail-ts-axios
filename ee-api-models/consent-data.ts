@@ -17,15 +17,29 @@
 // @ts-ignore
 import type { ConsentTracking } from './consent-tracking';
 
+/**
+ * 
+ * @export
+ * @interface ConsentData
+ */
 export interface ConsentData {
     /**
      * IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
+     * @type {string}
+     * @memberof ConsentData
      */
     'ConsentIP'?: string;
     /**
      * Date of consent to send this contact(s) your email. If not provided current date is used for consent.
+     * @type {string}
+     * @memberof ConsentData
      */
     'ConsentDate'?: string | null;
+    /**
+     * 
+     * @type {ConsentTracking}
+     * @memberof ConsentData
+     */
     'ConsentTracking'?: ConsentTracking;
 }
 

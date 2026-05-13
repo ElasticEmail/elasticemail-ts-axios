@@ -16,6 +16,8 @@
 
 /**
  * Visibility of a template
+ * @export
+ * @enum {string}
  */
 
 export const TemplateScope = {

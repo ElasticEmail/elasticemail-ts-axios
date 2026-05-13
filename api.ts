@@ -29,4 +29,5 @@ export * from './ee-api/sub-accounts-api';
 export * from './ee-api/suppressions-api';
 export * from './ee-api/templates-api';
 export * from './ee-api/verifications-api';
+export * from './ee-api/webhook-api';
 

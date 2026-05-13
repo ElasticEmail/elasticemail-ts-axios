@@ -19,26 +19,38 @@ import type { AccessLevel } from './access-level';
 
 /**
  * Create a new ApiKey
+ * @export
+ * @interface ApiKeyPayload
  */
 export interface ApiKeyPayload {
     /**
      * Name of the ApiKey for ease of reference.
+     * @type {string}
+     * @memberof ApiKeyPayload
      */
     'Name': string;
     /**
      * Access level or permission to be assigned to this ApiKey.
+     * @type {Array<AccessLevel>}
+     * @memberof ApiKeyPayload
      */
     'AccessLevel': Array<AccessLevel>;
     /**
      * Date this ApiKey expires.
+     * @type {string}
+     * @memberof ApiKeyPayload
      */
     'Expires'?: string | null;
     /**
      * Which IPs can use this ApiKey
+     * @type {Array<string>}
+     * @memberof ApiKeyPayload
      */
     'RestrictAccessToIPRange'?: Array<string>;
     /**
      * Email of the subaccount for which this ApiKey should be created
+     * @type {string}
+     * @memberof ApiKeyPayload
      */
     'Subaccount'?: string;
 }

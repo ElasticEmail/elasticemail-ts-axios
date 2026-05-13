@@ -28,40 +28,81 @@ import type { ContactStatus } from './contact-status';
 
 /**
  * Contact
+ * @export
+ * @interface Contact
  */
 export interface Contact {
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof Contact
      */
     'Email'?: string;
+    /**
+     * 
+     * @type {ContactStatus}
+     * @memberof Contact
+     */
     'Status'?: ContactStatus;
     /**
      * First name.
+     * @type {string}
+     * @memberof Contact
      */
     'FirstName'?: string;
     /**
      * Last name.
+     * @type {string}
+     * @memberof Contact
      */
     'LastName'?: string;
     /**
      * A key-value collection of custom contact fields which can be used in the system.
+     * @type {{ [key: string]: string; }}
+     * @memberof Contact
      */
     'CustomFields'?: { [key: string]: string; };
+    /**
+     * 
+     * @type {ConsentData}
+     * @memberof Contact
+     */
     'Consent'?: ConsentData;
+    /**
+     * 
+     * @type {ContactSource}
+     * @memberof Contact
+     */
     'Source'?: ContactSource;
+    /**
+     * 
+     * @type {string}
+     * @memberof Contact
+     */
     'SourceInfo'?: string;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * @type {string}
+     * @memberof Contact
      */
     'DateAdded'?: string;
     /**
      * Last change date
+     * @type {string}
+     * @memberof Contact
      */
     'DateUpdated'?: string | null;
     /**
      * Date of last status change.
+     * @type {string}
+     * @memberof Contact
      */
     'StatusChangeDate'?: string | null;
+    /**
+     * 
+     * @type {ContactActivity}
+     * @memberof Contact
+     */
     'Activity'?: ContactActivity;
 }
 

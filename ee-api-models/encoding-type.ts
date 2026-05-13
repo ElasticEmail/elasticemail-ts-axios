@@ -16,6 +16,8 @@
 
 /**
  * Encoding type for the email headers
+ * @export
+ * @enum {string}
  */
 
 export const EncodingType = {

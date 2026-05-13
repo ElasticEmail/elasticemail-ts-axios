@@ -19,27 +19,44 @@ import type { EncodingType } from './encoding-type';
 
 /**
  * E-mail configuration
+ * @export
+ * @interface Options
  */
 export interface Options {
     /**
      * By how long should an e-mail be delayed (in minutes). Maximum is 35 days.
+     * @type {number}
+     * @memberof Options
      */
     'TimeOffset'?: number | null;
     /**
      * Name of your custom IP Pool to be used in the sending process
+     * @type {string}
+     * @memberof Options
      */
     'PoolName'?: string;
     /**
      * Name of selected channel.
+     * @type {string}
+     * @memberof Options
      */
     'ChannelName'?: string;
+    /**
+     * 
+     * @type {EncodingType}
+     * @memberof Options
+     */
     'Encoding'?: EncodingType;
     /**
      * Should the opens be tracked? If no value has been provided, Account\'s default setting will be used.
+     * @type {boolean}
+     * @memberof Options
      */
     'TrackOpens'?: boolean | null;
     /**
      * Should the clicks be tracked? If no value has been provided, Account\'s default setting will be used.
+     * @type {boolean}
+     * @memberof Options
      */
     'TrackClicks'?: boolean | null;
 }

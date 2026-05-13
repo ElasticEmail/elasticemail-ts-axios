@@ -17,10 +17,35 @@
 // @ts-ignore
 import type { CertificateValidationStatus } from './certificate-validation-status';
 
+/**
+ * 
+ * @export
+ * @interface DomainUpdatePayload
+ */
 export interface DomainUpdatePayload {
+    /**
+     * 
+     * @type {CertificateValidationStatus}
+     * @memberof DomainUpdatePayload
+     */
     'CertificateStatus'?: CertificateValidationStatus;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainUpdatePayload
+     */
     'VERP'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainUpdatePayload
+     */
     'CustomBouncesDomain'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainUpdatePayload
+     */
     'IsCustomBouncesDomainDefault'?: boolean;
 }
 

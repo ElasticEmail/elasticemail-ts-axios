@@ -22,52 +22,86 @@ import type { MessageCategory } from './message-category';
 
 /**
  * Detailed information about message recipient
+ * @export
+ * @interface RecipientEvent
  */
 export interface RecipientEvent {
     /**
      * ID number of transaction
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'TransactionID'?: string;
     /**
      * ID number of selected message.
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'MsgID'?: string;
     /**
      * Default From: email address.
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'FromEmail'?: string;
     /**
      * Ending date for search in YYYY-MM-DDThh:mm:ss format.
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'To'?: string;
     /**
      * Default subject of email.
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'Subject'?: string;
+    /**
+     * 
+     * @type {EventType}
+     * @memberof RecipientEvent
+     */
     'EventType'?: EventType;
     /**
      * Creation date
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'EventDate'?: string;
     /**
      * Name of selected channel.
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'ChannelName'?: string;
+    /**
+     * 
+     * @type {MessageCategory}
+     * @memberof RecipientEvent
+     */
     'MessageCategory'?: MessageCategory;
     /**
      * Date of next try
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'NextTryOn'?: string | null;
     /**
      * Error message if sending has failed (FailedAttempt or Bounce)
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'Message'?: string;
     /**
      * IP which this email was sent through
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'IPAddress'?: string;
     /**
      * Name of an IP pool this email was sent through
+     * @type {string}
+     * @memberof RecipientEvent
      */
     'PoolName'?: string;
 }

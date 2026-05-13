@@ -25,28 +25,50 @@ import type { VerificationStatus } from './verification-status';
 
 /**
  * Detailed verification file result info
+ * @export
+ * @interface VerificationFileResultDetails
  */
 export interface VerificationFileResultDetails {
     /**
      * Verification result\'s details
+     * @type {Array<EmailValidationResult>}
+     * @memberof VerificationFileResultDetails
      */
     'VerificationResult'?: Array<EmailValidationResult>;
     /**
      * Identifier of this verification result
+     * @type {string}
+     * @memberof VerificationFileResultDetails
      */
     'VerificationID'?: string;
     /**
      * Origin file name
+     * @type {string}
+     * @memberof VerificationFileResultDetails
      */
     'Filename'?: string;
+    /**
+     * 
+     * @type {VerificationStatus}
+     * @memberof VerificationFileResultDetails
+     */
     'VerificationStatus'?: VerificationStatus;
+    /**
+     * 
+     * @type {FileUploadResult}
+     * @memberof VerificationFileResultDetails
+     */
     'FileUploadResult'?: FileUploadResult;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * @type {string}
+     * @memberof VerificationFileResultDetails
      */
     'DateAdded'?: string;
     /**
      * Origin file extension
+     * @type {string}
+     * @memberof VerificationFileResultDetails
      */
     'Source'?: string;
 }

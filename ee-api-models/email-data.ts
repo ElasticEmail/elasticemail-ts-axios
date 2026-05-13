@@ -23,12 +23,29 @@ import type { EmailView } from './email-view';
 // @ts-ignore
 import type { FileInfo } from './file-info';
 
+/**
+ * 
+ * @export
+ * @interface EmailData
+ */
 export interface EmailData {
+    /**
+     * 
+     * @type {EmailView}
+     * @memberof EmailData
+     */
     'Preview'?: EmailView;
     /**
      * Attachments sent with the email
+     * @type {Array<FileInfo>}
+     * @memberof EmailData
      */
     'Attachments'?: Array<FileInfo>;
+    /**
+     * 
+     * @type {EmailStatus}
+     * @memberof EmailData
+     */
     'Status'?: EmailStatus;
 }
 

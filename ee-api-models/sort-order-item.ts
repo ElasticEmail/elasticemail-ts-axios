@@ -16,14 +16,20 @@
 
 /**
  * Change the ordering of this inbound route for when matching the inbound
+ * @export
+ * @interface SortOrderItem
  */
 export interface SortOrderItem {
     /**
      * ID of the route to change the order of
+     * @type {string}
+     * @memberof SortOrderItem
      */
     'PublicInboundId': string;
     /**
      * 1 - route will be used first
+     * @type {number}
+     * @memberof SortOrderItem
      */
     'SortOrder': number;
 }

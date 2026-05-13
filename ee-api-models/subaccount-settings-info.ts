@@ -19,8 +19,15 @@ import type { SubaccountEmailSettings } from './subaccount-email-settings';
 
 /**
  * SubAccount settings
+ * @export
+ * @interface SubaccountSettingsInfo
  */
 export interface SubaccountSettingsInfo {
+    /**
+     * 
+     * @type {SubaccountEmailSettings}
+     * @memberof SubaccountSettingsInfo
+     */
     'Email'?: SubaccountEmailSettings;
 }
 

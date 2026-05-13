@@ -16,26 +16,38 @@
 
 /**
  * File information
+ * @export
+ * @interface FileInfo
  */
 export interface FileInfo {
     /**
      * Name of your file including extension.
+     * @type {string}
+     * @memberof FileInfo
      */
     'FileName'?: string;
     /**
      * Size of your attachment (in bytes).
+     * @type {number}
+     * @memberof FileInfo
      */
     'Size'?: number | null;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * @type {string}
+     * @memberof FileInfo
      */
     'DateAdded'?: string;
     /**
      * Date when the file will be deleted from your Account.
+     * @type {string}
+     * @memberof FileInfo
      */
     'ExpirationDate'?: string | null;
     /**
      * Content type of the file.
+     * @type {string}
+     * @memberof FileInfo
      */
     'ContentType'?: string;
 }

@@ -16,18 +16,26 @@
 
 /**
  * List of transactional recipients
+ * @export
+ * @interface TransactionalRecipient
  */
 export interface TransactionalRecipient {
     /**
      * List of recipients (visible to others)
+     * @type {Array<string>}
+     * @memberof TransactionalRecipient
      */
     'To': Array<string>;
     /**
      * List of Carbon Copy recipients (visible to others)
+     * @type {Array<string>}
+     * @memberof TransactionalRecipient
      */
     'CC'?: Array<string>;
     /**
      * List of Blind Carbon Copy recipients (hidden from other recipients)
+     * @type {Array<string>}
+     * @memberof TransactionalRecipient
      */
     'BCC'?: Array<string>;
 }

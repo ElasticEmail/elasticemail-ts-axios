@@ -16,14 +16,20 @@
 
 /**
  * A change to SubAccount email credits pool, with an additional note.
+ * @export
+ * @interface SubaccountEmailCreditsPayload
  */
 export interface SubaccountEmailCreditsPayload {
     /**
      * Positive or negative value; this will be added or subtracted from Subaccount\'s current email Credits pool.
+     * @type {number}
+     * @memberof SubaccountEmailCreditsPayload
      */
     'Credits': number;
     /**
      * Note to append to this credits change, for history.
+     * @type {string}
+     * @memberof SubaccountEmailCreditsPayload
      */
     'Notes'?: string;
 }

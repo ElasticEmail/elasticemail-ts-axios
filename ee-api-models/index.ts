@@ -92,3 +92,6 @@ export * from './utm';
 export * from './verification-file-result';
 export * from './verification-file-result-details';
 export * from './verification-status';
+export * from './webhook';
+export * from './webhook-create-payload';
+export * from './webhook-update-payload';

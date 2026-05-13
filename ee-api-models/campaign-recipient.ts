@@ -16,14 +16,20 @@
 
 /**
  * A set of lists and segments names to read recipients from
+ * @export
+ * @interface CampaignRecipient
  */
 export interface CampaignRecipient {
     /**
      * Names of lists from your Account to read recipients from
+     * @type {Array<string>}
+     * @memberof CampaignRecipient
      */
     'ListNames'?: Array<string>;
     /**
      * Names of segments from your Account to read recipients from
+     * @type {Array<string>}
+     * @memberof CampaignRecipient
      */
     'SegmentNames'?: Array<string>;
 }

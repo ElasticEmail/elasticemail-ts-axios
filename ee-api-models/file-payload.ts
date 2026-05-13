@@ -14,17 +14,28 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface FilePayload
+ */
 export interface FilePayload {
     /**
      * Content of the file sent as binary data
+     * @type {string}
+     * @memberof FilePayload
      */
     'BinaryContent': string;
     /**
      * Filename
+     * @type {string}
+     * @memberof FilePayload
      */
     'Name'?: string;
     /**
      * Type of file\'s content (e.g. image/jpeg)
+     * @type {string}
+     * @memberof FilePayload
      */
     'ContentType'?: string;
 }

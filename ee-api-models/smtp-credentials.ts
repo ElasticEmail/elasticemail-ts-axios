@@ -19,27 +19,44 @@ import type { AccessLevel } from './access-level';
 
 /**
  * SMTP Credentials info
+ * @export
+ * @interface SmtpCredentials
  */
 export interface SmtpCredentials {
+    /**
+     * 
+     * @type {AccessLevel}
+     * @memberof SmtpCredentials
+     */
     'AccessLevel'?: AccessLevel;
     /**
      * Name of the key.
+     * @type {string}
+     * @memberof SmtpCredentials
      */
     'Name'?: string;
     /**
      * Date this SmtpCredential was created.
+     * @type {string}
+     * @memberof SmtpCredentials
      */
     'DateCreated'?: string;
     /**
      * Date this SmtpCredential was last used.
+     * @type {string}
+     * @memberof SmtpCredentials
      */
     'LastUse'?: string | null;
     /**
      * Date this SmtpCredential expires.
+     * @type {string}
+     * @memberof SmtpCredentials
      */
     'Expires'?: string | null;
     /**
      * Which IPs can use this SmtpCredential
+     * @type {Array<string>}
+     * @memberof SmtpCredentials
      */
     'RestrictAccessToIPRange'?: Array<string>;
 }

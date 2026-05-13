@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface ListUpdatePayload
+ */
 export interface ListUpdatePayload {
     /**
      * Name of your list if you want to change it.
+     * @type {string}
+     * @memberof ListUpdatePayload
      */
     'NewListName'?: string;
     /**
      * True: Allow unsubscribing from this list. Otherwise, false
+     * @type {boolean}
+     * @memberof ListUpdatePayload
      */
     'AllowUnsubscribe'?: boolean;
 }

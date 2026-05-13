@@ -23,9 +23,29 @@ import type { MessageAttachment } from './message-attachment';
 // @ts-ignore
 import type { Options } from './options';
 
+/**
+ * 
+ * @export
+ * @interface MergeEmailPayload
+ */
 export interface MergeEmailPayload {
+    /**
+     * 
+     * @type {MessageAttachment}
+     * @memberof MergeEmailPayload
+     */
     'MergeFile': MessageAttachment;
+    /**
+     * 
+     * @type {EmailContent}
+     * @memberof MergeEmailPayload
+     */
     'Content': EmailContent;
+    /**
+     * 
+     * @type {Options}
+     * @memberof MergeEmailPayload
+     */
     'Options'?: Options;
 }
 

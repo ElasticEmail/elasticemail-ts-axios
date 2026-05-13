@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface EmailSend
+ */
 export interface EmailSend {
     /**
      * ID number of transaction
+     * @type {string}
+     * @memberof EmailSend
      */
     'TransactionID'?: string;
     /**
      * Unique identifier for this email.
+     * @type {string}
+     * @memberof EmailSend
      */
     'MessageID'?: string;
 }

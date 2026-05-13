@@ -16,6 +16,8 @@
 
 /**
  * HTTP or HTTPS Protocal used for link tracking.
+ * @export
+ * @enum {string}
  */
 
 export const TrackingType = {

@@ -16,6 +16,8 @@
 
 /**
  * Format of the exported file.
+ * @export
+ * @enum {string}
  */
 
 export const ExportFileFormats = {

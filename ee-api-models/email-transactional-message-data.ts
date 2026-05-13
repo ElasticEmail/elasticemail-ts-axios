@@ -25,10 +25,27 @@ import type { TransactionalRecipient } from './transactional-recipient';
 
 /**
  * Email data
+ * @export
+ * @interface EmailTransactionalMessageData
  */
 export interface EmailTransactionalMessageData {
+    /**
+     * 
+     * @type {TransactionalRecipient}
+     * @memberof EmailTransactionalMessageData
+     */
     'Recipients': TransactionalRecipient;
+    /**
+     * 
+     * @type {EmailContent}
+     * @memberof EmailTransactionalMessageData
+     */
     'Content': EmailContent;
+    /**
+     * 
+     * @type {Options}
+     * @memberof EmailTransactionalMessageData
+     */
     'Options'?: Options;
 }
 

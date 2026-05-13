@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -29,6 +29,7 @@ import type { VerificationFileResult } from '../ee-api-models';
 import type { VerificationFileResultDetails } from '../ee-api-models';
 /**
  * VerificationsApi - axios parameter creator
+ * @export
  */
 export const VerificationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -59,6 +60,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -94,8 +96,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -131,8 +133,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -169,6 +171,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -204,8 +207,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/*';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -251,8 +254,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -289,6 +292,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -326,9 +330,10 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
             }
+    
+    
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-            localVarHeaderParameter['Accept'] = 'application/json';
-
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -361,8 +366,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -404,8 +409,8 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -420,6 +425,7 @@ export const VerificationsApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * VerificationsApi - functional programming interface
+ * @export
  */
 export const VerificationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = VerificationsApiAxiosParamCreator(configuration)
@@ -561,6 +567,7 @@ export const VerificationsApiFp = function(configuration?: Configuration) {
 
 /**
  * VerificationsApi - factory interface
+ * @export
  */
 export const VerificationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = VerificationsApiFp(configuration)
@@ -672,6 +679,8 @@ export const VerificationsApiFactory = function (configuration?: Configuration, 
 
 /**
  * VerificationsApi - interface
+ * @export
+ * @interface VerificationsApi
  */
 export interface VerificationsApiInterface {
     /**
@@ -680,6 +689,7 @@ export interface VerificationsApiInterface {
      * @param {string} email Email address to verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -689,6 +699,7 @@ export interface VerificationsApiInterface {
      * @param {string} email Email address to view verification result of
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
@@ -698,6 +709,7 @@ export interface VerificationsApiInterface {
      * @param {string} email Email address to verify
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailValidationResult>;
 
@@ -707,6 +719,7 @@ export interface VerificationsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -716,6 +729,7 @@ export interface VerificationsApiInterface {
      * @param {string} id Verification ID to download
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<File>;
 
@@ -727,6 +741,7 @@ export interface VerificationsApiInterface {
      * @param {number} [offset] How many result items should be returned ahead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResultDetails>;
 
@@ -736,6 +751,7 @@ export interface VerificationsApiInterface {
      * @param {string} id File ID to start verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -745,6 +761,7 @@ export interface VerificationsApiInterface {
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig): AxiosPromise<VerificationFileResult>;
 
@@ -753,6 +770,7 @@ export interface VerificationsApiInterface {
      * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsFilesResultGet(options?: RawAxiosRequestConfig): AxiosPromise<Array<VerificationFileResult>>;
 
@@ -763,6 +781,7 @@ export interface VerificationsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApiInterface
      */
     verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<EmailValidationResult>>;
 
@@ -770,6 +789,9 @@ export interface VerificationsApiInterface {
 
 /**
  * VerificationsApi - object-oriented interface
+ * @export
+ * @class VerificationsApi
+ * @extends {BaseAPI}
  */
 export class VerificationsApi extends BaseAPI implements VerificationsApiInterface {
     /**
@@ -778,6 +800,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} email Email address to verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsByEmailDelete(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailDelete(email, options).then((request) => request(this.axios, this.basePath));
@@ -789,6 +812,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} email Email address to view verification result of
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsByEmailGet(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailGet(email, options).then((request) => request(this.axios, this.basePath));
@@ -800,6 +824,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} email Email address to verify
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsByEmailPost(email: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsByEmailPost(email, options).then((request) => request(this.axios, this.basePath));
@@ -811,6 +836,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesByIdDelete(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdDelete(id, options).then((request) => request(this.axios, this.basePath));
@@ -822,6 +848,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} id Verification ID to download
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesByIdResultDownloadGet(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultDownloadGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -835,6 +862,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {number} [offset] How many result items should be returned ahead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesByIdResultGet(id: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdResultGet(id, limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -846,6 +874,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {string} id File ID to start verification
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesByIdVerificationPost(id: string, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesByIdVerificationPost(id, options).then((request) => request(this.axios, this.basePath));
@@ -857,6 +886,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {File} [file] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesPost(file?: File, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesPost(file, options).then((request) => request(this.axios, this.basePath));
@@ -867,6 +897,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @summary Get Files Verification Results
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsFilesResultGet(options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsFilesResultGet(options).then((request) => request(this.axios, this.basePath));
@@ -879,6 +910,7 @@ export class VerificationsApi extends BaseAPI implements VerificationsApiInterfa
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof VerificationsApi
      */
     public verificationsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VerificationsApiFp(this.configuration).verificationsGet(limit, offset, options).then((request) => request(this.axios, this.basePath));

@@ -14,13 +14,35 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface EmailJobFailedStatus
+ */
 export interface EmailJobFailedStatus {
+    /**
+     * 
+     * @type {string}
+     * @memberof EmailJobFailedStatus
+     */
     'Address'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EmailJobFailedStatus
+     */
     'Error'?: string;
     /**
      * RFC Error code
+     * @type {number}
+     * @memberof EmailJobFailedStatus
      */
     'ErrorCode'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EmailJobFailedStatus
+     */
     'Category'?: string;
 }
 

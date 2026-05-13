@@ -16,22 +16,32 @@
 
 /**
  * Suppression - Email returning Hard Bounces
+ * @export
+ * @interface Suppression
  */
 export interface Suppression {
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof Suppression
      */
     'Email'?: string;
     /**
      * RFC error message
+     * @type {string}
+     * @memberof Suppression
      */
     'FriendlyErrorMessage'?: string;
     /**
      * SMTP Error code
+     * @type {number}
+     * @memberof Suppression
      */
     'ErrorCode'?: number | null;
     /**
      * Last change date
+     * @type {string}
+     * @memberof Suppression
      */
     'DateUpdated'?: string | null;
 }

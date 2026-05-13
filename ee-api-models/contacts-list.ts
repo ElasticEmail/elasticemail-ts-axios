@@ -16,22 +16,32 @@
 
 /**
  * List of Lists, with detailed data about its contents.
+ * @export
+ * @interface ContactsList
  */
 export interface ContactsList {
     /**
      * Name of your list.
+     * @type {string}
+     * @memberof ContactsList
      */
     'ListName'?: string;
     /**
      * ID code of list. Please note that this is different from the listid field.
+     * @type {string}
+     * @memberof ContactsList
      */
     'PublicListID'?: string | null;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * @type {string}
+     * @memberof ContactsList
      */
     'DateAdded'?: string;
     /**
      * True: Allow unsubscribing from this list. Otherwise, false
+     * @type {boolean}
+     * @memberof ContactsList
      */
     'AllowUnsubscribe'?: boolean;
 }

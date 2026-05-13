@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface FileUploadResult
+ */
 export interface FileUploadResult {
     /**
      * How many unique emails were detected the file
+     * @type {number}
+     * @memberof FileUploadResult
      */
     'EmailsCount'?: number;
     /**
      * How many email duplicates were detected
+     * @type {number}
+     * @memberof FileUploadResult
      */
     'DuplicatedEmailsCount'?: number;
 }

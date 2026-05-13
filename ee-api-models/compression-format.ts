@@ -16,6 +16,8 @@
 
 /**
  * FileResponse compression format
+ * @export
+ * @enum {string}
  */
 
 export const CompressionFormat = {

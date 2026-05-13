@@ -14,49 +14,76 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface ContactActivity
+ */
 export interface ContactActivity {
     /**
      * Total emails sent.
+     * @type {number}
+     * @memberof ContactActivity
      */
     'TotalSent'?: number;
     /**
      * Total emails opened.
+     * @type {number}
+     * @memberof ContactActivity
      */
     'TotalOpened'?: number;
     /**
      * Total emails clicked
+     * @type {number}
+     * @memberof ContactActivity
      */
     'TotalClicked'?: number;
     /**
      * Total emails failed.
+     * @type {number}
+     * @memberof ContactActivity
      */
     'TotalFailed'?: number;
     /**
      * Last date when an email was sent to this contact
+     * @type {string}
+     * @memberof ContactActivity
      */
     'LastSent'?: string | null;
     /**
      * Date this contact last opened an email
+     * @type {string}
+     * @memberof ContactActivity
      */
     'LastOpened'?: string | null;
     /**
      * Date this contact last clicked an email
+     * @type {string}
+     * @memberof ContactActivity
      */
     'LastClicked'?: string | null;
     /**
      * Last date when an email sent to this contact bounced
+     * @type {string}
+     * @memberof ContactActivity
      */
     'LastFailed'?: string | null;
     /**
      * IP from which this contact opened or clicked their email last time
+     * @type {string}
+     * @memberof ContactActivity
      */
     'LastIP'?: string;
     /**
      * Last RFC Error code if any occurred
+     * @type {number}
+     * @memberof ContactActivity
      */
     'ErrorCode'?: number | null;
     /**
      * Last RFC error message if any occurred
+     * @type {string}
+     * @memberof ContactActivity
      */
     'FriendlyErrorMessage'?: string;
 }

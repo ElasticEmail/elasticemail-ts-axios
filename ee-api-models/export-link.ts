@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface ExportLink
+ */
 export interface ExportLink {
     /**
      * Direct URL to the exported file
+     * @type {string}
+     * @memberof ExportLink
      */
     'Link'?: string;
     /**
      * ID of the exported file
+     * @type {string}
+     * @memberof ExportLink
      */
     'PublicExportID'?: string;
 }

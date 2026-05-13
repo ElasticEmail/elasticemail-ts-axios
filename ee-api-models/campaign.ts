@@ -26,18 +26,47 @@ import type { CampaignStatus } from './campaign-status';
 // @ts-ignore
 import type { CampaignTemplate } from './campaign-template';
 
+/**
+ * 
+ * @export
+ * @interface Campaign
+ */
 export interface Campaign {
     /**
      * Campaign\'s email content. Provide multiple items to send an A/X Split Campaign
+     * @type {Array<CampaignTemplate>}
+     * @memberof Campaign
      */
     'Content'?: Array<CampaignTemplate>;
     /**
      * Campaign name
+     * @type {string}
+     * @memberof Campaign
      */
     'Name': string;
+    /**
+     * 
+     * @type {CampaignStatus}
+     * @memberof Campaign
+     */
     'Status'?: CampaignStatus;
+    /**
+     * 
+     * @type {CampaignRecipient}
+     * @memberof Campaign
+     */
     'Recipients': CampaignRecipient;
+    /**
+     * 
+     * @type {CampaignRecipient}
+     * @memberof Campaign
+     */
     'ExcludedRecipients'?: CampaignRecipient;
+    /**
+     * 
+     * @type {CampaignOptions}
+     * @memberof Campaign
+     */
     'Options'?: CampaignOptions;
 }
 

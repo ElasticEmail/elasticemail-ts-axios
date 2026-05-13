@@ -19,34 +19,50 @@ import type { AccessLevel } from './access-level';
 
 /**
  * Newly generated ApiKey with Token
+ * @export
+ * @interface NewApiKey
  */
 export interface NewApiKey {
     /**
      * Unique token to be used in the system
+     * @type {string}
+     * @memberof NewApiKey
      */
     'Token'?: string;
     /**
      * Access level or permission to be assigned to this ApiKey.
+     * @type {Array<AccessLevel>}
+     * @memberof NewApiKey
      */
     'AccessLevel'?: Array<AccessLevel>;
     /**
      * Name of the ApiKey.
+     * @type {string}
+     * @memberof NewApiKey
      */
     'Name'?: string;
     /**
      * Date this ApiKey was created.
+     * @type {string}
+     * @memberof NewApiKey
      */
     'DateCreated'?: string;
     /**
      * Date this ApiKey was last used.
+     * @type {string}
+     * @memberof NewApiKey
      */
     'LastUse'?: string | null;
     /**
      * Date this ApiKey expires.
+     * @type {string}
+     * @memberof NewApiKey
      */
     'Expires'?: string | null;
     /**
      * Which IPs can use this ApiKey
+     * @type {Array<string>}
+     * @memberof NewApiKey
      */
     'RestrictAccessToIPRange'?: Array<string>;
 }

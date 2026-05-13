@@ -18,13 +18,14 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import type { Campaign } from '../ee-api-models';
 /**
  * CampaignsApi - axios parameter creator
+ * @export
  */
 export const CampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -55,6 +56,7 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -90,8 +92,8 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -128,6 +130,7 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -166,8 +169,9 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -216,8 +220,8 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['limit'] = limit;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -252,8 +256,9 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -270,6 +275,7 @@ export const CampaignsApiAxiosParamCreator = function (configuration?: Configura
 
 /**
  * CampaignsApi - functional programming interface
+ * @export
  */
 export const CampaignsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CampaignsApiAxiosParamCreator(configuration)
@@ -360,6 +366,7 @@ export const CampaignsApiFp = function(configuration?: Configuration) {
 
 /**
  * CampaignsApi - factory interface
+ * @export
  */
 export const CampaignsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CampaignsApiFp(configuration)
@@ -432,6 +439,8 @@ export const CampaignsApiFactory = function (configuration?: Configuration, base
 
 /**
  * CampaignsApi - interface
+ * @export
+ * @interface CampaignsApi
  */
 export interface CampaignsApiInterface {
     /**
@@ -440,6 +449,7 @@ export interface CampaignsApiInterface {
      * @param {string} name Name of Campaign to delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsByNameDelete(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -449,6 +459,7 @@ export interface CampaignsApiInterface {
      * @param {string} name Name of Campaign to get
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsByNameGet(name: string, options?: RawAxiosRequestConfig): AxiosPromise<Campaign>;
 
@@ -458,6 +469,7 @@ export interface CampaignsApiInterface {
      * @param {string} name Name of Campaign to pause
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsByNamePausePut(name: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -468,6 +480,7 @@ export interface CampaignsApiInterface {
      * @param {Campaign} campaign JSON representation of a campaign
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsByNamePut(name: string, campaign: Campaign, options?: RawAxiosRequestConfig): AxiosPromise<Campaign>;
 
@@ -479,6 +492,7 @@ export interface CampaignsApiInterface {
      * @param {number} [limit] Maximum number of returned items.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsGet(search?: string, offset?: number, limit?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<Campaign>>;
 
@@ -488,6 +502,7 @@ export interface CampaignsApiInterface {
      * @param {Campaign} campaign JSON representation of a campaign
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
      */
     campaignsPost(campaign: Campaign, options?: RawAxiosRequestConfig): AxiosPromise<Campaign>;
 
@@ -495,6 +510,9 @@ export interface CampaignsApiInterface {
 
 /**
  * CampaignsApi - object-oriented interface
+ * @export
+ * @class CampaignsApi
+ * @extends {BaseAPI}
  */
 export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
     /**
@@ -503,6 +521,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {string} name Name of Campaign to delete
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsByNameDelete(name: string, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsByNameDelete(name, options).then((request) => request(this.axios, this.basePath));
@@ -514,6 +533,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {string} name Name of Campaign to get
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsByNameGet(name: string, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsByNameGet(name, options).then((request) => request(this.axios, this.basePath));
@@ -525,6 +545,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {string} name Name of Campaign to pause
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsByNamePausePut(name: string, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsByNamePausePut(name, options).then((request) => request(this.axios, this.basePath));
@@ -537,6 +558,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {Campaign} campaign JSON representation of a campaign
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsByNamePut(name: string, campaign: Campaign, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsByNamePut(name, campaign, options).then((request) => request(this.axios, this.basePath));
@@ -550,6 +572,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {number} [limit] Maximum number of returned items.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsGet(search?: string, offset?: number, limit?: number, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsGet(search, offset, limit, options).then((request) => request(this.axios, this.basePath));
@@ -561,6 +584,7 @@ export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
      * @param {Campaign} campaign JSON representation of a campaign
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof CampaignsApi
      */
     public campaignsPost(campaign: Campaign, options?: RawAxiosRequestConfig) {
         return CampaignsApiFp(this.configuration).campaignsPost(campaign, options).then((request) => request(this.axios, this.basePath));

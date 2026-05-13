@@ -16,6 +16,8 @@
 
 /**
  * Type of body part
+ * @export
+ * @enum {string}
  */
 
 export const BodyContentType = {

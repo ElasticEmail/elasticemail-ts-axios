@@ -13,29 +13,66 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { SplitOptimizationType } from './split-optimization-type';
 
 /**
- * Optional A/X split campaign options
+ * Create webhook payload
  * @export
- * @interface SplitOptions
+ * @interface WebhookCreatePayload
  */
-export interface SplitOptions {
+export interface WebhookCreatePayload {
+    /**
+     * Filename
+     * @type {string}
+     * @memberof WebhookCreatePayload
+     */
+    'Name': string;
+    /**
+     * URL of notification.
+     * @type {string}
+     * @memberof WebhookCreatePayload
+     */
+    'URL': string;
     /**
      * 
-     * @type {SplitOptimizationType}
-     * @memberof SplitOptions
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
      */
-    'OptimizeFor'?: SplitOptimizationType;
+    'NotifyOncePerEmail'?: boolean;
     /**
-     * For how long should the results be measured until determining the winner template (content)
-     * @type {number}
-     * @memberof SplitOptions
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
      */
-    'OptimizePeriodMinutes'?: number;
+    'NotificationForSent'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'NotificationForOpened'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'NotificationForClicked'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'NotificationForUnsubscribed'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'NotificationForAbuseReport'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'NotificationForError'?: boolean;
 }
-
-
 

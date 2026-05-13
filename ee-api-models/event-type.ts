@@ -16,6 +16,8 @@
 
 /**
  * Type of event
+ * @export
+ * @enum {string}
  */
 
 export const EventType = {

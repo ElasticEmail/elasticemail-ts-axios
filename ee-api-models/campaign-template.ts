@@ -19,32 +19,51 @@ import type { Utm } from './utm';
 
 /**
  * Content of a Campaign
+ * @export
+ * @interface CampaignTemplate
  */
 export interface CampaignTemplate {
     /**
      * Name of your custom IP Pool to be used in the sending process
+     * @type {string}
+     * @memberof CampaignTemplate
      */
     'Poolname'?: string;
     /**
      * Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
+     * @type {string}
+     * @memberof CampaignTemplate
      */
     'From': string;
     /**
-     * To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
+     * To what addresses should the recipients reply to (e.g. John Doe <email@domain.com>)
+     * @type {string}
+     * @memberof CampaignTemplate
      */
     'ReplyTo'?: string;
     /**
      * Default subject of email.
+     * @type {string}
+     * @memberof CampaignTemplate
      */
     'Subject'?: string;
     /**
      * Name of template.
+     * @type {string}
+     * @memberof CampaignTemplate
      */
     'TemplateName'?: string;
     /**
      * Names of previously uploaded files that should be sent as downloadable attachments
+     * @type {Array<string>}
+     * @memberof CampaignTemplate
      */
     'AttachFiles'?: Array<string>;
+    /**
+     * 
+     * @type {Utm}
+     * @memberof CampaignTemplate
+     */
     'Utm'?: Utm;
 }
 

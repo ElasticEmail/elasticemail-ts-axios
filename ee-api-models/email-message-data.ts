@@ -25,13 +25,27 @@ import type { Options } from './options';
 
 /**
  * Email data
+ * @export
+ * @interface EmailMessageData
  */
 export interface EmailMessageData {
     /**
      * List of recipients
+     * @type {Array<EmailRecipient>}
+     * @memberof EmailMessageData
      */
     'Recipients': Array<EmailRecipient>;
+    /**
+     * 
+     * @type {EmailContent}
+     * @memberof EmailMessageData
+     */
     'Content': EmailContent;
+    /**
+     * 
+     * @type {Options}
+     * @memberof EmailMessageData
+     */
     'Options'?: Options;
 }
 

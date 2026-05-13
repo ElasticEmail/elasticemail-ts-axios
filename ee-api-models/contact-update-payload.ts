@@ -14,17 +14,28 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface ContactUpdatePayload
+ */
 export interface ContactUpdatePayload {
     /**
      * First name.
+     * @type {string}
+     * @memberof ContactUpdatePayload
      */
     'FirstName'?: string;
     /**
      * Last name.
+     * @type {string}
+     * @memberof ContactUpdatePayload
      */
     'LastName'?: string;
     /**
      * A key-value collection of custom contact fields which can be used in the system.
+     * @type {{ [key: string]: string; }}
+     * @memberof ContactUpdatePayload
      */
     'CustomFields'?: { [key: string]: string; };
 }

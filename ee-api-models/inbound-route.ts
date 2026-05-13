@@ -20,24 +20,52 @@ import type { InboundRouteActionType } from './inbound-route-action-type';
 // @ts-ignore
 import type { InboundRouteFilterType } from './inbound-route-filter-type';
 
+/**
+ * 
+ * @export
+ * @interface InboundRoute
+ */
 export interface InboundRoute {
+    /**
+     * 
+     * @type {string}
+     * @memberof InboundRoute
+     */
     'PublicId'?: string;
     /**
      * Name of this route
+     * @type {string}
+     * @memberof InboundRoute
      */
     'Name'?: string;
+    /**
+     * 
+     * @type {InboundRouteFilterType}
+     * @memberof InboundRoute
+     */
     'FilterType'?: InboundRouteFilterType;
     /**
      * Filter of the inbound data
+     * @type {string}
+     * @memberof InboundRoute
      */
     'Filter'?: string;
+    /**
+     * 
+     * @type {InboundRouteActionType}
+     * @memberof InboundRoute
+     */
     'ActionType'?: InboundRouteActionType;
     /**
      * URL address or Email to notify about the inbound
+     * @type {string}
+     * @memberof InboundRoute
      */
     'ActionParameter'?: string;
     /**
      * Place of this route in your routes queue\'s order
+     * @type {number}
+     * @memberof InboundRoute
      */
     'SortOrder'?: number;
 }

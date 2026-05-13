@@ -16,22 +16,32 @@
 
 /**
  * Utm marketing data to be attached to every link in this e-mail.
+ * @export
+ * @interface Utm
  */
 export interface Utm {
     /**
      * utmsource value
+     * @type {string}
+     * @memberof Utm
      */
     'Source'?: string;
     /**
      * utmmedium value
+     * @type {string}
+     * @memberof Utm
      */
     'Medium'?: string;
     /**
      * utmcampaign value
+     * @type {string}
+     * @memberof Utm
      */
     'Campaign'?: string;
     /**
      * utmcontent value
+     * @type {string}
+     * @memberof Utm
      */
     'Content'?: string;
 }

@@ -22,36 +22,62 @@ import type { SubaccountSettingsInfo } from './subaccount-settings-info';
 
 /**
  * Detailed information about SubAccount.
+ * @export
+ * @interface SubAccountInfo
  */
 export interface SubAccountInfo {
     /**
      * Public key for limited access to your Account such as contact/add so you can use it safely on public websites.
+     * @type {string}
+     * @memberof SubAccountInfo
      */
     'PublicAccountID'?: string;
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof SubAccountInfo
      */
     'Email'?: string;
+    /**
+     * 
+     * @type {SubaccountSettingsInfo}
+     * @memberof SubAccountInfo
+     */
     'Settings'?: SubaccountSettingsInfo;
     /**
      * Date of last activity on Account
+     * @type {string}
+     * @memberof SubAccountInfo
      */
     'LastActivity'?: string;
     /**
      * Amount of email credits
+     * @type {number}
+     * @memberof SubAccountInfo
      */
     'EmailCredits'?: number;
     /**
      * Amount of emails sent from this Account
+     * @type {number}
+     * @memberof SubAccountInfo
      */
     'TotalEmailsSent'?: number;
     /**
      * Numeric reputation
+     * @type {number}
+     * @memberof SubAccountInfo
      */
     'Reputation'?: number;
+    /**
+     * 
+     * @type {AccountStatusEnum}
+     * @memberof SubAccountInfo
+     */
     'Status'?: AccountStatusEnum;
     /**
      * How many contacts this SubAccount has stored
+     * @type {number}
+     * @memberof SubAccountInfo
      */
     'ContactsCount'?: number;
 }

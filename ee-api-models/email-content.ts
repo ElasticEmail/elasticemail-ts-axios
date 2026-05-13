@@ -25,52 +25,81 @@ import type { Utm } from './utm';
 
 /**
  * Proper e-mail content
+ * @export
+ * @interface EmailContent
  */
 export interface EmailContent {
     /**
      * List of e-mail body parts, with user-provided MIME types (text/html, text/plain etc)
+     * @type {Array<BodyPart>}
+     * @memberof EmailContent
      */
     'Body'?: Array<BodyPart>;
     /**
      * A key-value collection of custom merge fields, shared between recipients. Should be used in e-mail body like so: {firstname}, {lastname} etc.
+     * @type {{ [key: string]: string; }}
+     * @memberof EmailContent
      */
     'Merge'?: { [key: string]: string; };
     /**
      * Attachments provided by sending binary data
+     * @type {Array<MessageAttachment>}
+     * @memberof EmailContent
      */
     'Attachments'?: Array<MessageAttachment>;
     /**
      * A key-value collection of custom e-mail headers.
+     * @type {{ [key: string]: string; }}
+     * @memberof EmailContent
      */
     'Headers'?: { [key: string]: string; };
     /**
      * Postback header.
+     * @type {string}
+     * @memberof EmailContent
      */
     'Postback'?: string;
     /**
      * E-mail with an optional name to be used as the envelope from address (e.g.: John Doe <email@domain.com>)
+     * @type {string}
+     * @memberof EmailContent
      */
     'EnvelopeFrom'?: string;
     /**
      * Your e-mail with an optional name (e.g.: John Doe <email@domain.com>)
+     * @type {string}
+     * @memberof EmailContent
      */
     'From': string;
     /**
-     * To what address should the recipients reply to (e.g. John Doe <email@domain.com>)
+     * To what addresses should the recipients reply to (e.g. John Doe <email@domain.com>)
+     * @type {string}
+     * @memberof EmailContent
      */
     'ReplyTo'?: string;
     /**
      * Default subject of email.
+     * @type {string}
+     * @memberof EmailContent
      */
     'Subject'?: string;
     /**
      * Name of template.
+     * @type {string}
+     * @memberof EmailContent
      */
     'TemplateName'?: string;
     /**
      * Names of previously uploaded files that should be sent as downloadable attachments
+     * @type {Array<string>}
+     * @memberof EmailContent
      */
     'AttachFiles'?: Array<string>;
+    /**
+     * 
+     * @type {Utm}
+     * @memberof EmailContent
+     */
     'Utm'?: Utm;
 }
 

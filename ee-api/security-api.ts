@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,6 +35,7 @@ import type { SmtpCredentials } from '../ee-api-models';
 import type { SmtpCredentialsPayload } from '../ee-api-models';
 /**
  * SecurityApi - axios parameter creator
+ * @export
  */
 export const SecurityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -70,6 +71,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -110,8 +112,8 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['subaccount'] = subaccount;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -150,8 +152,9 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -190,8 +193,8 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['subaccount'] = subaccount;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -226,8 +229,9 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -271,6 +275,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             }
 
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -311,8 +316,8 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['subaccount'] = subaccount;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -351,8 +356,9 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -391,8 +397,8 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['subaccount'] = subaccount;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -427,8 +433,9 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -445,6 +452,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * SecurityApi - functional programming interface
+ * @export
  */
 export const SecurityApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SecurityApiAxiosParamCreator(configuration)
@@ -590,6 +598,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
 
 /**
  * SecurityApi - factory interface
+ * @export
  */
 export const SecurityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SecurityApiFp(configuration)
@@ -705,6 +714,8 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * SecurityApi - interface
+ * @export
+ * @interface SecurityApi
  */
 export interface SecurityApiInterface {
     /**
@@ -714,6 +725,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securityApikeysByNameDelete(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -724,6 +736,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securityApikeysByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<ApiKey>;
 
@@ -734,6 +747,7 @@ export interface SecurityApiInterface {
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securityApikeysByNamePut(name: string, apiKeyPayload: ApiKeyPayload, options?: RawAxiosRequestConfig): AxiosPromise<ApiKey>;
 
@@ -743,6 +757,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securityApikeysGet(subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ApiKey>>;
 
@@ -752,6 +767,7 @@ export interface SecurityApiInterface {
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securityApikeysPost(apiKeyPayload: ApiKeyPayload, options?: RawAxiosRequestConfig): AxiosPromise<NewApiKey>;
 
@@ -762,6 +778,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securitySmtpByNameDelete(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
 
@@ -772,6 +789,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credential should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securitySmtpByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<SmtpCredentials>;
 
@@ -782,6 +800,7 @@ export interface SecurityApiInterface {
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securitySmtpByNamePut(name: string, smtpCredentialsPayload: SmtpCredentialsPayload, options?: RawAxiosRequestConfig): AxiosPromise<SmtpCredentials>;
 
@@ -791,6 +810,7 @@ export interface SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credentials should be listed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securitySmtpGet(subaccount?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<SmtpCredentials>>;
 
@@ -800,6 +820,7 @@ export interface SecurityApiInterface {
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApiInterface
      */
     securitySmtpPost(smtpCredentialsPayload: SmtpCredentialsPayload, options?: RawAxiosRequestConfig): AxiosPromise<NewSmtpCredentials>;
 
@@ -807,6 +828,9 @@ export interface SecurityApiInterface {
 
 /**
  * SecurityApi - object-oriented interface
+ * @export
+ * @class SecurityApi
+ * @extends {BaseAPI}
  */
 export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     /**
@@ -816,6 +840,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be deleted
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securityApikeysByNameDelete(name: string, subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securityApikeysByNameDelete(name, subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -828,6 +853,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securityApikeysByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securityApikeysByNameGet(name, subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -840,6 +866,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securityApikeysByNamePut(name: string, apiKeyPayload: ApiKeyPayload, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securityApikeysByNamePut(name, apiKeyPayload, options).then((request) => request(this.axios, this.basePath));
@@ -851,6 +878,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securityApikeysGet(subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securityApikeysGet(subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -862,6 +890,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {ApiKeyPayload} apiKeyPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securityApikeysPost(apiKeyPayload: ApiKeyPayload, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securityApikeysPost(apiKeyPayload, options).then((request) => request(this.axios, this.basePath));
@@ -874,6 +903,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credential should be deleted
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securitySmtpByNameDelete(name: string, subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securitySmtpByNameDelete(name, subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -886,6 +916,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credential should be loaded
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securitySmtpByNameGet(name: string, subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securitySmtpByNameGet(name, subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -898,6 +929,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securitySmtpByNamePut(name: string, smtpCredentialsPayload: SmtpCredentialsPayload, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securitySmtpByNamePut(name, smtpCredentialsPayload, options).then((request) => request(this.axios, this.basePath));
@@ -909,6 +941,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {string} [subaccount] Email of the subaccount of which credentials should be listed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securitySmtpGet(subaccount?: string, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securitySmtpGet(subaccount, options).then((request) => request(this.axios, this.basePath));
@@ -920,6 +953,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * @param {SmtpCredentialsPayload} smtpCredentialsPayload 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof SecurityApi
      */
     public securitySmtpPost(smtpCredentialsPayload: SmtpCredentialsPayload, options?: RawAxiosRequestConfig) {
         return SecurityApiFp(this.configuration).securitySmtpPost(smtpCredentialsPayload, options).then((request) => request(this.axios, this.basePath));

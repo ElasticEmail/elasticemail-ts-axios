@@ -16,14 +16,20 @@
 
 /**
  * List of recipients
+ * @export
+ * @interface EmailRecipient
  */
 export interface EmailRecipient {
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof EmailRecipient
      */
     'Email': string;
     /**
      * A key-value collection of merge fields which can be used in e-mail body.
+     * @type {{ [key: string]: string; }}
+     * @memberof EmailRecipient
      */
     'Fields'?: { [key: string]: string; };
 }

@@ -19,15 +19,26 @@ import type { BodyContentType } from './body-content-type';
 
 /**
  * Email body part with user-provided MIME type (text/html, text/plain, etc)
+ * @export
+ * @interface BodyPart
  */
 export interface BodyPart {
+    /**
+     * 
+     * @type {BodyContentType}
+     * @memberof BodyPart
+     */
     'ContentType': BodyContentType;
     /**
      * Actual content of the body part
+     * @type {string}
+     * @memberof BodyPart
      */
     'Content'?: string;
     /**
      * Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more...
+     * @type {string}
+     * @memberof BodyPart
      */
     'Charset'?: string;
 }

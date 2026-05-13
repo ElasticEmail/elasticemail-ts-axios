@@ -16,14 +16,20 @@
 
 /**
  * Dynamic collection of Contacts, managed by SQL-like rule.
+ * @export
+ * @interface Segment
  */
 export interface Segment {
     /**
      * Segment name
+     * @type {string}
+     * @memberof Segment
      */
     'Name'?: string;
     /**
      * SQL-like rule to determine which Contacts belong to this Segment.
+     * @type {string}
+     * @memberof Segment
      */
     'Rule'?: string;
 }

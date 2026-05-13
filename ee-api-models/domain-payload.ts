@@ -14,11 +14,23 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface DomainPayload
+ */
 export interface DomainPayload {
     /**
      * Name of selected domain.
+     * @type {string}
+     * @memberof DomainPayload
      */
     'Domain'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainPayload
+     */
     'SetAsDefault'?: boolean;
 }
 

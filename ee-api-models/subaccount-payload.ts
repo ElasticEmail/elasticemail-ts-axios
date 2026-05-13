@@ -19,20 +19,33 @@ import type { SubaccountSettingsInfoPayload } from './subaccount-settings-info-p
 
 /**
  * New SubAccount payload
+ * @export
+ * @interface SubaccountPayload
  */
 export interface SubaccountPayload {
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof SubaccountPayload
      */
     'Email': string;
     /**
      * Current password.
+     * @type {string}
+     * @memberof SubaccountPayload
      */
     'Password': string;
     /**
      * True, if you want to send activation email to this Account to confirm the creation of a new SubAccount. Otherwise, false (SubAccount will immediately be Active).
+     * @type {boolean}
+     * @memberof SubaccountPayload
      */
     'SendActivation'?: boolean;
+    /**
+     * 
+     * @type {SubaccountSettingsInfoPayload}
+     * @memberof SubaccountPayload
+     */
     'Settings'?: SubaccountSettingsInfoPayload;
 }
 

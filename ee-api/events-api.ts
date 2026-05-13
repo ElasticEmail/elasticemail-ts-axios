@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -37,6 +37,7 @@ import type { ExportStatus } from '../ee-api-models';
 import type { RecipientEvent } from '../ee-api-models';
 /**
  * EventsApi - axios parameter creator
+ * @export
  */
 export const EventsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -95,8 +96,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -166,8 +167,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['fileName'] = fileName;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -237,8 +238,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -274,8 +275,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -311,8 +312,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -378,8 +379,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['fileName'] = fileName;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -445,8 +446,8 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -461,6 +462,7 @@ export const EventsApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * EventsApi - functional programming interface
+ * @export
  */
 export const EventsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EventsApiAxiosParamCreator(configuration)
@@ -588,6 +590,7 @@ export const EventsApiFp = function(configuration?: Configuration) {
 
 /**
  * EventsApi - factory interface
+ * @export
  */
 export const EventsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EventsApiFp(configuration)
@@ -694,6 +697,8 @@ export const EventsApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * EventsApi - interface
+ * @export
+ * @interface EventsApi
  */
 export interface EventsApiInterface {
     /**
@@ -707,6 +712,7 @@ export interface EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsByTransactionidGet(transactionid: string, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<RecipientEvent>>;
 
@@ -722,6 +728,7 @@ export interface EventsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsChannelsByNameExportPost(name: string, eventTypes?: Array<EventType>, from?: string | null, to?: string | null, fileFormat?: ExportFileFormats, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportLink>;
 
@@ -737,6 +744,7 @@ export interface EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsChannelsByNameGet(name: string, eventTypes?: Array<EventType>, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<RecipientEvent>>;
 
@@ -746,6 +754,7 @@ export interface EventsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsChannelsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportStatus>;
 
@@ -755,6 +764,7 @@ export interface EventsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportStatus>;
 
@@ -769,6 +779,7 @@ export interface EventsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsExportPost(eventTypes?: Array<EventType>, from?: string | null, to?: string | null, fileFormat?: ExportFileFormats, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig): AxiosPromise<ExportLink>;
 
@@ -783,6 +794,7 @@ export interface EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApiInterface
      */
     eventsGet(eventTypes?: Array<EventType>, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<RecipientEvent>>;
 
@@ -790,6 +802,9 @@ export interface EventsApiInterface {
 
 /**
  * EventsApi - object-oriented interface
+ * @export
+ * @class EventsApi
+ * @extends {BaseAPI}
  */
 export class EventsApi extends BaseAPI implements EventsApiInterface {
     /**
@@ -803,6 +818,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsByTransactionidGet(transactionid: string, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsByTransactionidGet(transactionid, from, to, orderBy, limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -820,6 +836,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsChannelsByNameExportPost(name: string, eventTypes?: Array<EventType>, from?: string | null, to?: string | null, fileFormat?: ExportFileFormats, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsChannelsByNameExportPost(name, eventTypes, from, to, fileFormat, compressionFormat, fileName, options).then((request) => request(this.axios, this.basePath));
@@ -837,6 +854,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsChannelsByNameGet(name: string, eventTypes?: Array<EventType>, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsChannelsByNameGet(name, eventTypes, from, to, orderBy, limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -848,6 +866,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsChannelsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsChannelsExportByIdStatusGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -859,6 +878,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {string} id ID of the exported file
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsExportByIdStatusGet(id: string, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsExportByIdStatusGet(id, options).then((request) => request(this.axios, this.basePath));
@@ -875,6 +895,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {string} [fileName] Name of your file including extension.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsExportPost(eventTypes?: Array<EventType>, from?: string | null, to?: string | null, fileFormat?: ExportFileFormats, compressionFormat?: CompressionFormat, fileName?: string, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsExportPost(eventTypes, from, to, fileFormat, compressionFormat, fileName, options).then((request) => request(this.axios, this.basePath));
@@ -891,6 +912,7 @@ export class EventsApi extends BaseAPI implements EventsApiInterface {
      * @param {number} [offset] How many items should be returned ahead.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EventsApi
      */
     public eventsGet(eventTypes?: Array<EventType>, from?: string | null, to?: string | null, orderBy?: EventsOrderBy, limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EventsApiFp(this.configuration).eventsGet(eventTypes, from, to, orderBy, limit, offset, options).then((request) => request(this.axios, this.basePath));

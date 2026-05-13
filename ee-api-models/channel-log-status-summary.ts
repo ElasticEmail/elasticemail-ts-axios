@@ -16,62 +16,92 @@
 
 /**
  * Summary of channel log status
+ * @export
+ * @interface ChannelLogStatusSummary
  */
 export interface ChannelLogStatusSummary {
     /**
      * Channel name
+     * @type {string}
+     * @memberof ChannelLogStatusSummary
      */
     'ChannelName'?: string;
     /**
      * Number of recipients
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Recipients'?: number;
     /**
      * Number of emails
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'EmailTotal'?: number;
     /**
      * Number of SMS
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'SmsTotal'?: number;
     /**
      * Number of delivered messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Delivered'?: number;
     /**
      * Number of bounced messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Bounced'?: number;
     /**
      * Number of messages in progress
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'InProgress'?: number;
     /**
      * Number of opened messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Opened'?: number;
     /**
      * Number of clicked messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Clicked'?: number;
     /**
      * Number of unsubscribed messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Unsubscribed'?: number;
     /**
      * Number of complaint messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Complaints'?: number;
     /**
      * Number of inbound messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'Inbound'?: number;
     /**
      * Number of manually cancelled messages
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'ManualCancel'?: number;
     /**
      * Number of messages flagged with \'Not Delivered\'
+     * @type {number}
+     * @memberof ChannelLogStatusSummary
      */
     'NotDelivered'?: number;
 }

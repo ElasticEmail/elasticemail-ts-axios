@@ -20,24 +20,47 @@ import type { ConsentData } from './consent-data';
 // @ts-ignore
 import type { ContactStatus } from './contact-status';
 
+/**
+ * 
+ * @export
+ * @interface ContactPayload
+ */
 export interface ContactPayload {
     /**
      * Proper email address.
+     * @type {string}
+     * @memberof ContactPayload
      */
     'Email': string;
+    /**
+     * 
+     * @type {ContactStatus}
+     * @memberof ContactPayload
+     */
     'Status'?: ContactStatus;
     /**
      * First name.
+     * @type {string}
+     * @memberof ContactPayload
      */
     'FirstName'?: string;
     /**
      * Last name.
+     * @type {string}
+     * @memberof ContactPayload
      */
     'LastName'?: string;
     /**
      * A key-value collection of custom contact fields which can be used in the system. Only already existing custom fields will be saved.
+     * @type {{ [key: string]: string; }}
+     * @memberof ContactPayload
      */
     'CustomFields'?: { [key: string]: string; };
+    /**
+     * 
+     * @type {ConsentData}
+     * @memberof ContactPayload
+     */
     'Consent'?: ConsentData;
 }
 

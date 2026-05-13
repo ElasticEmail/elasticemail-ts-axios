@@ -16,22 +16,32 @@
 
 /**
  * Create new SMTP Credentials
+ * @export
+ * @interface SmtpCredentialsPayload
  */
 export interface SmtpCredentialsPayload {
     /**
      * Name of the Credential for ease of reference. It must be a valid email address.
+     * @type {string}
+     * @memberof SmtpCredentialsPayload
      */
     'Name': string;
     /**
      * Date this SmtpCredential expires.
+     * @type {string}
+     * @memberof SmtpCredentialsPayload
      */
     'Expires'?: string | null;
     /**
      * Which IPs can use this SmtpCredential
+     * @type {Array<string>}
+     * @memberof SmtpCredentialsPayload
      */
     'RestrictAccessToIPRange'?: Array<string>;
     /**
      * Email of the subaccount for which this SmtpCredential should be created
+     * @type {string}
+     * @memberof SmtpCredentialsPayload
      */
     'Subaccount'?: string;
 }

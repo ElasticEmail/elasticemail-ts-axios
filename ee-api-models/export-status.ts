@@ -16,6 +16,8 @@
 
 /**
  * Current status of the export.
+ * @export
+ * @enum {string}
  */
 
 export const ExportStatus = {

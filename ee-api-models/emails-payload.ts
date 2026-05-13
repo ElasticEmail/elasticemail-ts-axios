@@ -16,14 +16,20 @@
 
 /**
  * Provide either rule or a list of emails, not both.
+ * @export
+ * @interface EmailsPayload
  */
 export interface EmailsPayload {
     /**
      * SQL-like rule. Sending \'All\' as a value loads all resources of the given type. Help for building a segment rule can be found here: https://help.elasticemail.com/en/articles/5162182-segment-rules
+     * @type {string}
+     * @memberof EmailsPayload
      */
     'Rule'?: string;
     /**
      * Comma delimited list of contact emails
+     * @type {Array<string>}
+     * @memberof EmailsPayload
      */
     'Emails'?: Array<string>;
 }

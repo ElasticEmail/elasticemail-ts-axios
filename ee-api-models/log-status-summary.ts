@@ -16,58 +16,86 @@
 
 /**
  * Summary of log status
+ * @export
+ * @interface LogStatusSummary
  */
 export interface LogStatusSummary {
     /**
      * Number of recipients
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Recipients'?: number;
     /**
      * Number of emails
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'EmailTotal'?: number;
     /**
      * Number of SMS
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'SmsTotal'?: number;
     /**
      * Number of delivered messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Delivered'?: number;
     /**
      * Number of bounced messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Bounced'?: number;
     /**
      * Number of messages in progress
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'InProgress'?: number;
     /**
      * Number of opened messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Opened'?: number;
     /**
      * Number of clicked messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Clicked'?: number;
     /**
      * Number of unsubscribed messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Unsubscribed'?: number;
     /**
      * Number of complaint messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Complaints'?: number;
     /**
      * Number of inbound messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'Inbound'?: number;
     /**
      * Number of manually cancelled messages
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'ManualCancel'?: number;
     /**
      * Number of messages flagged with \'Not Delivered\'
+     * @type {number}
+     * @memberof LogStatusSummary
      */
     'NotDelivered'?: number;
 }

@@ -22,30 +22,58 @@ import type { SplitOptions } from './split-options';
 
 /**
  * Different send options for a Campaign
+ * @export
+ * @interface CampaignOptions
  */
 export interface CampaignOptions {
+    /**
+     * 
+     * @type {DeliveryOptimizationType}
+     * @memberof CampaignOptions
+     */
     'DeliveryOptimization'?: DeliveryOptimizationType;
     /**
      * Should the opens be tracked? If no value has been provided, Account\'s default setting will be used.
+     * @type {boolean}
+     * @memberof CampaignOptions
      */
     'TrackOpens'?: boolean | null;
     /**
      * Should the clicks be tracked? If no value has been provided, Account\'s default setting will be used.
+     * @type {boolean}
+     * @memberof CampaignOptions
      */
     'TrackClicks'?: boolean | null;
     /**
      * Date when this Campaign is scheduled to be sent on
+     * @type {string}
+     * @memberof CampaignOptions
      */
     'ScheduleFor'?: string | null;
     /**
      * How often (in minutes) to send the campaign
+     * @type {number}
+     * @memberof CampaignOptions
      */
     'TriggerFrequency'?: number;
     /**
      * How many times send the campaign
+     * @type {number}
+     * @memberof CampaignOptions
      */
     'TriggerCount'?: number;
+    /**
+     * 
+     * @type {SplitOptions}
+     * @memberof CampaignOptions
+     */
     'SplitOptions'?: SplitOptions;
+    /**
+     * Send email at local time of contact.
+     * @type {boolean}
+     * @memberof CampaignOptions
+     */
+    'SendAtLocalTime'?: boolean | null;
 }
 
 

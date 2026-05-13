@@ -19,8 +19,15 @@ import type { SubaccountEmailSettingsPayload } from './subaccount-email-settings
 
 /**
  * SubAccount settings
+ * @export
+ * @interface SubaccountSettingsInfoPayload
  */
 export interface SubaccountSettingsInfoPayload {
+    /**
+     * 
+     * @type {SubaccountEmailSettingsPayload}
+     * @memberof SubaccountSettingsInfoPayload
+     */
     'Email'?: SubaccountEmailSettingsPayload;
 }
 

@@ -19,31 +19,50 @@ import type { AccessLevel } from './access-level';
 
 /**
  * Newly generated SMTP Credentials with Token
+ * @export
+ * @interface NewSmtpCredentials
  */
 export interface NewSmtpCredentials {
     /**
      * Unique token to be used in the system
+     * @type {string}
+     * @memberof NewSmtpCredentials
      */
     'Token'?: string;
+    /**
+     * 
+     * @type {AccessLevel}
+     * @memberof NewSmtpCredentials
+     */
     'AccessLevel'?: AccessLevel;
     /**
      * Name of the key.
+     * @type {string}
+     * @memberof NewSmtpCredentials
      */
     'Name'?: string;
     /**
      * Date this SmtpCredential was created.
+     * @type {string}
+     * @memberof NewSmtpCredentials
      */
     'DateCreated'?: string;
     /**
      * Date this SmtpCredential was last used.
+     * @type {string}
+     * @memberof NewSmtpCredentials
      */
     'LastUse'?: string | null;
     /**
      * Date this SmtpCredential expires.
+     * @type {string}
+     * @memberof NewSmtpCredentials
      */
     'Expires'?: string | null;
     /**
      * Which IPs can use this SmtpCredential
+     * @type {Array<string>}
+     * @memberof NewSmtpCredentials
      */
     'RestrictAccessToIPRange'?: Array<string>;
 }

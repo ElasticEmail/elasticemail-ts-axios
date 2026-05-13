@@ -22,24 +22,44 @@ import type { VerificationStatus } from './verification-status';
 
 /**
  * Simple verification file result info
+ * @export
+ * @interface VerificationFileResult
  */
 export interface VerificationFileResult {
     /**
      * Identifier of this verification result
+     * @type {string}
+     * @memberof VerificationFileResult
      */
     'VerificationID'?: string;
     /**
      * Origin file name
+     * @type {string}
+     * @memberof VerificationFileResult
      */
     'Filename'?: string;
+    /**
+     * 
+     * @type {VerificationStatus}
+     * @memberof VerificationFileResult
+     */
     'VerificationStatus'?: VerificationStatus;
+    /**
+     * 
+     * @type {FileUploadResult}
+     * @memberof VerificationFileResult
+     */
     'FileUploadResult'?: FileUploadResult;
     /**
      * Date of creation in YYYY-MM-DDThh:ii:ss format
+     * @type {string}
+     * @memberof VerificationFileResult
      */
     'DateAdded'?: string;
     /**
      * Origin file extension
+     * @type {string}
+     * @memberof VerificationFileResult
      */
     'Source'?: string;
 }

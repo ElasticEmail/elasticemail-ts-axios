@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -35,6 +35,7 @@ import type { EmailTransactionalMessageData } from '../ee-api-models';
 import type { MergeEmailPayload } from '../ee-api-models';
 /**
  * EmailsApi - axios parameter creator
+ * @export
  */
 export const EmailsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -64,8 +65,8 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,8 +152,8 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['showMessageIDs'] = showMessageIDs;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/json';
 
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -187,8 +188,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -225,8 +227,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -263,8 +266,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication apikey required
             await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
 
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -281,6 +285,7 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * EmailsApi - functional programming interface
+ * @export
  */
 export const EmailsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EmailsApiAxiosParamCreator(configuration)
@@ -365,6 +370,7 @@ export const EmailsApiFp = function(configuration?: Configuration) {
 
 /**
  * EmailsApi - factory interface
+ * @export
  */
 export const EmailsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EmailsApiFp(configuration)
@@ -434,6 +440,8 @@ export const EmailsApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * EmailsApi - interface
+ * @export
+ * @interface EmailsApi
  */
 export interface EmailsApiInterface {
     /**
@@ -442,6 +450,7 @@ export interface EmailsApiInterface {
      * @param {string} msgid Message identifier
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApiInterface
      */
     emailsByMsgidViewGet(msgid: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailData>;
 
@@ -461,6 +470,7 @@ export interface EmailsApiInterface {
      * @param {boolean} [showMessageIDs] Include all MessageIDs for this transaction
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApiInterface
      */
     emailsByTransactionidStatusGet(transactionid: string, showFailed?: boolean, showSent?: boolean, showDelivered?: boolean, showPending?: boolean, showOpened?: boolean, showClicked?: boolean, showAbuse?: boolean, showUnsubscribed?: boolean, showErrors?: boolean, showMessageIDs?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<EmailJobStatus>;
 
@@ -470,6 +480,7 @@ export interface EmailsApiInterface {
      * @param {MergeEmailPayload} mergeEmailPayload Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApiInterface
      */
     emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
@@ -479,6 +490,7 @@ export interface EmailsApiInterface {
      * @param {EmailMessageData} emailMessageData Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApiInterface
      */
     emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
@@ -488,6 +500,7 @@ export interface EmailsApiInterface {
      * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApiInterface
      */
     emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
@@ -495,6 +508,9 @@ export interface EmailsApiInterface {
 
 /**
  * EmailsApi - object-oriented interface
+ * @export
+ * @class EmailsApi
+ * @extends {BaseAPI}
  */
 export class EmailsApi extends BaseAPI implements EmailsApiInterface {
     /**
@@ -503,6 +519,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @param {string} msgid Message identifier
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApi
      */
     public emailsByMsgidViewGet(msgid: string, options?: RawAxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsByMsgidViewGet(msgid, options).then((request) => request(this.axios, this.basePath));
@@ -524,6 +541,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @param {boolean} [showMessageIDs] Include all MessageIDs for this transaction
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApi
      */
     public emailsByTransactionidStatusGet(transactionid: string, showFailed?: boolean, showSent?: boolean, showDelivered?: boolean, showPending?: boolean, showOpened?: boolean, showClicked?: boolean, showAbuse?: boolean, showUnsubscribed?: boolean, showErrors?: boolean, showMessageIDs?: boolean, options?: RawAxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsByTransactionidStatusGet(transactionid, showFailed, showSent, showDelivered, showPending, showOpened, showClicked, showAbuse, showUnsubscribed, showErrors, showMessageIDs, options).then((request) => request(this.axios, this.basePath));
@@ -535,6 +553,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @param {MergeEmailPayload} mergeEmailPayload Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApi
      */
     public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsMergefilePost(mergeEmailPayload, options).then((request) => request(this.axios, this.basePath));
@@ -546,6 +565,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @param {EmailMessageData} emailMessageData Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApi
      */
     public emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsPost(emailMessageData, options).then((request) => request(this.axios, this.basePath));
@@ -557,6 +577,7 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof EmailsApi
      */
     public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig) {
         return EmailsApiFp(this.configuration).emailsTransactionalPost(emailTransactionalMessageData, options).then((request) => request(this.axios, this.basePath));
