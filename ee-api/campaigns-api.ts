@@ -30,6 +30,50 @@ import type { Campaign } from '../ee-api-models';
 export const CampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+         * @summary Trigger Automation for Contact
+         * @param {string} name 
+         * @param {string} contactEmail 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        campaignsAutomationByNameTriggerPost: async (name: string, contactEmail: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('campaignsAutomationByNameTriggerPost', 'name', name)
+            // verify required parameter 'contactEmail' is not null or undefined
+            assertParamExists('campaignsAutomationByNameTriggerPost', 'contactEmail', contactEmail)
+            const localVarPath = `/campaigns/automation/{name}/trigger`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication apikey required
+            await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
+
+            if (contactEmail !== undefined) {
+                localVarQueryParameter['contactEmail'] = contactEmail;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
          * @summary Delete Campaign
          * @param {string} name Name of Campaign to delete
@@ -281,6 +325,20 @@ export const CampaignsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CampaignsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+         * @summary Trigger Automation for Contact
+         * @param {string} name 
+         * @param {string} contactEmail 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async campaignsAutomationByNameTriggerPost(name: string, contactEmail: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.campaignsAutomationByNameTriggerPost(name, contactEmail, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CampaignsApi.campaignsAutomationByNameTriggerPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
          * @summary Delete Campaign
          * @param {string} name Name of Campaign to delete
@@ -372,6 +430,17 @@ export const CampaignsApiFactory = function (configuration?: Configuration, base
     const localVarFp = CampaignsApiFp(configuration)
     return {
         /**
+         * Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+         * @summary Trigger Automation for Contact
+         * @param {string} name 
+         * @param {string} contactEmail 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        campaignsAutomationByNameTriggerPost(name: string, contactEmail: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.campaignsAutomationByNameTriggerPost(name, contactEmail, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
          * @summary Delete Campaign
          * @param {string} name Name of Campaign to delete
@@ -444,6 +513,17 @@ export const CampaignsApiFactory = function (configuration?: Configuration, base
  */
 export interface CampaignsApiInterface {
     /**
+     * Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+     * @summary Trigger Automation for Contact
+     * @param {string} name 
+     * @param {string} contactEmail 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CampaignsApiInterface
+     */
+    campaignsAutomationByNameTriggerPost(name: string, contactEmail: string, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+
+    /**
      * Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
      * @summary Delete Campaign
      * @param {string} name Name of Campaign to delete
@@ -515,6 +595,19 @@ export interface CampaignsApiInterface {
  * @extends {BaseAPI}
  */
 export class CampaignsApi extends BaseAPI implements CampaignsApiInterface {
+    /**
+     * Manually trigger an Automation for a contact. Required Access Level: ModifyAutomations
+     * @summary Trigger Automation for Contact
+     * @param {string} name 
+     * @param {string} contactEmail 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CampaignsApi
+     */
+    public campaignsAutomationByNameTriggerPost(name: string, contactEmail: string, options?: RawAxiosRequestConfig) {
+        return CampaignsApiFp(this.configuration).campaignsAutomationByNameTriggerPost(name, contactEmail, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Delete the specific campaign.  This does not cancel in progress email, see Cancel In Progress. Required Access Level: ModifyCampaigns
      * @summary Delete Campaign

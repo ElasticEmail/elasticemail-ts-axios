@@ -18,6 +18,9 @@
 import type { CertificateValidationStatus } from './certificate-validation-status';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { DKIMRecord } from './dkimrecord';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { DomainOwner } from './domain-owner';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -103,6 +106,12 @@ export interface DomainDetail {
      * @type {string}
      * @memberof DomainDetail
      */
+    'CertificateExpiryDate'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DomainDetail
+     */
     'CertificateValidationError'?: string;
     /**
      * 
@@ -133,6 +142,12 @@ export interface DomainDetail {
      * @type {boolean}
      * @memberof DomainDetail
      */
+    'WasEverVerified'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DomainDetail
+     */
     'IsMarkedForDeletion'?: boolean;
     /**
      * 
@@ -140,6 +155,12 @@ export interface DomainDetail {
      * @memberof DomainDetail
      */
     'Ownership'?: DomainOwner;
+    /**
+     * 
+     * @type {DKIMRecord}
+     * @memberof DomainDetail
+     */
+    'DKIMRecord'?: DKIMRecord;
 }
 
 

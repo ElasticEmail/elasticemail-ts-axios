@@ -15,26 +15,40 @@
 
 
 /**
- * Type of event
+ * Content of the DKIM record to be added to DNS for the domain.
  * @export
- * @enum {string}
+ * @interface DKIMRecord
  */
-
-export const EventType = {
-    Submission: 'Submission',
-    FailedAttempt: 'FailedAttempt',
-    Error: 'Error',
-    Sent: 'Sent',
-    Open: 'Open',
-    Click: 'Click',
-    Unsubscribe: 'Unsubscribe',
-    Complaint: 'Complaint',
-    Bounce: 'Bounce',
-    TransactionalUnsubscribe: 'TransactionalUnsubscribe',
-    Suppress: 'Suppress'
-} as const;
-
-export type EventType = typeof EventType[keyof typeof EventType];
-
-
+export interface DKIMRecord {
+    /**
+     * 
+     * @type {string}
+     * @memberof DKIMRecord
+     */
+    'Selector'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DKIMRecord
+     */
+    'PublicKey'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DKIMRecord
+     */
+    'HostName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DKIMRecord
+     */
+    'RecordValue'?: string;
+    /**
+     * Name of selected domain.
+     * @type {string}
+     * @memberof DKIMRecord
+     */
+    'Domain'?: string;
+}
 

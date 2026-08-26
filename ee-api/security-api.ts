@@ -85,7 +85,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
          * Load your existing ApiKey info. Required Access Level: ViewAccessTokens
          * @summary Load ApiKey
          * @param {string} name Name of the ApiKey
-         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -169,7 +169,7 @@ export const SecurityApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List all your existing ApiKeys. Required Access Level: ViewAccessTokens
          * @summary List ApiKeys
-         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -475,7 +475,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
          * Load your existing ApiKey info. Required Access Level: ViewAccessTokens
          * @summary Load ApiKey
          * @param {string} name Name of the ApiKey
-         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -502,7 +502,7 @@ export const SecurityApiFp = function(configuration?: Configuration) {
         /**
          * List all your existing ApiKeys. Required Access Level: ViewAccessTokens
          * @summary List ApiKeys
-         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -618,7 +618,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
          * Load your existing ApiKey info. Required Access Level: ViewAccessTokens
          * @summary Load ApiKey
          * @param {string} name Name of the ApiKey
-         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -639,7 +639,7 @@ export const SecurityApiFactory = function (configuration?: Configuration, baseP
         /**
          * List all your existing ApiKeys. Required Access Level: ViewAccessTokens
          * @summary List ApiKeys
-         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
+         * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -733,7 +733,7 @@ export interface SecurityApiInterface {
      * Load your existing ApiKey info. Required Access Level: ViewAccessTokens
      * @summary Load ApiKey
      * @param {string} name Name of the ApiKey
-     * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
+     * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SecurityApiInterface
@@ -754,7 +754,7 @@ export interface SecurityApiInterface {
     /**
      * List all your existing ApiKeys. Required Access Level: ViewAccessTokens
      * @summary List ApiKeys
-     * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
+     * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SecurityApiInterface
@@ -850,7 +850,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
      * Load your existing ApiKey info. Required Access Level: ViewAccessTokens
      * @summary Load ApiKey
      * @param {string} name Name of the ApiKey
-     * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded
+     * @param {string} [subaccount] Email of the subaccount of which ApiKey should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SecurityApi
@@ -875,7 +875,7 @@ export class SecurityApi extends BaseAPI implements SecurityApiInterface {
     /**
      * List all your existing ApiKeys. Required Access Level: ViewAccessTokens
      * @summary List ApiKeys
-     * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded
+     * @param {string} [subaccount] Email of the subaccount of which ApiKeys should be loaded. The default API key created for the subaccount has a 48-hour expiration period.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SecurityApi

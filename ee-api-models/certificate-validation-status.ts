@@ -24,7 +24,8 @@ export const CertificateValidationStatus = {
     ErrorOccured: 'ErrorOccured',
     CertNotSet: 'CertNotSet',
     Valid: 'Valid',
-    NotValid: 'NotValid'
+    NotValid: 'NotValid',
+    InProgress: 'InProgress'
 } as const;
 
 export type CertificateValidationStatus = typeof CertificateValidationStatus[keyof typeof CertificateValidationStatus];

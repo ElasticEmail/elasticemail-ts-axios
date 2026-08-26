@@ -36,6 +36,43 @@ import type { SubaccountPayload } from '../ee-api-models';
 export const SubAccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+         * @summary Get SubAccount ApiKey
+         * @param {string} email Email address of Sub-Account
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subaccountsByEmailApikeyGet: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            assertParamExists('subaccountsByEmailApikeyGet', 'email', email)
+            const localVarPath = `/subaccounts/{email}/apikey`
+                .replace(`{${"email"}}`, encodeURIComponent(String(email)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication apikey required
+            await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
          * @summary Add, Subtract Email Credits
          * @param {string} email Email address of Sub-Account
@@ -239,7 +276,7 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
+         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
          * @summary Add SubAccount
          * @param {SubaccountPayload} subaccountPayload 
          * @param {*} [options] Override http request option.
@@ -287,6 +324,19 @@ export const SubAccountsApiAxiosParamCreator = function (configuration?: Configu
 export const SubAccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SubAccountsApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+         * @summary Get SubAccount ApiKey
+         * @param {string} email Email address of Sub-Account
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async subaccountsByEmailApikeyGet(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.subaccountsByEmailApikeyGet(email, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SubAccountsApi.subaccountsByEmailApikeyGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
          * @summary Add, Subtract Email Credits
@@ -356,7 +406,7 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
+         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
          * @summary Add SubAccount
          * @param {SubaccountPayload} subaccountPayload 
          * @param {*} [options] Override http request option.
@@ -378,6 +428,16 @@ export const SubAccountsApiFp = function(configuration?: Configuration) {
 export const SubAccountsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SubAccountsApiFp(configuration)
     return {
+        /**
+         * Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+         * @summary Get SubAccount ApiKey
+         * @param {string} email Email address of Sub-Account
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        subaccountsByEmailApikeyGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<string> {
+            return localVarFp.subaccountsByEmailApikeyGet(email, options).then((request) => request(axios, basePath));
+        },
         /**
          * Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
          * @summary Add, Subtract Email Credits
@@ -432,7 +492,7 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
             return localVarFp.subaccountsGet(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
+         * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
          * @summary Add SubAccount
          * @param {SubaccountPayload} subaccountPayload 
          * @param {*} [options] Override http request option.
@@ -450,6 +510,16 @@ export const SubAccountsApiFactory = function (configuration?: Configuration, ba
  * @interface SubAccountsApi
  */
 export interface SubAccountsApiInterface {
+    /**
+     * Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+     * @summary Get SubAccount ApiKey
+     * @param {string} email Email address of Sub-Account
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubAccountsApiInterface
+     */
+    subaccountsByEmailApikeyGet(email: string, options?: RawAxiosRequestConfig): AxiosPromise<string>;
+
     /**
      * Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
      * @summary Add, Subtract Email Credits
@@ -504,7 +574,7 @@ export interface SubAccountsApiInterface {
     subaccountsGet(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<Array<SubAccountInfo>>;
 
     /**
-     * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
+     * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
      * @summary Add SubAccount
      * @param {SubaccountPayload} subaccountPayload 
      * @param {*} [options] Override http request option.
@@ -522,6 +592,18 @@ export interface SubAccountsApiInterface {
  * @extends {BaseAPI}
  */
 export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
+    /**
+     * Returns API key token for the specified SubAccount.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
+     * @summary Get SubAccount ApiKey
+     * @param {string} email Email address of Sub-Account
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubAccountsApi
+     */
+    public subaccountsByEmailApikeyGet(email: string, options?: RawAxiosRequestConfig) {
+        return SubAccountsApiFp(this.configuration).subaccountsByEmailApikeyGet(email, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Update email credits of a subaccount by the given amount. Required Access Level: ModifySubAccounts
      * @summary Add, Subtract Email Credits
@@ -586,7 +668,7 @@ export class SubAccountsApi extends BaseAPI implements SubAccountsApiInterface {
     }
 
     /**
-     * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter. Required Access Level: ModifySubAccounts
+     * Add a new SubAccount to your Account. To receive an access token for this SubAccount, make a POST security/apikeys request using the \'subaccount\' parameter.             The default API key created for the subaccount has a 48-hour expiration period. Required Access Level: ModifySubAccounts
      * @summary Add SubAccount
      * @param {SubaccountPayload} subaccountPayload 
      * @param {*} [options] Override http request option.

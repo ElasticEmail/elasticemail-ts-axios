@@ -21,6 +21,7 @@ export * from './contact-source';
 export * from './contact-status';
 export * from './contact-update-payload';
 export * from './contacts-list';
+export * from './dkimrecord';
 export * from './delivery-optimization-type';
 export * from './domain-data';
 export * from './domain-detail';
