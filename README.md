@@ -70,6 +70,9 @@ npm installs the runtime dependency ([axios](https://www.npmjs.com/package/axios
 
 ## Quick start
 
+> [!IMPORTANT]
+> Elastic Email only sends from verified domains. Before your first send, [verify your sending domain](https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain) and use an address on that domain as the sender.
+
 ### Configure the client
 
 ```typescript
@@ -117,7 +120,7 @@ try {
 }
 ```
 
-The `From` address must use a domain you've verified in your Elastic Email account.
+The `From` address must use a domain you've [verified in your Elastic Email account](https://help.elasticemail.com/en/articles/4934400-how-to-verify-your-domain).
 
 > [!NOTE]
 > Each method resolves to an axios response, so the API result is in `response.data`. Field names match the API's PascalCase names (`Recipients`, `Content`, `TransactionID`…).
