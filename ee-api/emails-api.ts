@@ -167,10 +167,17 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsMergefilePost: async (mergeEmailPayload: MergeEmailPayload, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        emailsMergefilePost: async (mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string | RawAxiosRequestConfig, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): accept the pre-4.4.0
+            // call shape (payload, options), where the request options came right after the payload.
+            if (idempotencyKey !== null && typeof idempotencyKey === 'object') {
+                options = idempotencyKey;
+                idempotencyKey = undefined;
+            }
             // verify required parameter 'mergeEmailPayload' is not null or undefined
             assertParamExists('emailsMergefilePost', 'mergeEmailPayload', mergeEmailPayload)
             const localVarPath = `/emails/mergefile`;
@@ -192,6 +199,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (idempotencyKey != null) {
+                localVarHeaderParameter['Idempotency-Key'] = String(idempotencyKey);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -206,10 +216,17 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * Send bulk merge email. Required Access Level: SendHttp
          * @summary Send Bulk Emails
          * @param {EmailMessageData} emailMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsPost: async (emailMessageData: EmailMessageData, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        emailsPost: async (emailMessageData: EmailMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): accept the pre-4.4.0
+            // call shape (payload, options), where the request options came right after the payload.
+            if (idempotencyKey !== null && typeof idempotencyKey === 'object') {
+                options = idempotencyKey;
+                idempotencyKey = undefined;
+            }
             // verify required parameter 'emailMessageData' is not null or undefined
             assertParamExists('emailsPost', 'emailMessageData', emailMessageData)
             const localVarPath = `/emails`;
@@ -231,6 +248,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (idempotencyKey != null) {
+                localVarHeaderParameter['Idempotency-Key'] = String(idempotencyKey);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -245,10 +265,17 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
          * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
          * @summary Send Transactional Email
          * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsTransactionalPost: async (emailTransactionalMessageData: EmailTransactionalMessageData, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        emailsTransactionalPost: async (emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): accept the pre-4.4.0
+            // call shape (payload, options), where the request options came right after the payload.
+            if (idempotencyKey !== null && typeof idempotencyKey === 'object') {
+                options = idempotencyKey;
+                idempotencyKey = undefined;
+            }
             // verify required parameter 'emailTransactionalMessageData' is not null or undefined
             assertParamExists('emailsTransactionalPost', 'emailTransactionalMessageData', emailTransactionalMessageData)
             const localVarPath = `/emails/transactional`;
@@ -270,6 +297,9 @@ export const EmailsApiAxiosParamCreator = function (configuration?: Configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (idempotencyKey != null) {
+                localVarHeaderParameter['Idempotency-Key'] = String(idempotencyKey);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -330,11 +360,12 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsMergefilePost(mergeEmailPayload, options);
+        async emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsMergefilePost(mergeEmailPayload, idempotencyKey, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmailsApi.emailsMergefilePost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -343,11 +374,12 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * Send bulk merge email. Required Access Level: SendHttp
          * @summary Send Bulk Emails
          * @param {EmailMessageData} emailMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsPost(emailMessageData, options);
+        async emailsPost(emailMessageData: EmailMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsPost(emailMessageData, idempotencyKey, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmailsApi.emailsPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -356,11 +388,12 @@ export const EmailsApiFp = function(configuration?: Configuration) {
          * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
          * @summary Send Transactional Email
          * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsTransactionalPost(emailTransactionalMessageData, options);
+        async emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailSend>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.emailsTransactionalPost(emailTransactionalMessageData, idempotencyKey, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EmailsApi.emailsTransactionalPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -409,31 +442,34 @@ export const EmailsApiFactory = function (configuration?: Configuration, basePat
          * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
          * @summary Send Bulk Emails CSV
          * @param {MergeEmailPayload} mergeEmailPayload Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
-            return localVarFp.emailsMergefilePost(mergeEmailPayload, options).then((request) => request(axios, basePath));
+        emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
+            return localVarFp.emailsMergefilePost(mergeEmailPayload, idempotencyKey, options).then((request) => request(axios, basePath));
         },
         /**
          * Send bulk merge email. Required Access Level: SendHttp
          * @summary Send Bulk Emails
          * @param {EmailMessageData} emailMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
-            return localVarFp.emailsPost(emailMessageData, options).then((request) => request(axios, basePath));
+        emailsPost(emailMessageData: EmailMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
+            return localVarFp.emailsPost(emailMessageData, idempotencyKey, options).then((request) => request(axios, basePath));
         },
         /**
          * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
          * @summary Send Transactional Email
          * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
+         * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
-            return localVarFp.emailsTransactionalPost(emailTransactionalMessageData, options).then((request) => request(axios, basePath));
+        emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend> {
+            return localVarFp.emailsTransactionalPost(emailTransactionalMessageData, idempotencyKey, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -478,30 +514,39 @@ export interface EmailsApiInterface {
      * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
      * @summary Send Bulk Emails CSV
      * @param {MergeEmailPayload} mergeEmailPayload Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
+    emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
     emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
     /**
      * Send bulk merge email. Required Access Level: SendHttp
      * @summary Send Bulk Emails
      * @param {EmailMessageData} emailMessageData Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
+    emailsPost(emailMessageData: EmailMessageData, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
     emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
     /**
      * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
      * @summary Send Transactional Email
      * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApiInterface
      */
+    emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
     emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
 
 }
@@ -551,36 +596,48 @@ export class EmailsApi extends BaseAPI implements EmailsApiInterface {
      * Send to a list of contacts submitted in a CSV data file. The first column in the CSV must be the email address and the CSV must contain a header row. Additional fields can be included with a named header row and can be merged with the template using {merge} tags in the content.                           Example CSV:                           email, firstname, lastname              test1@gmail.com, michael, smith              test2@gmail.com, janet, smith                           Merge file must not be empty. Required Access Level: SendHttp
      * @summary Send Bulk Emails CSV
      * @param {MergeEmailPayload} mergeEmailPayload Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig) {
-        return EmailsApiFp(this.configuration).emailsMergefilePost(mergeEmailPayload, options).then((request) => request(this.axios, this.basePath));
+    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
+    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    public emailsMergefilePost(mergeEmailPayload: MergeEmailPayload, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig) {
+        return EmailsApiFp(this.configuration).emailsMergefilePost(mergeEmailPayload, idempotencyKey, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Send bulk merge email. Required Access Level: SendHttp
      * @summary Send Bulk Emails
      * @param {EmailMessageData} emailMessageData Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig) {
-        return EmailsApiFp(this.configuration).emailsPost(emailMessageData, options).then((request) => request(this.axios, this.basePath));
+    public emailsPost(emailMessageData: EmailMessageData, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
+    public emailsPost(emailMessageData: EmailMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    public emailsPost(emailMessageData: EmailMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig) {
+        return EmailsApiFp(this.configuration).emailsPost(emailMessageData, idempotencyKey, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Send transactional emails (recipients will be known to each other). Required Access Level: SendHttp
      * @summary Send Transactional Email
      * @param {EmailTransactionalMessageData} emailTransactionalMessageData Email data
+     * @param {string} [idempotencyKey] Makes a retry of this request safe. A repeated request with the same key and the same body gets the stored response of the first one and is not executed again. Generate a new key, e.g. a UUID v4, for each request and reuse it only to retry that request. Keys are scoped to the account and kept for 24 hours after the first request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EmailsApi
      */
-    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig) {
-        return EmailsApiFp(this.configuration).emailsTransactionalPost(emailTransactionalMessageData, options).then((request) => request(this.axios, this.basePath));
+    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    // HAND-WRITTEN (4.4.0 back-compat, keep on regeneration): pre-4.4.0 signature without the idempotency key.
+    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, options?: RawAxiosRequestConfig): AxiosPromise<EmailSend>;
+    public emailsTransactionalPost(emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey?: string | RawAxiosRequestConfig, options?: RawAxiosRequestConfig) {
+        return EmailsApiFp(this.configuration).emailsTransactionalPost(emailTransactionalMessageData, idempotencyKey, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
