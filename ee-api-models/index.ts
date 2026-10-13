@@ -95,4 +95,5 @@ export * from './verification-file-result-details';
 export * from './verification-status';
 export * from './webhook';
 export * from './webhook-create-payload';
+export * from './webhook-delivery-method';
 export * from './webhook-update-payload';

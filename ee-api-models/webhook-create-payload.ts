@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { WebhookDeliveryMethod } from './webhook-delivery-method';
 
 /**
  * Create webhook payload
@@ -74,5 +77,19 @@ export interface WebhookCreatePayload {
      * @memberof WebhookCreatePayload
      */
     'NotificationForError'?: boolean;
+    /**
+     * Sign every request with HMAC-SHA256. Can be set only when the webhook is created. Default: false.
+     * @type {boolean}
+     * @memberof WebhookCreatePayload
+     */
+    'EnableSigning'?: boolean | null;
+    /**
+     * 
+     * @type {WebhookDeliveryMethod}
+     * @memberof WebhookCreatePayload
+     */
+    'DeliveryMethod'?: WebhookDeliveryMethod;
 }
+
+
 

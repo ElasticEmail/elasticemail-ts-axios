@@ -151,6 +151,43 @@ export const WebhookApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+         * @summary Rotate Webhook Secret
+         * @param {string} publicid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        webhookByPublicidSecretRotatePost: async (publicid: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'publicid' is not null or undefined
+            assertParamExists('webhookByPublicidSecretRotatePost', 'publicid', publicid)
+            const localVarPath = `/webhook/{publicid}/secret/rotate`
+                .replace(`{${"publicid"}}`, encodeURIComponent(String(publicid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication apikey required
+            await setApiKeyToObject(localVarHeaderParameter, "X-ElasticEmail-ApiKey", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns a list of notification webhooks. Required Access Level: ViewWebNotifications
          * @summary Load Webhooks
          * @param {number} [limit] Maximum number of returned items.
@@ -283,6 +320,19 @@ export const WebhookApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+         * @summary Rotate Webhook Secret
+         * @param {string} publicid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async webhookByPublicidSecretRotatePost(publicid: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Webhook>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.webhookByPublicidSecretRotatePost(publicid, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['WebhookApi.webhookByPublicidSecretRotatePost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns a list of notification webhooks. Required Access Level: ViewWebNotifications
          * @summary Load Webhooks
          * @param {number} [limit] Maximum number of returned items.
@@ -351,6 +401,16 @@ export const WebhookApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.webhookByPublicidPut(publicid, webhookUpdatePayload, options).then((request) => request(axios, basePath));
         },
         /**
+         * Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+         * @summary Rotate Webhook Secret
+         * @param {string} publicid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        webhookByPublicidSecretRotatePost(publicid: string, options?: RawAxiosRequestConfig): AxiosPromise<Webhook> {
+            return localVarFp.webhookByPublicidSecretRotatePost(publicid, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns a list of notification webhooks. Required Access Level: ViewWebNotifications
          * @summary Load Webhooks
          * @param {number} [limit] Maximum number of returned items.
@@ -410,6 +470,16 @@ export interface WebhookApiInterface {
      * @memberof WebhookApiInterface
      */
     webhookByPublicidPut(publicid: string, webhookUpdatePayload: WebhookUpdatePayload, options?: RawAxiosRequestConfig): AxiosPromise<Webhook>;
+
+    /**
+     * Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+     * @summary Rotate Webhook Secret
+     * @param {string} publicid 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookApiInterface
+     */
+    webhookByPublicidSecretRotatePost(publicid: string, options?: RawAxiosRequestConfig): AxiosPromise<Webhook>;
 
     /**
      * Returns a list of notification webhooks. Required Access Level: ViewWebNotifications
@@ -476,6 +546,18 @@ export class WebhookApi extends BaseAPI implements WebhookApiInterface {
      */
     public webhookByPublicidPut(publicid: string, webhookUpdatePayload: WebhookUpdatePayload, options?: RawAxiosRequestConfig) {
         return WebhookApiFp(this.configuration).webhookByPublicidPut(publicid, webhookUpdatePayload, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Replace the signing secret of a webhook created with signing. The old secret stops being used at once - there is no grace period.             The new secret is returned only in this response. Notifications your endpoint rejects while it still has the old secret are retried and signed with the new one. Required Access Level: ModifyWebNotifications
+     * @summary Rotate Webhook Secret
+     * @param {string} publicid 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookApi
+     */
+    public webhookByPublicidSecretRotatePost(publicid: string, options?: RawAxiosRequestConfig) {
+        return WebhookApiFp(this.configuration).webhookByPublicidSecretRotatePost(publicid, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

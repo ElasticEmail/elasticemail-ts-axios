@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { WebhookDeliveryMethod } from './webhook-delivery-method';
 
 /**
  * Notification webhook setting
@@ -98,5 +101,25 @@ export interface Webhook {
      * @memberof Webhook
      */
     'IsEnabled'?: boolean;
+    /**
+     * Requests carry an HMAC-SHA256 signature. Chosen when the webhook is created and can\'t be changed.
+     * @type {boolean}
+     * @memberof Webhook
+     */
+    'SigningEnabled'?: boolean;
+    /**
+     * 
+     * @type {WebhookDeliveryMethod}
+     * @memberof Webhook
+     */
+    'DeliveryMethod'?: WebhookDeliveryMethod;
+    /**
+     * Signing secret - returned only once, when a webhook is created with signing or its secret is rotated. Store it safely.
+     * @type {string}
+     * @memberof Webhook
+     */
+    'SigningSecret'?: string;
 }
+
+
 

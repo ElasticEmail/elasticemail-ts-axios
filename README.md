@@ -218,7 +218,7 @@ Function ||
 
 ## API reference
 
-All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **114 endpoints** across 16 API classes: `CampaignsApi`, `ContactsApi`, `DomainsApi`, `EmailsApi`, `EventsApi`, `FilesApi`, `InboundRouteApi`, `ListsApi`, `SecurityApi`, `SegmentsApi`, `StatisticsApi`, `SubAccountsApi`, `SuppressionsApi`, `TemplatesApi`, `VerificationsApi` and `WebhookApi`.
+All URIs are relative to `https://api.elasticemail.com/v4`. The SDK covers **115 endpoints** across 16 API classes: `CampaignsApi`, `ContactsApi`, `DomainsApi`, `EmailsApi`, `EventsApi`, `FilesApi`, `InboundRouteApi`, `ListsApi`, `SecurityApi`, `SegmentsApi`, `StatisticsApi`, `SubAccountsApi`, `SuppressionsApi`, `TemplatesApi`, `VerificationsApi` and `WebhookApi`.
 
 <details>
 <summary><strong>Show all endpoints</strong></summary>
@@ -340,6 +340,7 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**webhookByPublicidDelete**](ee-api/webhook-api.ts) | **DELETE** /webhook/{publicid} | Delete Webhook
 *WebhookApi* | [**webhookByPublicidGet**](ee-api/webhook-api.ts) | **GET** /webhook/{publicid} | Load Webhook
 *WebhookApi* | [**webhookByPublicidPut**](ee-api/webhook-api.ts) | **PUT** /webhook/{publicid} | Update Webhook
+*WebhookApi* | [**webhookByPublicidSecretRotatePost**](ee-api/webhook-api.ts) | **POST** /webhook/{publicid}/secret/rotate | Rotate Webhook Secret
 *WebhookApi* | [**webhookGet**](ee-api/webhook-api.ts) | **GET** /webhook | Load Webhooks
 *WebhookApi* | [**webhookPost**](ee-api/webhook-api.ts) | **POST** /webhook | Add Webhook
 
@@ -350,7 +351,7 @@ Class | Method | HTTP request | Description
 All models are TypeScript interfaces (or `as const` enums) exported from the package root.
 
 <details>
-<summary><strong>Show all 98 models</strong></summary>
+<summary><strong>Show all 99 models</strong></summary>
 
  - [AccessLevel](ee-api-models/access-level.ts)
  - [AccountStatusEnum](ee-api-models/account-status-enum.ts)
@@ -449,6 +450,7 @@ All models are TypeScript interfaces (or `as const` enums) exported from the pac
  - [VerificationStatus](ee-api-models/verification-status.ts)
  - [Webhook](ee-api-models/webhook.ts)
  - [WebhookCreatePayload](ee-api-models/webhook-create-payload.ts)
+ - [WebhookDeliveryMethod](ee-api-models/webhook-delivery-method.ts)
  - [WebhookUpdatePayload](ee-api-models/webhook-update-payload.ts)
 
 
@@ -471,7 +473,7 @@ The SDK follows the Elastic Email API v4. Package versions are listed on [npm](h
 <summary>Build details</summary>
 
 - API version: 4.0.0
-- SDK version: 4.2.1
+- SDK version: 4.3.0
 - Build package: `org.openapitools.codegen.languages.TypeScriptAxiosClientCodegen`
 
 </details>
