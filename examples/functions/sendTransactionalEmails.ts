@@ -1,10 +1,17 @@
 /* Initialization */
+import { randomUUID } from 'node:crypto';
 import { Configuration, EmailsApi, EmailTransactionalMessageData } from '@elasticemail/elasticemail-client-ts-axios';
 
-/* Generate and use your API key */
+/* Read your API key from the ELASTICEMAIL_API_KEY environment variable */
+
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
 
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 
 /**
@@ -14,7 +21,7 @@ const config = new Configuration({
 
 const emailsApi = new EmailsApi(config);
 
-const emailTransactionalMessageData = {
+const emailTransactionalMessageData: EmailTransactionalMessageData = {
     Recipients: { 
       To: ["example@address.com"] // maximum 50 recipients
     },
@@ -36,14 +43,17 @@ const emailTransactionalMessageData = {
     }
   }; // interface EmailTransactionalMessageData from '@elasticemail/elasticemail-client-ts-axios'
 
-const sendTransactionalEmails = (emailTransactionalMessageData: EmailTransactionalMessageData): void => {
-  emailsApi.emailsTransactionalPost(emailTransactionalMessageData).then((response) => {
+const sendTransactionalEmails = (emailTransactionalMessageData: EmailTransactionalMessageData, idempotencyKey: string): void => {
+  emailsApi.emailsTransactionalPost(emailTransactionalMessageData, idempotencyKey).then((response) => {
       console.log('API called successfully.');
-      console.log(response.data);
+      console.log(`TransactionID: ${response.data.TransactionID}, Idempotency-Key: ${idempotencyKey}`);
   }).catch((error) => {
       console.error(error);
   });
 };
 
-sendTransactionalEmails(emailTransactionalMessageData);
+/* One key per send. Reuse it only to retry this send with the same message. */
+const idempotencyKey = randomUUID();
+
+sendTransactionalEmails(emailTransactionalMessageData, idempotencyKey);
 

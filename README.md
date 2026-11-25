@@ -232,6 +232,7 @@ Function ||
 [addTemplate](examples/functions/addTemplate.ts) | [readme](examples/functions/addTemplate.md)
 [deleteCampaign](examples/functions/deleteCampaign.ts) | [readme](examples/functions/deleteCampaign.md)
 [deleteContact](examples/functions/deleteContact.ts) | [readme](examples/functions/deleteContact.md)
+[deleteContacts](examples/functions/deleteContacts.ts) | [readme](examples/functions/deleteContacts.md)
 [deleteList](examples/functions/deleteList.ts) | [readme](examples/functions/deleteList.md)
 [deleteTemplate](examples/functions/deleteTemplate.ts) | [readme](examples/functions/deleteTemplate.md)
 [exportContacts](examples/functions/exportContacts.ts) | [readme](examples/functions/exportContacts.md)
@@ -243,6 +244,7 @@ Function ||
 [loadTemplate](examples/functions/loadTemplate.ts) | [readme](examples/functions/loadTemplate.md)
 [sendBulkEmails](examples/functions/sendBulkEmails.ts) | [readme](examples/functions/sendBulkEmails.md)
 [sendTransactionalEmails](examples/functions/sendTransactionalEmails.ts) | [readme](examples/functions/sendTransactionalEmails.md)
+[sendTransactionalEmailsWithAttachment](examples/functions/sendTransactionalEmailsWithAttachment.ts) | [readme](examples/functions/sendTransactionalEmailsWithAttachment.md)
 [updateCampaign](examples/functions/updateCampaign.ts) | [readme](examples/functions/updateCampaign.md)
 [uploadContacts](examples/functions/uploadContacts.ts) | [readme](examples/functions/uploadContacts.md)
 

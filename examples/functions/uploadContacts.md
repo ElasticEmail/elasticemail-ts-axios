@@ -17,14 +17,22 @@ Put the below code to your file.
 Import classes and interfaces you want to use:
 
 ```javascript
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { Configuration, ContactsApi } from '@elasticemail/elasticemail-client-ts-axios';
 ```
 
-Create config including your apikey: 
+Read your API key from the `ELASTICEMAIL_API_KEY` environment variable, stop with a clear message if it isn't set, and create config with it (remember to check a required access level):
 
 ```javascript
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
+
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 ```
 
@@ -34,7 +42,7 @@ Create an instance of ContactsApi that will be used to upload contacts from CSV 
 const contactsApi = new ContactsApi(config);
 ```
 
-In this example we will load a CSV file that contains a list of contacts.
+In this example we will load a CSV file that contains a list of contacts. Save it as `files/contacts.csv` next to your `snippet.ts`.
 
 The simplest CSV file requires only one column `Email`, eg.:
 
@@ -45,38 +53,25 @@ john@johnsmith.com
 
 > Find out more by checking our API's documentation: https://elasticemail.com/developers/api-documentation/rest-api#operation/contactsImportPost
 
-
-Use input type="file" to enable file upload and create button which will trigger your API call `uploadContacts` described below.
-
-```javascript
-<input type="file"></input>
-<button onclick={uploadContacts()}>Upload contacts</button>
-```
-
-Create event listener and function to save uploaded file as a variable.
-
-```javascript
-input.addEventListener('change', saveFile);
-let file;
-
-const saveFile = (event) => {
-    file = event.target.files[0];
-  }
-```
-
-Create variables with fileName and encodingName.
+Create variables with listName and encodingName.
 
 ```javascript
 const listName = 'My list'; // string
 const encodingName = 'utf-8'; // string
 ```
 
-Create a function calling `contactsImportPost` method from the API to upload contacts. You may include console logs called when response comes back.
-In case of error it will display error details, otherwise it will display a success message and chosen details about newly created campaign.
+Read the CSV file and wrap it in a `File` (available globally in Node.js 20 and later).
 
 ```javascript
-const uploadContacts = (listName: string, encodingName: string, file: any): void => {
-    contactsApi.contactsImportPost(listName, encodingName, file).then((response) => {
+const file = new File([readFileSync(join(__dirname, 'files', 'contacts.csv'))], 'contacts.csv', { type: 'text/csv' });
+```
+
+Create a function calling `contactsImportPost` method from the API to upload contacts. The third argument, `fileUrl`, is for importing from a URL instead, so pass `undefined` there. You may include console logs called when response comes back.
+In case of error it will display error details, otherwise it will display a success message and the API response.
+
+```javascript
+const uploadContacts = (listName: string, encodingName: string, file: File): void => {
+    contactsApi.contactsImportPost(listName, encodingName, undefined, file).then((response) => {
         console.log('API called successfully.');
         console.log(response.data);
     }).catch((error) => {
@@ -96,12 +91,20 @@ uploadContacts(listName, encodingName, file);
 
 ```javascript
 /* Initialization */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { Configuration, ContactsApi } from '@elasticemail/elasticemail-client-ts-axios';
 
-/* Generate and use your API key */
+/* Read your API key from the ELASTICEMAIL_API_KEY environment variable */
+
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
 
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 
 const contactsApi = new ContactsApi(config);
@@ -109,11 +112,12 @@ const contactsApi = new ContactsApi(config);
 const listName = 'My list'; // string
 const encodingName = 'utf-8'; // string
 
-/* CSV file with contacts list. For example you can use file uploaded by input type="file" */
-const file = example_file; // string <binary>
+/* CSV file with contacts list, read from files/contacts.csv next to this script */
+const file = new File([readFileSync(join(__dirname, 'files', 'contacts.csv'))], 'contacts.csv', { type: 'text/csv' });
 
-const uploadContacts = (listName: string, encodingName: string, file: any): void => {
-    contactsApi.contactsImportPost(listName, encodingName, file).then((response) => {
+const uploadContacts = (listName: string, encodingName: string, file: File): void => {
+    // The third argument, fileUrl, is for importing from a URL instead of a file.
+    contactsApi.contactsImportPost(listName, encodingName, undefined, file).then((response) => {
         console.log('API called successfully.');
         console.log(response.data);
     }).catch((error) => {
@@ -122,4 +126,11 @@ const uploadContacts = (listName: string, encodingName: string, file: any): void
 }
 
 uploadContacts(listName, encodingName, file);
+```
+
+## Run the code
+Set your API key in the environment, then run the file:
+```
+export ELASTICEMAIL_API_KEY=...
+npx ts-node snippet.ts
 ```

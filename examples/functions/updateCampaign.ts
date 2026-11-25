@@ -1,10 +1,16 @@
 /* Initialization */
 import { Configuration, CampaignsApi, Campaign } from '@elasticemail/elasticemail-client-ts-axios';
 
-/* Generate and use your API key */
+/* Read your API key from the ELASTICEMAIL_API_KEY environment variable */
+
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
 
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 
 /**
@@ -15,11 +21,10 @@ const config = new Configuration({
 const campaignsApi = new CampaignsApi(config);
 
 const campaignName = 'Example'; // string
-const updatedCampaign = {
+const updatedCampaign: Campaign = {
     Name: 'Updated example campaign',
     Recipients: {
       ListNames: ["my list name"],
-      SegmentNames: null,
     },
     Content: [{
       From: 'myemail@address.com',
@@ -27,7 +32,7 @@ const updatedCampaign = {
       TemplateName: "your_template",
       Subject: 'Updated campaign'
     }],
-    Status: "selected_status"
+    Status: "Draft"
 }; // interface Campaign from '@elasticemail/elasticemail-client-ts-axios'
 
 const updateCampaign = (campaignName: string, updatedCampaign: Campaign): void => {

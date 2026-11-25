@@ -14,17 +14,24 @@ Create a new TypeScript file `snippet.ts` and open it in editor of your preferen
 
 Put the below code to your file.
 
-Import classes and interfaces you want to use:
+Import `randomUUID`, used to create an idempotency key, and the classes and interfaces you want to use:
 
 ```javascript
+import { randomUUID } from 'node:crypto';
 import { Configuration, EmailsApi, EmailMessageData } from '@elasticemail/elasticemail-client-ts-axios';
 ```
 
-Create config including your apikey: 
+Read your API key from the `ELASTICEMAIL_API_KEY` environment variable, stop with a clear message if it isn't set, and create config with it (remember to check a required access level):
 
 ```javascript
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
+
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 ```
 
@@ -46,7 +53,7 @@ Specify email details:
 
 
 ```javascript
-const emailMessageData = {
+const emailMessageData: EmailMessageData = {
     Recipients: [
       { 
         Email: "example@address.com",
@@ -74,14 +81,20 @@ const emailMessageData = {
 }; // interface EmailMessageData from '@elasticemail/elasticemail-client-ts-axios'
 ```
 
-Create a function calling `emailsPost` method from the API to send bulk emails. You may include console logs called when response comes back.
-In case of error it will display error details, otherwise it will display a success message and chosen details about newly created campaign.
+Create an idempotency key for this send. If the request times out, retry it with the same message and the same key, and the email won't be delivered twice.
 
 ```javascript
-const sendBulkEmails = (emailMessageData: EmailMessageData): void => {
-  emailsApi.emailsPost(emailMessageData).then((response) => {
+const idempotencyKey = randomUUID();
+```
+
+Create a function calling `emailsPost` method from the API to send bulk emails. You may include console logs called when response comes back.
+In case of error it will display error details, otherwise it will display the `TransactionID` and the idempotency key.
+
+```javascript
+const sendBulkEmails = (emailMessageData: EmailMessageData, idempotencyKey: string): void => {
+  emailsApi.emailsPost(emailMessageData, idempotencyKey).then((response) => {
       console.log('API called successfully.');
-      console.log(response.data);
+      console.log(`TransactionID: ${response.data.TransactionID}, Idempotency-Key: ${idempotencyKey}`);
   }).catch((error) => {
       console.error(error);
   });
@@ -91,7 +104,7 @@ const sendBulkEmails = (emailMessageData: EmailMessageData): void => {
 And finally, call `sendBulkEmails` function with proper arguments: 
 
 ```javascript
-sendBulkEmails(emailMessageData);
+sendBulkEmails(emailMessageData, idempotencyKey);
 ```
 
 
@@ -99,17 +112,24 @@ sendBulkEmails(emailMessageData);
 
 ```javascript
 /* Initialization */
+import { randomUUID } from 'node:crypto';
 import { Configuration, EmailsApi, EmailMessageData } from '@elasticemail/elasticemail-client-ts-axios';
 
-/* Generate and use your API key */
+/* Read your API key from the ELASTICEMAIL_API_KEY environment variable */
+
+const apiKey = process.env.ELASTICEMAIL_API_KEY;
+if (!apiKey) {
+    console.error('Set the ELASTICEMAIL_API_KEY environment variable to your Elastic Email API key.');
+    process.exit(1);
+}
 
 const config = new Configuration({
-    apiKey: "YOUR_API_KEY"
+    apiKey: apiKey
 });
 
 const emailsApi = new EmailsApi(config);
 
-const emailMessageData = {
+const emailMessageData: EmailMessageData = {
     Recipients: [
       { 
         Email: "example@address.com",
@@ -136,14 +156,23 @@ const emailMessageData = {
     }
   }; // interface EmailMessageData from '@elasticemail/elasticemail-client-ts-axios'
 
-const sendBulkEmails = (emailMessageData: EmailMessageData): void => {
-  emailsApi.emailsPost(emailMessageData).then((response) => {
+const sendBulkEmails = (emailMessageData: EmailMessageData, idempotencyKey: string): void => {
+  emailsApi.emailsPost(emailMessageData, idempotencyKey).then((response) => {
       console.log('API called successfully.');
-      console.log(response.data);
+      console.log(`TransactionID: ${response.data.TransactionID}, Idempotency-Key: ${idempotencyKey}`);
   }).catch((error) => {
       console.error(error);
   });
 };
 
-sendBulkEmails(emailMessageData)
+const idempotencyKey = randomUUID();
+
+sendBulkEmails(emailMessageData, idempotencyKey)
+```
+
+## Run the code
+Set your API key in the environment, then run the file:
+```
+export ELASTICEMAIL_API_KEY=...
+npx ts-node snippet.ts
 ```
