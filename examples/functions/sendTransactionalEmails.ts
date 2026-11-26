@@ -19,6 +19,7 @@ const config = new Configuration({
  * Example of sending transactional emails
  */
 
+// README:BEGIN quickstart
 const emailsApi = new EmailsApi(config);
 
 const emailTransactionalMessageData: EmailTransactionalMessageData = {
@@ -57,3 +58,4 @@ const idempotencyKey = randomUUID();
 
 sendTransactionalEmails(emailTransactionalMessageData, idempotencyKey);
 
+// README:END quickstart
